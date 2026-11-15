@@ -1,0 +1,214 @@
+/* ============================================================
+   about.css — Aditi Caterers About Us Page Styles
+   Brand: Maroon (#641E2B / #7B1818) & Gold (#C9A45C / #C9A84C)
+   Fonts: Poppins (EN) / Noto Sans Devanagari (MR)
+   ============================================================ */
+
+/* ── Section 5: Hero / Banner ─────────────────────────────── */
+.ac-about-hero {
+  min-height: 280px;
+  background-color: var(--ac-maroon);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.ac-about-hero-overlay {
+  background: linear-gradient(
+    135deg,
+    rgba(69, 19, 29, 0.94) 0%,
+    rgba(100, 30, 43, 0.90) 60%,
+    rgba(132, 59, 73, 0.85) 100%
+  );
+}
+
+.ac-breadcrumb {
+  background-color: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 0.85rem;
+}
+
+.ac-about-hero-title {
+  font-size: clamp(2rem, 3.8vw, 3rem);
+  letter-spacing: -0.01em;
+}
+
+.ac-about-hero-subtitle {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+/* ── Section 6: About Introduction ────────────────────────── */
+.ac-intro-img {
+  height: 440px;
+}
+
+.ac-intro-badge-icon {
+  width: 52px;
+  height: 52px;
+}
+
+/* ── Section 7: Our Story ─────────────────────────────────── */
+.ac-story-img {
+  height: 400px;
+}
+
+.ac-story-overlay {
+  background: linear-gradient(
+    0deg,
+    rgba(69, 19, 29, 0.85) 0%,
+    rgba(69, 19, 29, 0.2) 60%,
+    transparent 100%
+  );
+}
+
+.letter-spacing-1 {
+  letter-spacing: 0.08em;
+}
+
+/* ── Section 8: Our Experience ────────────────────────────── */
+.ac-exp-card {
+  transition: all 0.28s ease;
+}
+
+.ac-exp-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(100, 30, 43, 0.25) !important;
+  box-shadow: 0 10px 30px rgba(100, 30, 43, 0.12) !important;
+}
+
+.ac-exp-icon-wrap {
+  width: 70px;
+  height: 70px;
+}
+
+/* ── Sections 9 & 10: Mission & Vision ────────────────────── */
+.ac-mv-card {
+  transition: all 0.28s ease;
+}
+
+.ac-mv-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
+}
+
+.ac-mv-icon-circle {
+  width: 60px;
+  height: 60px;
+}
+
+/* ── Section 11: Core Values ──────────────────────────────── */
+.ac-value-card {
+  transition: all 0.28s ease;
+}
+
+.ac-value-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(100, 30, 43, 0.25) !important;
+  box-shadow: 0 10px 30px rgba(100, 30, 43, 0.1) !important;
+}
+
+.ac-value-icon-box {
+  width: 50px;
+  height: 50px;
+}
+
+/* ── Section 12: Services Overview ────────────────────────── */
+.hover-maroon:hover {
+  color: var(--ac-maroon) !important;
+  border-color: var(--ac-maroon) !important;
+}
+
+.shadow-xs {
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+/* ── Section 13: Working Process ──────────────────────────── */
+.ac-process-box {
+  transition: all 0.28s ease;
+}
+
+.ac-process-box:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(100, 30, 43, 0.12) !important;
+}
+
+.ac-process-number-badge {
+  width: 44px;
+  height: 44px;
+  font-size: 1rem;
+}
+
+.ac-step-arrow {
+  top: 32%;
+  right: -15px;
+  z-index: 2;
+  font-size: 1.25rem;
+}
+
+/* ── Section 14: Why Choose Us ────────────────────────────── */
+.ac-why-card {
+  transition: all 0.28s ease;
+}
+
+.ac-why-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(100, 30, 43, 0.25) !important;
+  box-shadow: 0 10px 30px rgba(100, 30, 43, 0.1) !important;
+}
+
+.ac-why-icon-box {
+  width: 50px;
+  height: 50px;
+}
+
+/* ── Section 15: About Gallery ────────────────────────────── */
+.ac-about-gallery-item {
+  height: 250px;
+  cursor: pointer;
+}
+
+.ac-about-gallery-img {
+  transition: transform 0.4s ease;
+}
+
+.ac-about-gallery-item:hover .ac-about-gallery-img {
+  transform: scale(1.06);
+}
+
+.ac-about-gallery-overlay {
+  background: linear-gradient(
+    0deg,
+    rgba(69, 19, 29, 0.9) 0%,
+    rgba(69, 19, 29, 0.25) 60%,
+    transparent 100%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.ac-about-gallery-item:hover .ac-about-gallery-overlay {
+  opacity: 1;
+}
+
+/* ── Responsive adjustments ───────────────────────────────── */
+@media (max-width: 991.98px) {
+  .ac-intro-img {
+    height: 340px;
+  }
+  .ac-story-img {
+    height: 320px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .ac-intro-img {
+    height: 250px;
+  }
+  .ac-story-img {
+    height: 230px;
+  }
+  .ac-about-gallery-item {
+    height: 200px;
+  }
+}

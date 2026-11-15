@@ -228,6 +228,147 @@
       "waMessage": "Hello Aditi Caterers, I would like to enquire about catering services for my event."
     }
   },
+  "aboutPage": {
+    "metaTitle": "About Aditi Caterers | Our Story and Catering Services",
+    "metaDesc": "Learn about Aditi Caterers, our catering services, business values, and food arrangements for weddings, birthdays, engagements, and other occasions.",
+    "hero": {
+      "title": "About Aditi Caterers",
+      "subtitle": "Serving Delicious Food and Creating Memorable Experiences.",
+      "breadcrumbHome": "Home",
+      "breadcrumbCurrent": "About Us"
+    },
+    "intro": {
+      "tag": "About Aditi Caterers",
+      "heading": "Welcome to Aditi Caterers",
+      "p1": "Welcome to Aditi Caterers. We provide catering services for weddings, birthdays, engagements, receptions, corporate events, religious functions, and other special occasions.",
+      "p2": "We believe that good food plays an important role in making every celebration memorable. Our focus is on understanding customer requirements, planning suitable food arrangements, and delivering catering services according to the needs of each event.",
+      "p3": "Whether customers need catering with materials or without materials, we aim to provide suitable arrangements based on their preferences and event requirements.",
+      "contactBtn": "Contact Us"
+    },
+    "story": {
+      "tag": "Our Journey",
+      "heading": "Our Story",
+      "p1": "Every catering journey has a story. Aditi Caterers continues to focus on providing food and catering arrangements for different celebrations and occasions.",
+      "p2": "From traditional family functions to large celebratory events, our commitment has always been to serve wholesome, authentic meals with genuine care and structured coordination."
+    },
+    "experience": {
+      "tag": "Expertise & Background",
+      "heading": "Our Experience",
+      "description": "Years of dedication to culinary quality, organized catering management, and customer satisfaction.",
+      "highlight1Title": "Event Specialization",
+      "highlight1Desc": "Extensive experience across weddings, family celebrations, religious feasts, and corporate gatherings.",
+      "highlight2Title": "Master Chef Team",
+      "highlight2Desc": "Skilled cooks and trained serving personnel committed to hygiene, taste, and hospitality.",
+      "highlight3Title": "Dual Catering Models",
+      "highlight3Desc": "Seamless execution for both 'With Material' and 'Without Material' catering arrangements."
+    },
+    "missionVision": {
+      "missionTag": "Purpose",
+      "missionTitle": "Our Mission",
+      "missionText": "To provide suitable catering services for different occasions by understanding customer requirements, focusing on food quality, and planning food arrangements according to each event.",
+      "visionTag": "Future",
+      "visionTitle": "Our Vision",
+      "visionText": "To build lasting customer relationships by providing catering services that make special occasions more enjoyable and memorable."
+    },
+    "values": {
+      "tag": "Our Principles",
+      "heading": "Our Core Values",
+      "description": "The foundational principles that guide our catering team, cooking standards, and client relationships.",
+      "items": {
+        "foodQuality": {
+          "title": "Food Quality",
+          "description": "Focus on the quality of food served with authentic, fresh ingredients."
+        },
+        "customerSatisfaction": {
+          "title": "Customer Satisfaction",
+          "description": "Understand and consider customer requirements at every stage."
+        },
+        "properPlanning": {
+          "title": "Proper Planning",
+          "description": "Plan food arrangements thoroughly according to the event scale and schedule."
+        },
+        "serviceCommitment": {
+          "title": "Service Commitment",
+          "description": "Work diligently according to agreed service requirements and timelines."
+        },
+        "flexibility": {
+          "title": "Flexibility",
+          "description": "Offer suitable catering arrangements, customized menus, and portion choices."
+        },
+        "trust": {
+          "title": "Trust",
+          "description": "Maintain transparent, honest, and clear communication with our clients."
+        }
+      }
+    },
+    "servicesOverview": {
+      "tag": "Catering Scope",
+      "heading": "What We Do",
+      "description": "Comprehensive catering services designed to delight your guests with memorable culinary experiences.",
+      "withMaterialTitle": "Catering With Material",
+      "withMaterialDesc": "A complete catering arrangement where our team arranges all approved ingredients, prepares the food, and manages service.",
+      "withoutMaterialTitle": "Catering Without Material",
+      "withoutMaterialDesc": "A flexible arrangement where the client arranges materials according to our recipe list, and our chefs manage cooking and service.",
+      "viewAllBtn": "View All Services"
+    },
+    "process": {
+      "tag": "Step-by-Step",
+      "heading": "How We Work",
+      "description": "Our systematic process ensures every event is planned meticulously and executed flawlessly.",
+      "step1Title": "Understand Requirements",
+      "step1Desc": "Understand the event type, date, number of guests, and catering preferences.",
+      "step2Title": "Discuss Arrangements",
+      "step2Desc": "Discuss whether the customer needs catering with material or without material.",
+      "step3Title": "Menu & Quotation",
+      "step3Desc": "Discuss suitable food options and the quotation according to the event requirements.",
+      "step4Title": "Booking Confirmation",
+      "step4Desc": "Confirm the agreed arrangements and finalize scheduling with the customer.",
+      "step5Title": "Event Catering Service",
+      "step5Desc": "Provide the agreed catering service with delicious food and punctual hospitality.",
+      "bookNow": "Book Your Event"
+    },
+    "whyChooseUs": {
+      "tag": "Key Advantages",
+      "heading": "Why Choose Aditi Caterers?",
+      "description": "What makes our catering service the dependable choice for celebrations.",
+      "item1": {
+        "title": "Catering for Different Occasions",
+        "desc": "Experienced in catering for weddings, birthdays, engagements, and corporate functions."
+      },
+      "item2": {
+        "title": "Flexible Catering Options",
+        "desc": "Options with material or without material to suit your budget and preferences."
+      },
+      "item3": {
+        "title": "Food Variety",
+        "desc": "Extensive selection across Maharashtrian, North Indian, South Indian, snacks, and sweets."
+      },
+      "item4": {
+        "title": "Customer-Focused Planning",
+        "desc": "Personalized attention to dietary requirements, guest count, and timeline."
+      },
+      "item5": {
+        "title": "Event-Based Arrangements",
+        "desc": "Food counters, buffet setups, and table service aligned with the venue and occasion."
+      },
+      "item6": {
+        "title": "Direct Communication",
+        "desc": "Transparent discussions and prompt assistance throughout your event planning."
+      }
+    },
+    "gallery": {
+      "tag": "Visual Showcase",
+      "heading": "Moments from Our Catering Services",
+      "description": "Photographs highlighting our live food setups, authentic preparations, and event presentations.",
+      "viewAllBtn": "View Full Gallery"
+    },
+    "cta": {
+      "heading": "Let's Make Your Special Occasion Memorable!",
+      "description": "Planning a wedding, birthday, engagement, or another event? Contact Aditi Caterers to discuss your catering requirements.",
+      "bookBtn": "Book Your Event",
+      "contactBtn": "Contact Us"
+    }
+  },
   "footer": {
     "brandDesc": "Delicious food, quality service, and memorable catering experiences for weddings, engagements, and all milestone celebrations.",
     "quickLinks": "Quick Links",
