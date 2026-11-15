@@ -1,0 +1,9 @@
+Username
+sudrukganesh_db_user
+
+Password
+g01EpMSid40lXN4S
+
+url -mongodb+srv://<db_username>:<db_password>@aditi-cateres.1vgkiuj.mongodb.net/
+
+mongodb+srv://<db_username>:<db_password>@aditi-cateres.1vgkiuj.mongodb.net/

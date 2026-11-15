@@ -1,0 +1,64 @@
+/* ============================================================
+   index.css — Aditi Caterers Global Base Styles
+   Brand Fonts: Poppins (EN) & Noto Sans Devanagari (MR)
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', system-ui, sans-serif;
+  background: #ffffff;
+  color: #1a1a1a;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Global Font Switching based on html lang attribute */
+html[lang="en"] body,
+html[lang="en"] button,
+html[lang="en"] input,
+html[lang="en"] select,
+html[lang="en"] textarea {
+  font-family: 'Poppins', system-ui, sans-serif;
+}
+
+html[lang="mr"] body,
+html[lang="mr"] button,
+html[lang="mr"] input,
+html[lang="mr"] select,
+html[lang="mr"] textarea {
+  font-family: 'Noto Sans Devanagari', 'Poppins', system-ui, sans-serif;
+}
+
+/* Root must be full-width — navbar spans 100vw */
+#root {
+  width: 100%;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Page content container */
+.page-container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+p  { margin: 0; }
+a  { text-decoration: none; }
+ul { list-style: none; margin: 0; padding: 0; }

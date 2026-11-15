@@ -1,0 +1,248 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "services": "Services",
+    "menu": "Food Menu",
+    "packages": "Packages",
+    "gallery": "Gallery",
+    "awards": "Awards",
+    "contact": "Contact Us",
+    "bookNow": "Book Now",
+    "more": "More"
+  },
+  "services": {
+    "wedding": "Wedding Catering",
+    "birthday": "Birthday Catering",
+    "engagement": "Engagement Catering",
+    "reception": "Reception Catering",
+    "corporate": "Corporate Events",
+    "religious": "Religious Events",
+    "other": "Other Events"
+  },
+  "menu": {
+    "breakfast": "Breakfast",
+    "starters": "Starters",
+    "mainCourse": "Main Course",
+    "maharashtrian": "Maharashtrian Food",
+    "punjabi": "Punjabi Food",
+    "southIndian": "South Indian Food",
+    "desserts": "Desserts",
+    "beverages": "Beverages"
+  },
+  "topbar": {
+    "phone": "+91 9975959391",
+    "whatsapp": "WhatsApp",
+    "hours": "Mon–Sun: 9am – 8pm",
+    "followUs": "Follow Us"
+  },
+  "logo": {
+    "alt": "Aditi Caterers – Professional Catering Services"
+  },
+  "aria": {
+    "mainNav": "Main navigation",
+    "topBar": "Contact information",
+    "openMenu": "Open navigation menu",
+    "closeMenu": "Close navigation menu",
+    "servicesMenu": "Services submenu",
+    "foodMenu": "Food Menu submenu",
+    "switchToEnglish": "Switch to English",
+    "switchToMarathi": "Switch to Marathi"
+  },
+  "home": {
+    "metaTitle": "Aditi Caterers | Catering Services for Every Occasion",
+    "metaDesc": "Discover Aditi Caterers for wedding, birthday, engagement, reception, and event catering services. Contact us for your catering enquiry.",
+    "hero": {
+      "badge": "Catering Services for Every Occasion",
+      "title": "Make Every Celebration Special with Aditi Caterers",
+      "description": "Delicious food, quality service, and memorable catering experiences for your special occasions. We serve weddings, birthdays, engagements, corporate events, and more.",
+      "bookEvent": "Book Your Event",
+      "exploreServices": "Explore Our Services"
+    },
+    "about": {
+      "tag": "About Aditi Caterers",
+      "title": "We Bring People Together with Delicious Food",
+      "description": "At Aditi Caterers, we believe that delicious food brings people together. We provide catering services for different occasions, focusing on food quality, customer satisfaction, and well-organized service.",
+      "highlight1": "Fresh & Authentic Ingredients",
+      "highlight2": "Organized Catering Staff & Management",
+      "highlight3": "Customized Menu as per Event Needs",
+      "knowMore": "Know More About Us"
+    },
+    "servicesSection": {
+      "tag": "Our Offerings",
+      "title": "Our Catering Services",
+      "description": "Professional catering services tailored for all your milestone celebrations and functions.",
+      "viewDetails": "View Details",
+      "viewAll": "View All Services",
+      "weddingDesc": "Make your wedding celebration special with delicious food and organized catering service.",
+      "birthdayDesc": "Enjoy your birthday celebration with food arrangements for your guests.",
+      "engagementDesc": "Celebrate your engagement with quality food and catering arrangements.",
+      "receptionDesc": "Grand reception food arrangements with exquisite presentation and taste.",
+      "corporateDesc": "Punctual, professional catering service for business meets and conferences.",
+      "religiousDesc": "Pure, traditional, and sanctified meals prepared with utmost devotion.",
+      "otherDesc": "Specialized food arrangements for family gatherings, anniversaries, and parties."
+    },
+    "cateringOptions": {
+      "tag": "Flexible Arrangements",
+      "title": "Our Catering Options",
+      "description": "Choose the catering arrangement that best fits your convenience and planning.",
+      "withMaterial": {
+        "title": "Catering With Material",
+        "badge": "Full Service",
+        "description": "We arrange the required food materials and provide catering services according to the event requirements.",
+        "feature1": "Complete ingredient procurement by our team",
+        "feature2": "Professional cooking & presentation staff",
+        "feature3": "Hassle-free catering experience for host",
+        "cta": "Enquire with Material"
+      },
+      "withoutMaterial": {
+        "title": "Catering Without Material",
+        "badge": "Labor & Management",
+        "description": "We provide catering services using materials arranged by the customer, according to the agreed service requirements.",
+        "feature1": "You provide materials according to our recipe list",
+        "feature2": "Expert master chefs & serving team by us",
+        "feature3": "Economical & flexible customized solution",
+        "cta": "Enquire without Material"
+      }
+    },
+    "foodMenu": {
+      "tag": "Taste & Tradition",
+      "title": "Explore Our Food Menu",
+      "description": "A delightful culinary journey featuring authentic flavors and diverse regional delicacies.",
+      "viewCategory": "View Category",
+      "viewFullMenu": "View Full Menu",
+      "pureVeg": "Veg Available",
+      "categories": {
+        "breakfast": "Traditional breakfast options to start your celebration.",
+        "starters": "Crispy, savory snacks and welcome delicacies.",
+        "mainCourse": "Rich curries, fragrant rice varieties, and fresh breads.",
+        "maharashtrian": "Authentic Maharashtrian dishes prepared with traditional recipes.",
+        "punjabi": "Flavorful North Indian gravies and tandoori specialties.",
+        "southIndian": "Crispy dosas, soft idlis, sambar, and chutneys.",
+        "desserts": "Traditional Indian sweets and celebration treats.",
+        "beverages": "Refreshing welcome drinks, thandai, and mocktails."
+      }
+    },
+    "whyChooseUs": {
+      "tag": "Why Choose Us",
+      "title": "Why Choose Aditi Caterers?",
+      "description": "We treat every occasion with personal attention and culinary dedication.",
+      "item1": {
+        "title": "Quality Food",
+        "description": "We focus on providing delicious food for your special occasions."
+      },
+      "item2": {
+        "title": "Organized Service",
+        "description": "Disciplined event coordination, prompt service, and professional management."
+      },
+      "item3": {
+        "title": "Different Catering Options",
+        "description": "Choose between catering with material or catering without material as per your need."
+      },
+      "item4": {
+        "title": "Multiple Event Services",
+        "description": "Experienced in handling weddings, corporate meets, birthdays, and religious events."
+      },
+      "item5": {
+        "title": "Customer-Focused Approach",
+        "description": "We consider customer requirements while planning catering arrangements."
+      },
+      "item6": {
+        "title": "Menu Flexibility",
+        "description": "Customize your event menu with regional flavors and guest preferences."
+      }
+    },
+    "gallery": {
+      "tag": "Our Visual Journey",
+      "title": "A Glimpse of Our Food & Events",
+      "description": "Take a look at our live catering arrangements, food setups, and happy celebrations.",
+      "viewFullGallery": "View Full Gallery",
+      "image": "Image",
+      "of": "of",
+      "close": "Close",
+      "prev": "Previous",
+      "next": "Next",
+      "noImages": "Gallery images will be updated shortly."
+    },
+    "eventsWeServe": {
+      "tag": "Celebrations",
+      "title": "Catering for Every Occasion",
+      "description": "From intimate gatherings to grand celebrations, we cater to all life's special moments.",
+      "wedding": "Wedding",
+      "birthday": "Birthday",
+      "engagement": "Engagement",
+      "reception": "Reception",
+      "corporate": "Corporate Events",
+      "religious": "Religious Events",
+      "family": "Family Functions",
+      "enquire": "Enquire for Event"
+    },
+    "bookingProcess": {
+      "tag": "Easy 4-Step Process",
+      "title": "How to Book Our Catering Service",
+      "description": "Booking catering for your event is simple, transparent, and hassle-free.",
+      "step1Title": "Submit Your Enquiry",
+      "step1Desc": "Share your event details through our booking form.",
+      "step2Title": "Discuss Your Requirements",
+      "step2Desc": "Our team will contact you to understand your requirements.",
+      "step3Title": "Discuss Menu & Quotation",
+      "step3Desc": "Discuss the menu, catering arrangement, and quotation.",
+      "step4Title": "Confirm Your Booking",
+      "step4Desc": "Finalize the event arrangements and confirm your booking.",
+      "bookNow": "Book Now"
+    },
+    "testimonials": {
+      "tag": "Customer Words",
+      "title": "What Our Customers Say",
+      "description": "Genuine feedback from patrons who trusted us with their memorable celebrations.",
+      "review1": {
+        "name": "Suresh Deshmukh",
+        "event": "Wedding Reception",
+        "text": "The food quality and catering arrangement were exceptional. Every guest praised the Maharashtrian dishes and sweet spread. Thank you, Aditi Caterers!"
+      },
+      "review2": {
+        "name": "Priyanka Kulkarni",
+        "event": "Engagement Ceremony",
+        "text": "Very organized staff and delicious food. They handled our guest count smoothly and were very polite throughout the event."
+      },
+      "review3": {
+        "name": "Ramesh Patil",
+        "event": "Family Gathering",
+        "text": "We chose catering without material, and the cooking was spot on. Everything was prepared fresh and served hot. Highly recommended!"
+      }
+    },
+    "cta": {
+      "title": "Planning Your Next Celebration?",
+      "description": "Let Aditi Caterers help you plan the food arrangements for your special occasion. Contact us today for a personalized quotation.",
+      "bookEvent": "Book Your Event",
+      "callNow": "Call Us Now"
+    },
+    "contact": {
+      "tag": "Reach Out",
+      "title": "Get in Touch With Us",
+      "description": "Have questions or need assistance with your catering plan? We are always here to help.",
+      "phone": "Phone Number",
+      "call": "Call Now",
+      "whatsapp": "WhatsApp Chat",
+      "chat": "Chat with Us",
+      "waMessage": "Hello Aditi Caterers, I would like to enquire about catering services for my event."
+    }
+  },
+  "footer": {
+    "brandDesc": "Delicious food, quality service, and memorable catering experiences for weddings, engagements, and all milestone celebrations.",
+    "quickLinks": "Quick Links",
+    "servicesTitle": "Catering Services",
+    "contactTitle": "Contact Information",
+    "phone": "+91 9975959391",
+    "whatsapp": "+91 9975959391",
+    "rights": "All Rights Reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service"
+  },
+  "common": {
+    "loading": "Loading...",
+    "errorTitle": "Unable to load this section",
+    "errorMsg": "Unable to load this section. Please try again.",
+    "retry": "Retry"
+  }
+}

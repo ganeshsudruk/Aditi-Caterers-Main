@@ -1,0 +1,634 @@
+/* =============================================================
+   navbar.css — Aditi Caterers  |  Full-Width Professional Navbar
+   Brand:  Maroon #7B1818  |  Gold #C9A84C
+   Fonts:  Poppins (EN)  |  Noto Sans Devanagari (MR)
+   ============================================================= */
+
+/* ── Google Fonts ─────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap');
+
+/* ── Design Tokens ────────────────────────────────────────── */
+:root {
+  --ac-maroon:        #7B1818;
+  --ac-maroon-dark:   #5a1111;
+  --ac-maroon-hover:  rgba(123,24,24,0.08);
+  --ac-gold:          #C9A84C;
+  --ac-gold-light:    #e5c97e;
+  --ac-white:         #ffffff;
+  --ac-cream:         #fdf8f0;
+  --ac-text:          #1a1a1a;
+  --ac-muted:         #666666;
+  --ac-border:        #e8d5d5;
+  --ac-topbar-h:      40px;
+  --ac-navbar-h:      72px;
+  --ac-transition:    0.22s ease;
+  --ac-radius:        6px;
+  --ac-shadow-nav:    0 4px 24px rgba(0,0,0,0.10);
+}
+
+/* ── Reset / Base ─────────────────────────────────────────── */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+/* ============================================================
+   TOP BAR
+   ============================================================ */
+.ac-topbar {
+  width: 100%;
+  background-color: var(--ac-maroon);
+  color: var(--ac-white);
+  font-size: 0.78rem;
+  height: var(--ac-topbar-h);
+  display: flex;
+  align-items: center;
+}
+
+[lang="mr"] .ac-topbar { font-family: 'Noto Sans Devanagari', sans-serif; }
+[lang="en"] .ac-topbar { font-family: 'Poppins', sans-serif; }
+
+.ac-topbar-inner {
+  width: 100%;
+  max-width: 100%;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+/* Left group */
+.ac-topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-shrink: 0;
+}
+
+/* Right group */
+.ac-topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* Links inside topbar */
+.ac-topbar-link {
+  color: var(--ac-white);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  white-space: nowrap;
+  transition: color var(--ac-transition);
+  font-weight: 400;
+}
+.ac-topbar-link:hover,
+.ac-topbar-link:focus  { color: var(--ac-gold-light); text-decoration: none; }
+
+.ac-topbar-link .bi { font-size: 0.82rem; }
+
+/* Separator pipe */
+.ac-topbar-sep {
+  color: rgba(255,255,255,0.35);
+  font-size: 0.75rem;
+  user-select: none;
+}
+
+/* Social icon circles */
+.ac-social-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.35);
+  color: var(--ac-white);
+  text-decoration: none;
+  font-size: 0.75rem;
+  transition: background-color var(--ac-transition), border-color var(--ac-transition);
+}
+.ac-social-btn:hover,
+.ac-social-btn:focus {
+  background-color: rgba(255,255,255,0.18);
+  border-color: rgba(255,255,255,0.65);
+  color: var(--ac-white);
+}
+
+/* Mobile: hide topbar non-essentials */
+@media (max-width: 767px) {
+  .ac-topbar-inner  { padding: 0 1rem; }
+  .ac-topbar-hours  { display: none; }
+  .ac-topbar-sep    { display: none; }
+  .ac-topbar-right  { gap: 0.5rem; }
+}
+
+
+/* ============================================================
+   MAIN NAVBAR WRAPPER  (sticky)
+   ============================================================ */
+.ac-navbar-wrapper {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1030;
+  background-color: var(--ac-white);
+  border-bottom: 2px solid var(--ac-border);
+  transition: box-shadow var(--ac-transition);
+}
+
+.ac-navbar-wrapper.ac-scrolled {
+  box-shadow: var(--ac-shadow-nav);
+}
+
+[lang="mr"] .ac-navbar-wrapper { font-family: 'Noto Sans Devanagari', sans-serif; }
+[lang="en"] .ac-navbar-wrapper { font-family: 'Poppins', sans-serif; }
+
+
+/* ============================================================
+   NAVBAR INNER ROW  — 3-column grid:
+   [Logo]  [Nav Links]  [Lang + BookNow]
+   ============================================================ */
+.ac-navbar-inner {
+  width: 100%;
+  height: var(--ac-navbar-h);
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 1rem;
+}
+
+
+/* ── LOGO COLUMN ──────────────────────────────────────────── */
+.ac-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+.ac-brand:hover,
+.ac-brand:focus { text-decoration: none; }
+
+.ac-brand-logo {
+  height: 58px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* Text fallback when logo image is missing */
+.ac-brand-text {
+  display: none;          /* hidden when image loads */
+  flex-direction: column;
+  line-height: 1.1;
+}
+.ac-brand-text strong {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--ac-maroon);
+}
+.ac-brand-text small {
+  font-size: 0.6rem;
+  font-weight: 400;
+  color: var(--ac-muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Show fallback text when image errors */
+.ac-brand-logo.ac-img-error { display: none; }
+.ac-brand-logo.ac-img-error + .ac-brand-text { display: flex; }
+
+
+/* ── NAV LINKS COLUMN ─────────────────────────────────────── */
+.ac-nav-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+/* Each nav item */
+.ac-nav-item {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+/* Link/button reset shared style */
+.ac-nav-link,
+.ac-nav-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0 0.75rem;
+  height: 100%;
+  color: var(--ac-text);
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+  white-space: nowrap;
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  transition: color var(--ac-transition);
+  font-family: inherit;
+}
+
+/* Active underline bar */
+.ac-nav-link::after,
+.ac-nav-btn::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 3px;
+  background: var(--ac-maroon);
+  border-radius: 2px 2px 0 0;
+  transition: width var(--ac-transition);
+}
+
+.ac-nav-link:hover,  .ac-nav-btn:hover,
+.ac-nav-link:focus,  .ac-nav-btn:focus  { color: var(--ac-maroon); }
+
+.ac-nav-link:hover::after,  .ac-nav-btn:hover::after,
+.ac-nav-link:focus::after,  .ac-nav-btn:focus::after,
+.ac-nav-link.active::after, .ac-nav-btn.active::after { width: 65%; }
+
+.ac-nav-link.active,
+.ac-nav-btn.active {
+  color: var(--ac-maroon);
+  font-weight: 600;
+}
+
+.ac-caret {
+  font-size: 0.6rem;
+  margin-left: 0.1rem;
+  transition: transform var(--ac-transition);
+}
+.ac-nav-btn[aria-expanded="true"] .ac-caret { transform: rotate(180deg); }
+
+
+/* ── DROPDOWN ─────────────────────────────────────────────── */
+.ac-dropdown {
+  position: absolute;
+  top: calc(100% + 2px);
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 230px;
+  background: var(--ac-white);
+  border: 1px solid var(--ac-border);
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+  padding: 0.5rem 0;
+  z-index: 200;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-50%) translateY(-6px);
+  transition: opacity var(--ac-transition), transform var(--ac-transition);
+}
+
+.ac-dropdown.ac-open {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+.ac-dropdown-link {
+  display: block;
+  padding: 0.6rem 1.25rem;
+  color: var(--ac-text);
+  text-decoration: none;
+  font-size: 0.84rem;
+  font-weight: 400;
+  white-space: nowrap;
+  transition: background-color var(--ac-transition), color var(--ac-transition);
+}
+.ac-dropdown-link:hover,
+.ac-dropdown-link:focus  { background-color: var(--ac-cream); color: var(--ac-maroon); }
+.ac-dropdown-link.active { color: var(--ac-maroon); font-weight: 500; background-color: var(--ac-maroon-hover); }
+
+
+/* ── RIGHT CONTROLS COLUMN ────────────────────────────────── */
+.ac-nav-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
+
+/* ── LANGUAGE SWITCHER ────────────────────────────────────── */
+.ac-lang-switch {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  background: var(--ac-cream);
+  border: 1px solid var(--ac-border);
+  border-radius: 20px;
+  padding: 2px;
+}
+
+.ac-lang-btn {
+  background: none;
+  border: none;
+  border-radius: 18px;
+  padding: 0.2rem 0.65rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--ac-muted);
+  cursor: pointer;
+  transition: background-color var(--ac-transition), color var(--ac-transition);
+  font-family: inherit;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+.ac-lang-btn:hover { color: var(--ac-maroon); }
+.ac-lang-btn.ac-active {
+  background-color: var(--ac-maroon);
+  color: var(--ac-white);
+  font-weight: 600;
+}
+
+
+/* ── BOOK NOW BUTTON ──────────────────────────────────────── */
+.ac-book-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 1.2rem;
+  background-color: var(--ac-maroon);
+  color: var(--ac-white);
+  border: none;
+  border-radius: var(--ac-radius);
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background-color var(--ac-transition), box-shadow var(--ac-transition), transform var(--ac-transition);
+}
+.ac-book-btn:hover,
+.ac-book-btn:focus {
+  background-color: var(--ac-maroon-dark);
+  color: var(--ac-white);
+  text-decoration: none;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(123,24,24,0.30);
+}
+.ac-book-btn:active { transform: translateY(0); }
+.ac-book-btn .bi { font-size: 0.9rem; }
+
+
+/* ── HAMBURGER (mobile only, hidden on desktop) ───────────── */
+.ac-hamburger {
+  display: none;         /* shown via media query below */
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: 1.5px solid var(--ac-border);
+  border-radius: var(--ac-radius);
+  padding: 0.4rem 0.5rem;
+  color: var(--ac-maroon);
+  font-size: 1.5rem;
+  cursor: pointer;
+  min-width: 44px;
+  min-height: 44px;
+  transition: background-color var(--ac-transition);
+}
+.ac-hamburger:hover { background-color: var(--ac-cream); }
+.ac-hamburger:focus { outline: 2px solid var(--ac-maroon); outline-offset: 2px; }
+
+
+/* ============================================================
+   RESPONSIVE — Tablet & Mobile  (< 992px)
+   ============================================================ */
+@media (max-width: 991.98px) {
+
+  /* Collapse desktop links & right controls */
+  .ac-nav-links,
+  .ac-nav-controls { display: none; }
+
+  /* Show hamburger */
+  .ac-hamburger { display: flex; }
+
+  /* Navbar inner: logo | (lang + hamburger) */
+  .ac-navbar-inner {
+    grid-template-columns: auto auto;
+    justify-content: space-between;
+    padding: 0 1.25rem;
+  }
+
+  /* Show lang switcher inline on mobile bar */
+  .ac-mobile-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .ac-brand-logo { height: 48px; }
+}
+
+/* Show desktop controls only on 992+ */
+@media (min-width: 992px) {
+  .ac-mobile-controls { display: none; }
+}
+
+@media (max-width: 575.98px) {
+  .ac-brand-logo { height: 42px; }
+  .ac-navbar-inner { padding: 0 1rem; }
+}
+
+
+/* ============================================================
+   MOBILE DRAWER MENU
+   ============================================================ */
+.ac-drawer-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 1040;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.28s ease;
+}
+.ac-drawer-overlay.ac-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.ac-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: min(340px, 90vw);
+  height: 100dvh;
+  background: var(--ac-white);
+  z-index: 1050;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(100%);
+  transition: transform 0.3s cubic-bezier(0.4,0,0.2,1);
+  box-shadow: -6px 0 32px rgba(0,0,0,0.14);
+}
+.ac-drawer.ac-open { transform: translateX(0); }
+
+/* Drawer top bar */
+.ac-drawer-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--ac-border);
+  flex-shrink: 0;
+}
+
+.ac-drawer-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: 1.5px solid var(--ac-border);
+  border-radius: var(--ac-radius);
+  min-width: 44px;
+  min-height: 44px;
+  font-size: 1.3rem;
+  color: var(--ac-text);
+  cursor: pointer;
+  transition: background-color var(--ac-transition);
+}
+.ac-drawer-close:hover  { background-color: var(--ac-cream); }
+.ac-drawer-close:focus  { outline: 2px solid var(--ac-maroon); outline-offset: 2px; }
+
+/* Drawer scrollable body */
+.ac-drawer-body {
+  flex: 1;
+  overflow-y: auto;
+}
+
+/* Drawer flat link */
+.ac-drawer-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 52px;
+  padding: 0 1.25rem;
+  color: var(--ac-text);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  transition: background-color var(--ac-transition), color var(--ac-transition);
+}
+.ac-drawer-link:hover,
+.ac-drawer-link:focus  { background-color: var(--ac-cream); color: var(--ac-maroon); text-decoration: none; }
+.ac-drawer-link.active { color: var(--ac-maroon); font-weight: 600; background-color: var(--ac-maroon-hover); }
+
+/* Drawer accordion toggle */
+.ac-drawer-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 52px;
+  padding: 0 1.25rem;
+  background: none;
+  border: none;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  color: var(--ac-text);
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+  transition: background-color var(--ac-transition), color var(--ac-transition);
+}
+.ac-drawer-toggle:hover,
+.ac-drawer-toggle:focus { background-color: var(--ac-cream); color: var(--ac-maroon); outline: none; }
+.ac-drawer-toggle.active { color: var(--ac-maroon); font-weight: 600; }
+
+.ac-drawer-toggle .ac-caret {
+  font-size: 0.72rem;
+  transition: transform var(--ac-transition);
+  flex-shrink: 0;
+}
+.ac-drawer-toggle[aria-expanded="true"] .ac-caret { transform: rotate(180deg); }
+
+/* Drawer sub-panel */
+.ac-drawer-sub {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.28s ease;
+  background-color: rgba(123,24,24,0.03);
+}
+.ac-drawer-sub.ac-open { max-height: 700px; }
+
+.ac-drawer-sub-link {
+  display: flex;
+  align-items: center;
+  min-height: 48px;
+  padding: 0 1.25rem 0 2.25rem;
+  color: var(--ac-muted);
+  text-decoration: none;
+  font-size: 0.875rem;
+  border-bottom: 1px solid rgba(0,0,0,0.04);
+  transition: color var(--ac-transition), background-color var(--ac-transition);
+}
+.ac-drawer-sub-link:hover,
+.ac-drawer-sub-link:focus  { color: var(--ac-maroon); background-color: rgba(123,24,24,0.06); text-decoration: none; }
+.ac-drawer-sub-link.active { color: var(--ac-maroon); font-weight: 500; }
+
+/* Drawer footer — Book Now */
+.ac-drawer-foot {
+  padding: 1rem 1.25rem 1.5rem;
+  border-top: 1px solid var(--ac-border);
+  flex-shrink: 0;
+}
+
+.ac-drawer-book-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  width: 100%;
+  min-height: 50px;
+  background-color: var(--ac-maroon);
+  color: var(--ac-white);
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color var(--ac-transition);
+  font-family: inherit;
+}
+.ac-drawer-book-btn:hover,
+.ac-drawer-book-btn:focus { background-color: var(--ac-maroon-dark); color: var(--ac-white); text-decoration: none; }
+
+
+/* ============================================================
+   ACCESSIBILITY — Focus rings
+   ============================================================ */
+.ac-nav-link:focus-visible,
+.ac-nav-btn:focus-visible,
+.ac-book-btn:focus-visible,
+.ac-drawer-link:focus-visible,
+.ac-drawer-toggle:focus-visible,
+.ac-drawer-sub-link:focus-visible,
+.ac-lang-btn:focus-visible {
+  outline: 2px solid var(--ac-maroon);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
