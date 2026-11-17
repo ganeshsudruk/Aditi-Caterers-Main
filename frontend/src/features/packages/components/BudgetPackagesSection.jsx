@@ -156,86 +156,94 @@ export default function BudgetPackagesSection({
               return (
                 <div key={pkg.id} className="col-12 col-md-6 col-lg-3 d-flex">
                   <div className={`ac-budget-card tier-${pkg.category} w-100 shadow-sm`}>
-                    {/* Tier Badge */}
-                    <div className="d-flex align-items-center justify-content-between mb-2">
-                      <span className={`ac-tier-badge ac-tier-${pkg.category}`}>
-                        {pkg.category.toUpperCase()}
-                      </span>
-                      {pkg.price?.guestBase && (
-                        <span className="badge bg-light text-dark border small">
-                          {pkg.price.guestBase} {language === 'mr' ? 'पाहुणे' : 'Guests'}
+                    {/* Fixed Card Header */}
+                    <div className="ac-budget-card-header">
+                      {/* Tier Badge & Guest Count */}
+                      <div className="d-flex align-items-center justify-content-between mb-2">
+                        <span className={`ac-tier-badge ac-tier-${pkg.category}`}>
+                          {pkg.category.toUpperCase()}
                         </span>
-                      )}
-                    </div>
-
-                    {/* Title */}
-                    <h3 className="h5 fw-bold text-dark mb-1">
-                      {name}
-                    </h3>
-                    <p className="text-muted small mb-2 line-clamp-1" style={{ fontSize: '0.8rem' }}>
-                      {tagline}
-                    </p>
-
-                    {/* Price Tag Box */}
-                    <div className="ac-budget-price-box">
-                      <div className="h4 fw-bold text-maroon mb-0">
-                        {priceText}
-                      </div>
-                      <div className="text-muted small">
-                        {isLuxury ? (
-                          <span>{language === 'mr' ? 'मागणीनुसार कोटेशन' : 'Custom Quotation'}</span>
-                        ) : (
-                          <span>{bText.fixedForGuests.replace('{count}', pkg.price?.guestBase || 100)} {perPersonText}</span>
+                        {pkg.price?.guestBase && (
+                          <span className="badge bg-light text-dark border small">
+                            {pkg.price.guestBase} {language === 'mr' ? 'पाहुणे' : 'Guests'}
+                          </span>
                         )}
                       </div>
+
+                      {/* Title */}
+                      <h3 className="h5 fw-bold text-dark mb-1 text-truncate" title={name}>
+                        {name}
+                      </h3>
+                      <p className="text-muted small mb-2 text-truncate" style={{ fontSize: '0.8rem' }} title={tagline}>
+                        {tagline}
+                      </p>
+
+                      {/* Price Tag Box */}
+                      <div className="ac-budget-price-box">
+                        <div className="h4 fw-bold text-maroon mb-0">
+                          {priceText}
+                        </div>
+                        <div className="text-muted small text-truncate">
+                          {isLuxury ? (
+                            <span>{language === 'mr' ? 'मागणीनुसार कोटेशन' : 'Custom Quotation'}</span>
+                          ) : (
+                            <span>{bText.fixedForGuests.replace('{count}', pkg.price?.guestBase || 100)} {perPersonText}</span>
+                          )}
+                        </div>
+                      </div>
                     </div>
 
-                    {/* Short Description */}
-                    <p className="text-secondary small mb-3 flex-grow-1" style={{ fontSize: '0.85rem' }}>
-                      {shortDesc}
-                    </p>
+                    {/* Scrollable Package Details */}
+                    <div className="ac-budget-card-scroll">
+                      {/* Short Description */}
+                      <p className="text-secondary small mb-3" style={{ fontSize: '0.85rem' }}>
+                        {shortDesc}
+                      </p>
 
-                    {/* Menu Structure Preview */}
-                    <div className="ac-budget-menu-box">
-                      <div className="fw-bold text-dark small mb-2 d-flex align-items-center gap-1">
-                        <i className="bi bi-list-stars text-maroon" />
-                        <span>{bText.menuStructure}:</span>
-                      </div>
-                      <div className="d-flex flex-column">
-                        {pkg.sampleMenuStructure?.map((m, mIdx) => (
-                          <div key={mIdx} className="ac-menu-item-row">
-                            <i className="bi bi-check2 text-success flex-shrink-0" />
-                            <div>
-                              <strong className="text-dark small">{m.category[language] || m.category.en}:</strong>{' '}
-                              <span className="text-muted small">{m.items[language] || m.items.en}</span>
-                              {m.isAlternative && (
-                                <span className="ac-alternative-badge">
-                                  {bText.orChoice}
-                                </span>
-                              )}
+                      {/* Menu Structure Preview */}
+                      <div className="ac-budget-menu-box mb-1">
+                        <div className="fw-bold text-dark small mb-2 d-flex align-items-center gap-1">
+                          <i className="bi bi-list-stars text-maroon" />
+                          <span>{bText.menuStructure}:</span>
+                        </div>
+                        <div className="d-flex flex-column">
+                          {pkg.sampleMenuStructure?.map((m, mIdx) => (
+                            <div key={mIdx} className="ac-menu-item-row">
+                              <i className="bi bi-check2 text-success flex-shrink-0" />
+                              <div>
+                                <strong className="text-dark small">{m.category[language] || m.category.en}:</strong>{' '}
+                                <span className="text-muted small">{m.items[language] || m.items.en}</span>
+                                {m.isAlternative && (
+                                  <span className="ac-alternative-badge">
+                                    {bText.orChoice}
+                                  </span>
+                                )}
+                              </div>
                             </div>
-                          </div>
-                        ))}
+                          ))}
+                        </div>
                       </div>
                     </div>
 
-                    {/* Action Buttons */}
-                    <div className="d-flex flex-column gap-2 mt-auto pt-2">
-                      <Link
-                        to={`/packages/${pkg.slug}`}
-                        className="btn ac-btn-outline-maroon btn-sm py-2 rounded-3 text-center d-flex align-items-center justify-content-center gap-2"
-                      >
-                        <span>{t.packagesPage.listing.viewDetails}</span>
-                        <i className="bi bi-arrow-right" />
-                      </Link>
-                      <Link
-                        to={`/booking?packageType=${cateringType}&packageId=${pkg.slug}&guests=${selectedGuests}`}
-                        className="btn btn-maroon btn-sm py-2 rounded-3 text-white text-center d-flex align-items-center justify-content-center gap-2"
-                        style={{ backgroundColor: 'var(--ac-maroon, #641e2b)' }}
-                      >
-                        <i className="bi bi-calendar2-check-fill" />
-                        <span>{t.packagesPage.listing.enquireNow}</span>
-                      </Link>
+                    {/* Action Buttons (Fixed Footer) */}
+                    <div className="ac-budget-card-footer mt-auto pt-2">
+                      <div className="d-flex flex-column gap-2">
+                        <Link
+                          to={`/packages/${pkg.slug}`}
+                          className="btn ac-btn-outline-maroon btn-sm py-2 rounded-3 text-center d-flex align-items-center justify-content-center gap-2"
+                        >
+                          <span>{t.packagesPage.listing.viewDetails}</span>
+                          <i className="bi bi-arrow-right" />
+                        </Link>
+                        <Link
+                          to={`/booking?packageType=${cateringType}&packageId=${pkg.slug}&guests=${selectedGuests}`}
+                          className="btn btn-maroon btn-sm py-2 rounded-3 text-white text-center d-flex align-items-center justify-content-center gap-2"
+                          style={{ backgroundColor: 'var(--ac-maroon, #641e2b)' }}
+                        >
+                          <i className="bi bi-calendar2-check-fill" />
+                          <span>{t.packagesPage.listing.enquireNow}</span>
+                        </Link>
+                      </div>
                     </div>
                   </div>
                 </div>

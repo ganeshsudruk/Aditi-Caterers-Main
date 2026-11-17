@@ -1,0 +1,490 @@
+/* ============================================================
+   Aditi Caterers - Food Menu Module Styles (menu.css)
+   ============================================================ */
+
+/* ── Hero & Search Banner ─────────────────────────────────── */
+.ac-menu-hero {
+    min-height: 380px;
+    background: linear-gradient(135deg, rgba(100, 30, 43, 0.94) 0%, rgba(60, 16, 25, 0.96) 100%),
+                url('https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 3.5rem 0 3rem;
+}
+
+.ac-menu-hero-search {
+    max-width: 680px;
+    margin: 1.5rem auto 0;
+    position: relative;
+}
+
+.ac-menu-hero-search .form-control {
+    padding: 0.9rem 1.25rem 0.9rem 3.2rem;
+    border-radius: 50px;
+    font-size: 1rem;
+    border: 2px solid rgba(201, 164, 92, 0.4);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.ac-menu-hero-search .form-control:focus {
+    border-color: var(--ac-gold, #c9a45c);
+    box-shadow: 0 8px 30px rgba(201, 164, 92, 0.35);
+}
+
+.ac-menu-hero-search .search-icon {
+    position: absolute;
+    left: 1.25rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888888;
+    font-size: 1.2rem;
+    pointer-events: none;
+}
+
+/* ── Category Cards ───────────────────────────────────────── */
+.ac-category-card {
+    background: #ffffff;
+    border: 1px solid #eae2d8;
+    border-radius: 18px;
+    overflow: hidden;
+    transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.ac-category-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 36px rgba(100, 30, 43, 0.12);
+    border-color: rgba(201, 164, 92, 0.6);
+}
+
+.ac-category-img-wrapper {
+    height: 180px;
+    position: relative;
+    overflow: hidden;
+    background-color: #f7ede8;
+}
+
+.ac-category-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.45s ease;
+}
+
+.ac-category-card:hover .ac-category-img {
+    transform: scale(1.08);
+}
+
+.ac-category-icon-badge {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    background: rgba(100, 30, 43, 0.9);
+    color: var(--ac-gold, #c9a45c);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    backdrop-filter: blur(4px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.ac-category-count-badge {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    background: rgba(255, 255, 255, 0.95);
+    color: #222222;
+    font-weight: 700;
+    font-size: 0.75rem;
+    padding: 0.35rem 0.75rem;
+    border-radius: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+/* ── Food Item Card ────────────────────────────────────────── */
+.ac-food-card {
+    background: #ffffff;
+    border: 1px solid #eae2d8;
+    border-radius: 16px;
+    overflow: hidden;
+    transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+    display: flex;
+    flex-direction: column;
+    height: 490px;
+}
+
+.ac-food-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 14px 32px rgba(100, 30, 43, 0.11);
+    border-color: rgba(201, 164, 92, 0.5);
+}
+
+.ac-food-img-wrapper {
+    height: 180px;
+    position: relative;
+    overflow: hidden;
+    background-color: #f7ede8;
+    flex-shrink: 0;
+}
+
+.ac-food-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.ac-food-card:hover .ac-food-img {
+    transform: scale(1.06);
+}
+
+/* Veg Symbol (Square border with filled green circle) */
+.ac-veg-symbol {
+    width: 18px;
+    height: 18px;
+    border: 1.5px solid #2e7d32;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    background: #ffffff;
+}
+
+.ac-veg-symbol::after {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #2e7d32;
+}
+
+.ac-jain-badge {
+    font-size: 0.72rem;
+    font-weight: 700;
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    border: 1px solid #c8e6c9;
+    padding: 0.2rem 0.55rem;
+    border-radius: 12px;
+}
+
+.ac-chef-badge {
+    font-size: 0.72rem;
+    font-weight: 700;
+    background-color: var(--ac-light-maroon, #f5eaec);
+    color: var(--ac-maroon, #641e2b);
+    border: 1px solid rgba(100, 30, 43, 0.2);
+    padding: 0.2rem 0.55rem;
+    border-radius: 12px;
+}
+
+/* Spice meter */
+.ac-spice-meter {
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+    font-size: 0.85rem;
+}
+
+.ac-spice-active {
+    color: #d32f2f;
+}
+
+.ac-spice-inactive {
+    color: #e0e0e0;
+}
+
+.ac-food-card .card-body {
+    display: flex;
+    flex-direction: column;
+    padding: 1.25rem;
+    height: calc(490px - 180px);
+    overflow: hidden;
+}
+
+.ac-food-card-scroll {
+    flex: 1 1 auto;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 4px;
+    margin-bottom: 0.5rem;
+    scrollbar-width: thin;
+    scrollbar-color: var(--ac-gold, #c9a45c) #f7f3ee;
+}
+
+.ac-food-card-scroll::-webkit-scrollbar {
+    width: 5px;
+}
+
+.ac-food-card-scroll::-webkit-scrollbar-track {
+    background: #f7f3ee;
+    border-radius: 4px;
+}
+
+.ac-food-card-scroll::-webkit-scrollbar-thumb {
+    background-color: var(--ac-gold, #c9a45c);
+    border-radius: 4px;
+}
+
+.ac-food-card-footer {
+    flex-shrink: 0;
+    border-top: 1px solid #f0e8de;
+    margin-top: auto;
+    padding-top: 0.75rem;
+}
+
+/* Add to Menu Button states */
+.ac-btn-shortlist {
+    border: 1.5px solid var(--ac-maroon, #641e2b);
+    background: #ffffff;
+    color: var(--ac-maroon, #641e2b);
+    font-weight: 600;
+    font-size: 0.88rem;
+    border-radius: 8px;
+    padding: 0.45rem 0.85rem;
+    transition: all 0.2s ease;
+}
+
+.ac-btn-shortlist:hover {
+    background-color: var(--ac-maroon, #641e2b);
+    color: #ffffff;
+}
+
+.ac-btn-shortlist.active {
+    background-color: var(--ac-maroon, #641e2b);
+    color: #ffffff;
+    border-color: var(--ac-maroon, #641e2b);
+    box-shadow: 0 4px 10px rgba(100, 30, 43, 0.2);
+}
+
+/* ── Filter Toolbar ───────────────────────────────────────── */
+.ac-menu-filter-bar {
+    background: #ffffff;
+    border: 1px solid #eae2d8;
+    border-radius: 16px;
+    padding: 1rem 1.25rem;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+}
+
+.ac-filter-pill-btn {
+    padding: 0.45rem 1.15rem;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 0.88rem;
+    border: 1.5px solid #eae2d8;
+    background: #ffffff;
+    color: #555555;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.ac-filter-pill-btn:hover {
+    border-color: var(--ac-maroon, #641e2b);
+    color: var(--ac-maroon, #641e2b);
+}
+
+.ac-filter-pill-btn.active {
+    background-color: var(--ac-maroon, #641e2b);
+    border-color: var(--ac-maroon, #641e2b);
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(100, 30, 43, 0.25);
+}
+
+/* ── Floating Shortlist Tray ──────────────────────────────── */
+.ac-shortlist-tray {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 1050;
+    background: #ffffff;
+    border: 2px solid var(--ac-gold, #c9a45c);
+    border-radius: 50px;
+    padding: 0.65rem 1.25rem;
+    box-shadow: 0 12px 36px rgba(100, 30, 43, 0.25);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    animation: acSlideUp 0.35s ease;
+}
+
+@keyframes acSlideUp {
+    from {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.ac-shortlist-counter {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--ac-maroon, #641e2b);
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ── Shortlist Drawer (Offcanvas / Modal) ─────────────────── */
+.ac-shortlist-drawer-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1060;
+    backdrop-filter: blur(2px);
+}
+
+.ac-shortlist-drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    max-width: 460px;
+    height: 100%;
+    background: #ffffff;
+    z-index: 1070;
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    animation: acDrawerSlide 0.3s ease;
+}
+
+@keyframes acDrawerSlide {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+.ac-drawer-header {
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid #eae2d8;
+    background: var(--ac-maroon, #641e2b);
+    color: #ffffff;
+}
+
+.ac-drawer-body {
+    flex: 1 1 auto;
+    overflow-y: auto;
+    padding: 1.25rem 1.5rem;
+}
+
+.ac-drawer-footer {
+    padding: 1.25rem 1.5rem;
+    border-top: 1px solid #eae2d8;
+    background: #fdfaf6;
+}
+
+.ac-drawer-item-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.65rem 0;
+    border-bottom: 1px dashed #f0e8de;
+}
+
+/* ── Trust & Hygiene Standards ────────────────────────────── */
+.ac-hygiene-card {
+    background: #ffffff;
+    border: 1px solid #eae2d8;
+    border-radius: 16px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.ac-hygiene-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+}
+
+.ac-hygiene-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--ac-light-maroon, #f5eaec);
+    color: var(--ac-maroon, #641e2b);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+}
+
+/* ── Item Detail View ─────────────────────────────────────── */
+.ac-item-detail-img {
+    height: 380px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+.ac-ingredient-tag {
+    background: #f7f3ee;
+    color: #444444;
+    padding: 0.35rem 0.85rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+/* ── Responsive adjustments ────────────────────────────────── */
+@media (max-width: 991.98px) {
+    .ac-food-card {
+        height: 480px;
+    }
+    .ac-food-card .card-body {
+        height: calc(480px - 170px);
+    }
+    .ac-food-img-wrapper {
+        height: 170px;
+    }
+    .ac-item-detail-img {
+        height: 300px;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .ac-menu-hero {
+        min-height: 320px;
+        padding: 2.5rem 0 2rem;
+    }
+    .ac-food-card {
+        height: 470px;
+    }
+    .ac-food-card .card-body {
+        height: calc(470px - 160px);
+        padding: 1rem;
+    }
+    .ac-food-img-wrapper {
+        height: 160px;
+    }
+    .ac-shortlist-tray {
+        bottom: 16px;
+        right: 16px;
+        left: 16px;
+        justify-content: space-between;
+    }
+    .ac-shortlist-drawer {
+        max-width: 100%;
+    }
+}

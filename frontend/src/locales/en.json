@@ -605,5 +605,134 @@
       "message": "Sorry, the catering package you are looking for does not exist or has been updated.",
       "backBtn": "Back to All Packages"
     }
+  },
+  "menuPage": {
+    "metaTitle": "Food Menu | Aditi Caterers",
+    "metaDesc": "Explore authentic Maharashtrian festive dishes, Punjabi curries, traditional sweets and beverages for your catering event.",
+    "hero": {
+      "heading": "Our Catering Food Menu",
+      "description": "Authentic festive feasts, traditional recipes, pure ghee delicacies, and tailored menus for your special celebrations.",
+      "searchPlaceholder": "Search dishes or ingredients (e.g. Modak, Puran Poli, Paneer)..."
+    },
+    "intro": {
+      "tag": "Authentic Culinary Heritage",
+      "heading": "Catering Feasts for Every Special Occasion",
+      "description": "At Aditi Caterers, we blend traditional culinary methods with the highest standards of food hygiene to deliver an unforgettable gastronomic experience at your wedding, engagement, naming ceremony, or festive celebration."
+    },
+    "categories": {
+      "tag": "Catering Categories",
+      "heading": "Explore by Cuisine & Course",
+      "description": "Browse our extensive spread organized across traditional feasts, breakfast savories, main courses, and desserts.",
+      "exploreBtn": "Explore Category"
+    },
+    "popular": {
+      "tag": "Customer Favorites",
+      "heading": "Our Signature & Most-Requested Dishes",
+      "description": "The star delicacies that elevate weddings, engagements, and festive celebrations across Maharashtra."
+    },
+    "items": {
+      "addToMenu": "+ Add to Menu",
+      "selected": "✓ Shortlisted",
+      "viewDetails": "Details",
+      "quickView": "Quick View"
+    },
+    "filters": {
+      "dietaryLabel": "Dietary:",
+      "all": "All",
+      "pureVeg": "Pure Veg",
+      "jain": "Jain Friendly",
+      "spiceLabel": "Spice:",
+      "allSpices": "All Spice Levels",
+      "allCategories": "All Categories"
+    },
+    "drawer": {
+      "trayTitle": "Your Event Shortlist",
+      "viewBtn": "View Menu",
+      "clearBtn": "Clear All",
+      "enquireBtn": "Enquire for this Menu"
+    },
+    "hygiene": {
+      "tag": "Kitchen Standards",
+      "heading": "Our Commitment to Purity & Hygiene",
+      "description": "Every feast prepared by Aditi Caterers reflects uncompromised focus on ingredient freshness, pure ghee, and spotless hygiene."
+    },
+    "faq": {
+      "tag": "Got Questions?",
+      "heading": "Food Menu FAQs",
+      "description": "Quick answers about customization, Jain preparations, live counters, and ingredient sourcing."
+    },
+    "enquiryCTA": {
+      "title": "Plan Your Event Menu with Aditi Caterers",
+      "description": "Shortlist your favorite dishes above and contact us to build the perfect catering spread for your celebration.",
+      "bookNow": "Book Your Date",
+      "contactUs": "Contact Us",
+      "whatsappUs": "Chat on WhatsApp"
+    },
+    "detail": {
+      "ingredients": "Key Ingredients",
+      "servingStyle": "Serving Style",
+      "idealFor": "Ideal For",
+      "addToMenu": "Add to Event Menu",
+      "enquireAbout": "Enquire About This Dish",
+      "relatedDishes": "You May Also Like",
+      "backToCategory": "Back to Category",
+      "backToMenu": "Back to Menu"
+    },
+    "category": {
+      "itemsFound": "dishes found",
+      "noResults": "No dishes found matching your filters.",
+      "tryDifferent": "Try a different filter or search term.",
+      "resetFilters": "Reset Filters"
+    },
+    "notFound": {
+      "title": "Dish Not Found",
+      "message": "Sorry, the dish you are looking for could not be found.",
+      "backBtn": "Back to Menu"
+    }
+  },
+  "awardsPage": {
+    "metaTitle": "Awards & Recognition | Aditi Caterers",
+    "metaDesc": "Explore the awards and recognition received by Aditi Caterers for its catering services.",
+    "hero": {
+      "heading": "Awards & Recognition",
+      "description": "Every recognition is a reminder of our commitment to quality food and dedicated catering service."
+    },
+    "intro": {
+      "tag": "Our Achievements",
+      "heading": "A Journey of Dedication",
+      "description": "We are grateful for the recognition and appreciation received for our work. These awards encourage us to continue delivering food and catering services with care and commitment."
+    },
+    "gallery": {
+      "tag": "Honors & Certificates",
+      "heading": "Our Awards & Recognitions",
+      "description": "A collection of our proudest achievements in the catering industry.",
+      "viewAward": "View Award"
+    },
+    "empty": {
+      "heading": "Awards Coming Soon",
+      "description": "Awards and recognitions will be updated here soon."
+    },
+    "error": {
+      "heading": "Could Not Load Awards",
+      "description": "We couldn't load the awards right now. Please try again later.",
+      "retry": "Try Again"
+    },
+    "cta": {
+      "tag": "Get in Touch",
+      "heading": "Planning a Special Event?",
+      "description": "Get in touch with Aditi Caterers to discuss catering for your upcoming celebration.",
+      "contactBtn": "Contact Us",
+      "bookBtn": "Book Now",
+      "whatsappBtn": "Chat on WhatsApp"
+    },
+    "lightbox": {
+      "close": "Close",
+      "prev": "Previous award",
+      "next": "Next award"
+    },
+    "card": {
+      "year": "Year",
+      "organization": "Awarded by"
+    }
   }
 }

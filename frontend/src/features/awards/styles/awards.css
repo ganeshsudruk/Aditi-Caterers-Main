@@ -1,0 +1,299 @@
+/* ============================================================
+   awards.css  –  Aditi Caterers Awards Page Styles
+   ============================================================ */
+
+/* ── Hero ──────────────────────────────────────────────────── */
+.ac-awards-hero {
+  background: linear-gradient(135deg, #45131d 0%, #641e2b 55%, #843b49 100%);
+  min-height: 320px;
+  display: flex;
+  align-items: center;
+  padding: 4rem 0 3rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.ac-awards-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+/* ── Award Card ─────────────────────────────────────────────── */
+.ac-award-card {
+  border: 1px solid #e8d5d5;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.ac-award-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(100, 30, 43, 0.14);
+}
+
+.ac-award-img-wrapper {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  background: #fdf8f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.ac-award-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.ac-award-card:hover .ac-award-img-wrapper img {
+  transform: scale(1.05);
+}
+
+.ac-award-img-placeholder {
+  width: 100%;
+  height: 220px;
+  background: linear-gradient(135deg, #fdf8f0 0%, #f5e8d5 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--ac-maroon, #641e2b);
+  opacity: 0.6;
+}
+
+.ac-award-card-body {
+  padding: 1.25rem 1.4rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.ac-award-year-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--ac-maroon, #641e2b);
+  background: #fdf0f2;
+  border: 1px solid #f0d0d5;
+  border-radius: 20px;
+  padding: 0.2rem 0.75rem;
+  margin-bottom: 0.6rem;
+}
+
+.ac-award-org {
+  font-size: 0.8rem;
+  color: #888;
+  margin-bottom: 0.4rem;
+}
+
+.ac-award-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  line-height: 1.4;
+  margin-bottom: 0.5rem;
+}
+
+.ac-award-desc {
+  font-size: 0.85rem;
+  color: #666;
+  line-height: 1.6;
+  flex: 1;
+  margin-bottom: 1rem;
+}
+
+.ac-award-view-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ac-maroon, #641e2b);
+  border: 1.5px solid var(--ac-maroon, #641e2b);
+  border-radius: 50px;
+  padding: 0.4rem 1.1rem;
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.18s ease, color 0.18s ease;
+  text-decoration: none;
+  align-self: flex-start;
+  margin-top: auto;
+}
+
+.ac-award-view-btn:hover {
+  background: var(--ac-maroon, #641e2b);
+  color: #fff;
+}
+
+/* ── Lightbox ───────────────────────────────────────────────── */
+.ac-lightbox-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.88);
+  z-index: 1060;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  animation: acFadeIn 0.18s ease;
+}
+
+@keyframes acFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.ac-lightbox-container {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ac-lightbox-img {
+  max-width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+}
+
+.ac-lightbox-close {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+  border: 1.5px solid rgba(255,255,255,0.3);
+  color: #fff;
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.18s ease;
+  z-index: 1061;
+}
+
+.ac-lightbox-close:hover {
+  background: rgba(255,255,255,0.3);
+}
+
+.ac-lightbox-nav {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+  border: 1.5px solid rgba(255,255,255,0.3);
+  color: #fff;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.18s ease;
+  z-index: 1061;
+}
+
+.ac-lightbox-nav:hover {
+  background: rgba(255,255,255,0.3);
+}
+
+.ac-lightbox-nav.prev { left: 1rem; }
+.ac-lightbox-nav.next { right: 1rem; }
+
+.ac-lightbox-caption {
+  margin-top: 1rem;
+  text-align: center;
+  color: rgba(255,255,255,0.9);
+}
+
+/* ── Empty State ────────────────────────────────────────────── */
+.ac-awards-empty {
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 3rem 1.5rem;
+  border: 2px dashed #e8d5d5;
+  border-radius: 20px;
+  background: #fdf8f0;
+}
+
+/* ── CTA Banner ─────────────────────────────────────────────── */
+.ac-awards-cta-banner {
+  background: linear-gradient(135deg, #45131d 0%, #641e2b 60%, #843b49 100%);
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+}
+
+.ac-awards-cta-banner::before {
+  content: '';
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  background: rgba(201, 164, 92, 0.12);
+  pointer-events: none;
+}
+
+/* ── Skeleton Loader ────────────────────────────────────────── */
+.ac-award-skeleton {
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid #e8d5d5;
+  background: #fff;
+}
+
+.ac-skeleton-img {
+  height: 220px;
+  background: linear-gradient(90deg, #f0e8e8 25%, #fdf0f0 50%, #f0e8e8 75%);
+  background-size: 200% 100%;
+  animation: acSkeleton 1.4s infinite;
+}
+
+.ac-skeleton-line {
+  height: 14px;
+  border-radius: 6px;
+  background: linear-gradient(90deg, #f0e8e8 25%, #fdf0f0 50%, #f0e8e8 75%);
+  background-size: 200% 100%;
+  animation: acSkeleton 1.4s infinite;
+  margin-bottom: 0.6rem;
+}
+
+@keyframes acSkeleton {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* ── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 767.98px) {
+  .ac-awards-hero { min-height: 240px; padding: 3rem 0 2.5rem; }
+  .ac-award-img-wrapper { height: 180px; }
+  .ac-lightbox-nav { display: none; }
+}

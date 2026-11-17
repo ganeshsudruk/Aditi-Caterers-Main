@@ -10,9 +10,9 @@ export default function TopBar() {
   // Add real official URLs when confirmed by business owner.
   // Keep this array empty to hide the social section entirely.
   const socialLinks = [
-    // { key: 'instagram', icon: 'bi-instagram', url: 'https://instagram.com/aditicaterers', label: 'Instagram' },
-    // { key: 'facebook',  icon: 'bi-facebook',  url: 'https://facebook.com/aditicaterers',  label: 'Facebook'  },
-    // { key: 'youtube',   icon: 'bi-youtube',   url: 'https://youtube.com/@aditicaterers',  label: 'YouTube'   },
+    { key: 'instagram', icon: 'bi-instagram', url: 'https://instagram.com/aditicaterers', label: 'Instagram' },
+    { key: 'facebook',  icon: 'bi-facebook',  url: 'https://facebook.com/aditicaterers',  label: 'Facebook'  },
+    { key: 'youtube',   icon: 'bi-youtube',   url: 'https://youtube.com/@aditicaterers',  label: 'YouTube'   },
   ];
 
   return (

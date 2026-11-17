@@ -47,69 +47,78 @@ export default function PackageCard({ pkg }) {
 
         {/* Card Body */}
         <div className="card-body p-4 d-flex flex-column flex-grow-1">
-          <h3 className="h5 fw-bold text-dark mb-2">
-            {name}
-          </h3>
-          <p className="text-muted small mb-3 flex-grow-1 line-clamp-2">
-            {shortDesc}
-          </p>
+          {/* Fixed Card Header */}
+          <div className="ac-pkg-card-header">
+            <h3 className="h5 fw-bold text-dark mb-2 text-truncate" title={name}>
+              {name}
+            </h3>
+          </div>
 
-          {/* Pricing & Min Guests Box */}
-          <div className="ac-pkg-price-tag mb-3">
-            <div>
-              <span className="d-block text-muted" style={{ fontSize: '0.75rem' }}>
-                {language === 'mr' ? 'दर अंदाज' : 'Pricing Estimate'}
-              </span>
-              <span className="fw-bold text-maroon small">
-                {priceDisplay}
-              </span>
-            </div>
-            {pkg.minimumGuests && (
-              <div className="text-end">
+          {/* Scrollable Package Details */}
+          <div className="ac-pkg-card-scroll flex-grow-1">
+            <p className="text-muted small mb-3">
+              {shortDesc}
+            </p>
+
+            {/* Pricing & Min Guests Box */}
+            <div className="ac-pkg-price-tag mb-3">
+              <div>
                 <span className="d-block text-muted" style={{ fontSize: '0.75rem' }}>
-                  {listingText.minGuests}
+                  {language === 'mr' ? 'दर अंदाज' : 'Pricing Estimate'}
                 </span>
-                <span className="fw-semibold text-dark small">
-                  {pkg.minimumGuests}+ {listingText.guests}
+                <span className="fw-bold text-maroon small">
+                  {priceDisplay}
                 </span>
+              </div>
+              {pkg.minimumGuests && (
+                <div className="text-end">
+                  <span className="d-block text-muted" style={{ fontSize: '0.75rem' }}>
+                    {listingText.minGuests}
+                  </span>
+                  <span className="fw-semibold text-dark small">
+                    {pkg.minimumGuests}+ {listingText.guests}
+                  </span>
+                </div>
+              )}
+            </div>
+
+            {/* Menu Highlights List */}
+            {highlights.length > 0 && (
+              <div className="mb-2">
+                <span className="d-block text-muted fw-semibold mb-2" style={{ fontSize: '0.75rem' }}>
+                  {listingText.menuHighlights}:
+                </span>
+                <div className="d-flex flex-column gap-1">
+                  {highlights.map((h, i) => (
+                    <div key={i} className="ac-pkg-highlight-item">
+                      <i className="bi bi-check-circle" />
+                      <span className="small">{h[language] || h.en}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
             )}
           </div>
 
-          {/* Menu Highlights List */}
-          {highlights.length > 0 && (
-            <div className="mb-4">
-              <span className="d-block text-muted fw-semibold mb-2" style={{ fontSize: '0.75rem' }}>
-                {listingText.menuHighlights}:
-              </span>
-              <div className="d-flex flex-column gap-1">
-                {highlights.map((h, i) => (
-                  <div key={i} className="ac-pkg-highlight-item">
-                    <i className="bi bi-check-circle" />
-                    <span className="text-truncate">{h[language] || h.en}</span>
-                  </div>
-                ))}
-              </div>
+          {/* Actions: View Details & Enquire Now (Fixed Footer) */}
+          <div className="ac-pkg-card-footer mt-auto pt-3">
+            <div className="d-flex flex-column gap-2">
+              <Link
+                to={`/packages/${pkg.slug}`}
+                className="btn ac-btn-outline-maroon btn-sm py-2 rounded-3 text-center d-flex align-items-center justify-content-center gap-2"
+              >
+                <span>{listingText.viewDetails}</span>
+                <i className="bi bi-arrow-right" />
+              </Link>
+              <Link
+                to={`/booking?packageType=${pkg.packageType}&packageId=${pkg.slug}`}
+                className="btn btn-maroon btn-sm py-2 rounded-3 text-white text-center d-flex align-items-center justify-content-center gap-2"
+                style={{ backgroundColor: 'var(--ac-maroon, #641e2b)' }}
+              >
+                <i className="bi bi-calendar2-check-fill" />
+                <span>{listingText.enquireNow}</span>
+              </Link>
             </div>
-          )}
-
-          {/* Actions: View Details & Enquire Now */}
-          <div className="d-flex flex-column gap-2 mt-auto pt-2">
-            <Link
-              to={`/packages/${pkg.slug}`}
-              className="btn ac-btn-outline-maroon btn-sm py-2 rounded-3 text-center d-flex align-items-center justify-content-center gap-2"
-            >
-              <span>{listingText.viewDetails}</span>
-              <i className="bi bi-arrow-right" />
-            </Link>
-            <Link
-              to={`/booking?packageType=${pkg.packageType}&packageId=${pkg.slug}`}
-              className="btn btn-maroon btn-sm py-2 rounded-3 text-white text-center d-flex align-items-center justify-content-center gap-2"
-              style={{ backgroundColor: 'var(--ac-maroon, #641e2b)' }}
-            >
-              <i className="bi bi-calendar2-check-fill" />
-              <span>{listingText.enquireNow}</span>
-            </Link>
           </div>
         </div>
       </div>
