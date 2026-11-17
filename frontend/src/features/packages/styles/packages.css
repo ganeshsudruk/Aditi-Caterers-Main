@@ -1,0 +1,469 @@
+/* ============================================================
+   packages.css — Aditi Caterers Packages Module Styles
+   Brand: Maroon (#641E2B / #7B1818) & Gold (#C9A45C / #C9A84C)
+   Fonts: Poppins (EN) / Noto Sans Devanagari (MR)
+   ============================================================ */
+
+/* ── Section: Hero Banner ─────────────────────────────────── */
+.ac-packages-hero {
+    min-height: 300px;
+    background-color: var(--ac-maroon, #641e2b);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+.ac-packages-hero-overlay {
+    background: linear-gradient(135deg,
+            rgba(69, 19, 29, 0.94) 0%,
+            rgba(100, 30, 43, 0.90) 60%,
+            rgba(132, 59, 73, 0.85) 100%);
+}
+
+.ac-packages-hero-title {
+    font-size: clamp(2rem, 3.8vw, 3rem);
+    letter-spacing: -0.01em;
+}
+
+.ac-packages-hero-subtitle {
+    color: rgba(255, 255, 255, 0.95);
+    max-width: 800px;
+}
+
+/* ── Section: Package Type Cards (3 Core Models) ───────────── */
+.ac-package-type-card {
+    background: #ffffff;
+    border: 2px solid #eae2d8;
+    border-radius: 16px;
+    padding: 2rem;
+    transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.ac-package-type-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 36px rgba(100, 30, 43, 0.12);
+    border-color: var(--ac-maroon, #641e2b);
+}
+
+.ac-type-icon-box {
+    width: 58px;
+    height: 58px;
+    border-radius: 14px;
+    background-color: var(--ac-light-maroon, #f5eaec);
+    color: var(--ac-maroon, #641e2b);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    margin-bottom: 1.25rem;
+}
+
+/* ── Section 5.5.1: Budget-Based Packages ──────────────────── */
+.ac-budget-section {
+    background: linear-gradient(180deg, #ffffff 0%, #fdf9f4 100%);
+    border-top: 1px solid #eae2d8;
+    border-bottom: 1px solid #eae2d8;
+}
+
+.ac-budget-card {
+    background: #ffffff;
+    border: 2px solid #eae2d8;
+    border-radius: 18px;
+    padding: 1.75rem;
+    transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    position: relative;
+}
+
+.ac-budget-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 36px rgba(100, 30, 43, 0.14);
+}
+
+.ac-budget-card.tier-basic {
+    border-color: #d1c4e9;
+}
+
+.ac-budget-card.tier-basic:hover {
+    border-color: #5e35b1;
+}
+
+.ac-budget-card.tier-standard {
+    border-color: #c8e6c9;
+}
+
+.ac-budget-card.tier-standard:hover {
+    border-color: #2e7d32;
+}
+
+.ac-budget-card.tier-premium {
+    border-color: var(--ac-gold, #c9a45c);
+    background: linear-gradient(180deg, #ffffff 0%, #fefcf7 100%);
+}
+
+.ac-budget-card.tier-premium:hover {
+    border-color: var(--ac-maroon, #641e2b);
+}
+
+.ac-budget-card.tier-luxury {
+    border-color: var(--ac-maroon, #641e2b);
+    background: linear-gradient(180deg, #ffffff 0%, #fcf6f7 100%);
+}
+
+.ac-tier-badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 0.35rem 0.85rem;
+    border-radius: 20px;
+}
+
+.ac-tier-basic {
+    background-color: #ede7f6;
+    color: #5e35b1;
+}
+
+.ac-tier-standard {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+}
+
+.ac-tier-premium {
+    background-color: #f8f1e3;
+    color: #b78103;
+}
+
+.ac-tier-luxury {
+    background-color: var(--ac-light-maroon, #f5eaec);
+    color: var(--ac-maroon, #641e2b);
+}
+
+.ac-budget-price-box {
+    margin: 1rem 0 1.25rem;
+    padding: 0.85rem 1rem;
+    border-radius: 12px;
+    background-color: #fbf9f6;
+    border: 1px dashed #e5d9c8;
+}
+
+.ac-budget-menu-box {
+    background: #ffffff;
+    border: 1px solid #f0e8de;
+    border-radius: 12px;
+    padding: 1rem;
+    margin-bottom: 1.25rem;
+}
+
+.ac-menu-item-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 0.88rem;
+    color: #333333;
+    padding: 0.35rem 0;
+    border-bottom: 1px dashed #f0e8de;
+}
+
+.ac-menu-item-row:last-child {
+    border-bottom: none;
+}
+
+.ac-alternative-badge {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: #c62828;
+    background-color: #ffebee;
+    padding: 0.15rem 0.5rem;
+    border-radius: 10px;
+    text-transform: uppercase;
+    margin-left: 4px;
+}
+
+/* ── Section: Filter Pills ─────────────────────────────────── */
+.ac-filter-pill {
+    padding: 0.5rem 1.25rem;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border: 1.5px solid #eae2d8;
+    background: #ffffff;
+    color: #555555;
+    transition: all 0.22s ease;
+    cursor: pointer;
+}
+
+.ac-filter-pill:hover {
+    border-color: var(--ac-maroon, #641e2b);
+    color: var(--ac-maroon, #641e2b);
+}
+
+.ac-filter-pill.active {
+    background-color: var(--ac-maroon, #641e2b);
+    border-color: var(--ac-maroon, #641e2b);
+    color: #ffffff;
+    box-shadow: 0 4px 14px rgba(100, 30, 43, 0.25);
+}
+
+/* ── Section: Package Cards ────────────────────────────────── */
+.ac-pkg-card {
+    background: #ffffff;
+    border: 1px solid #eae2d8;
+    border-radius: 16px;
+    overflow: hidden;
+    transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.ac-pkg-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 36px rgba(100, 30, 43, 0.12);
+    border-color: rgba(201, 164, 92, 0.6);
+}
+
+.ac-pkg-img-wrapper {
+    height: 220px;
+    position: relative;
+    overflow: hidden;
+    background-color: #f5eaec;
+}
+
+.ac-pkg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.45s ease;
+}
+
+.ac-pkg-card:hover .ac-pkg-img {
+    transform: scale(1.06);
+}
+
+.ac-pkg-type-badge {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    padding: 0.35rem 0.85rem;
+    border-radius: 20px;
+    letter-spacing: 0.03em;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.badge-with-material {
+    background-color: var(--ac-maroon, #641e2b);
+    color: #ffffff;
+}
+
+.badge-without-material {
+    background-color: #2e7d32;
+    color: #ffffff;
+}
+
+.badge-custom {
+    background-color: var(--ac-gold, #c9a45c);
+    color: #1a1a1a;
+}
+
+.ac-pkg-price-tag {
+    background: #fdf8f0;
+    border: 1px solid #f0e2cc;
+    border-radius: 10px;
+    padding: 0.6rem 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.ac-pkg-highlight-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 0.88rem;
+    color: #444444;
+    margin-bottom: 0.4rem;
+}
+
+.ac-pkg-highlight-item i {
+    color: #2e7d32;
+    font-size: 1rem;
+    margin-top: 1px;
+    flex-shrink: 0;
+}
+
+/* ── Section: Package Comparison ───────────────────────────── */
+.ac-comparison-card {
+    background: #ffffff;
+    border: 1px solid #eae2d8;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.04);
+}
+
+.ac-comparison-table {
+    width: 100%;
+    margin-bottom: 0;
+}
+
+.ac-comparison-table th {
+    background-color: var(--ac-maroon, #641e2b);
+    color: #ffffff;
+    padding: 1.1rem 1rem;
+    font-weight: 600;
+    text-align: center;
+    border: none;
+}
+
+.ac-comparison-table th:first-child {
+    text-align: left;
+    padding-left: 1.5rem;
+    width: 28%;
+}
+
+.ac-comparison-table td {
+    padding: 1rem;
+    vertical-align: middle;
+    border-bottom: 1px solid #f0e8de;
+    text-align: center;
+    font-size: 0.92rem;
+    color: #333333;
+}
+
+.ac-comparison-table td:first-child {
+    text-align: left;
+    padding-left: 1.5rem;
+    font-weight: 600;
+    color: #1a1a1a;
+}
+
+.ac-comparison-table tr:hover td {
+    background-color: #fdf8f0;
+}
+
+/* ── Section: What's Included ──────────────────────────────── */
+.ac-included-card {
+    background: #ffffff;
+    border: 1px solid #eae2d8;
+    border-radius: 14px;
+    padding: 1.5rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.25s ease;
+}
+
+.ac-included-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--ac-gold, #c9a45c);
+    box-shadow: 0 10px 25px rgba(100, 30, 43, 0.08);
+}
+
+.ac-included-icon-box {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background-color: #f8f1e3;
+    color: var(--ac-maroon, #641e2b);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.35rem;
+    margin-bottom: 1rem;
+}
+
+.ac-status-badge {
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 0.3rem 0.75rem;
+    border-radius: 20px;
+}
+
+.ac-status-included {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+}
+
+.ac-status-not-included {
+    background-color: #f5f5f5;
+    color: #666666;
+}
+
+.ac-status-on-request {
+    background-color: #fff8e1;
+    color: #b78103;
+}
+
+/* ── Section: Custom Package CTA ───────────────────────────── */
+.ac-custom-cta-card {
+    background: linear-gradient(135deg, #45131d 0%, #641e2b 60%, #843b49 100%);
+    border-radius: 20px;
+    padding: 3rem 2rem;
+    color: #ffffff;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 16px 40px rgba(100, 30, 43, 0.18);
+}
+
+.ac-custom-cta-card::after {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, rgba(201, 164, 92, 0.3) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+/* ── Section: Detail Page ──────────────────────────────────── */
+.ac-package-detail-hero {
+    min-height: 320px;
+    position: relative;
+    background-color: var(--ac-maroon, #641e2b);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+.ac-inclusion-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 1rem 0;
+    border-bottom: 1px solid #f0e8de;
+}
+
+.ac-inclusion-row:last-child {
+    border-bottom: none;
+}
+
+/* ── Responsive adjustments ────────────────────────────────── */
+@media (max-width: 991.98px) {
+    .ac-comparison-card {
+        border-radius: 12px;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .ac-packages-hero {
+        min-height: 250px;
+    }
+
+    .ac-pkg-img-wrapper {
+        height: 190px;
+    }
+
+    .ac-custom-cta-card {
+        padding: 2rem 1.25rem;
+    }
+}

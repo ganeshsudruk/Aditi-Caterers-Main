@@ -18,13 +18,14 @@ export default function NavLinks() {
     path === '/' ? location.pathname === '/' : location.pathname.startsWith(path);
 
   const serviceItems = [
-    { label: t.services.wedding,    route: '/services/wedding'    },
-    { label: t.services.birthday,   route: '/services/birthday'   },
-    { label: t.services.engagement, route: '/services/engagement' },
-    { label: t.services.reception,  route: '/services/reception'  },
-    { label: t.services.corporate,  route: '/services/corporate'  },
-    { label: t.services.religious,  route: '/services/religious'  },
-    { label: t.services.other,      route: '/services/other'      },
+    { label: t.services.wedding,            route: '/services/wedding'          },
+    { label: t.services.birthday,           route: '/services/birthday'         },
+    { label: t.services.engagement,         route: '/services/engagement'       },
+    { label: t.services.reception,          route: '/services/reception'        },
+    { label: t.services.corporate,          route: '/services/corporate'        },
+    { label: t.services.religious,          route: '/services/religious'        },
+    { label: t.services['family-functions'] || t.services.familyFunctions, route: '/services/family-functions'},
+    { label: t.services.other,              route: '/services/other'            },
   ];
 
   const menuItems = [

@@ -16,9 +16,11 @@
     "birthday": "Birthday Catering",
     "engagement": "Engagement Catering",
     "reception": "Reception Catering",
-    "corporate": "Corporate Events",
-    "religious": "Religious Events",
-    "other": "Other Events"
+    "corporate": "Corporate Catering",
+    "religious": "Religious Event Catering",
+    "family-functions": "Family Function Catering",
+    "familyFunctions": "Family Function Catering",
+    "other": "Other Event Catering"
   },
   "menu": {
     "breakfast": "Breakfast",
@@ -385,5 +387,223 @@
     "errorTitle": "Unable to load this section",
     "errorMsg": "Unable to load this section. Please try again.",
     "retry": "Retry"
+  },
+  "servicesPage": {
+    "metaTitle": "Aditi Caterers | Wedding, Birthday and Event Catering Services",
+    "metaDesc": "Explore Aditi Caterers services for weddings, birthdays, engagements, receptions, corporate events, religious functions, and other occasions.",
+    "hero": {
+      "heading": "Our Catering Services",
+      "description": "From weddings and birthdays to corporate and family celebrations, Aditi Caterers provides catering arrangements for different occasions.",
+      "breadcrumbHome": "Home",
+      "breadcrumbServices": "Services"
+    },
+    "intro": {
+      "tag": "What We Offer",
+      "heading": "Catering for Every Special Occasion",
+      "description": "Every event has different food and service requirements. At Aditi Caterers, we provide catering arrangements according to the occasion, number of guests, food preferences, and customer requirements."
+    },
+    "allServices": {
+      "tag": "All Services",
+      "heading": "Explore Our Catering Services",
+      "description": "Discover tailored catering setups suited to each special event format.",
+      "viewDetails": "View Details",
+      "enquireNow": "Enquire Now"
+    },
+    "cateringOptions": {
+      "tag": "Flexible Arrangements",
+      "heading": "Choose Your Catering Arrangement",
+      "description": "We offer two transparent catering arrangements to fit your budget, sourcing preference, and event scale.",
+      "importantNote": "The exact scope for purchasing materials, equipment, cooking arrangements, serving staff, and cleanup is discussed and confirmed transparently for every booking."
+    },
+    "eventsWeServe": {
+      "tag": "Occasions",
+      "heading": "Types of Events We Serve",
+      "description": "From intimate family gatherings to grand wedding celebrations, we cater across a diverse spectrum of events."
+    },
+    "approach": {
+      "tag": "Our Process",
+      "heading": "Our Service Approach",
+      "description": "Our systematic process ensures every event is planned meticulously and executed smoothly.",
+      "steps": {
+        "step1": {
+          "title": "Understand Requirements",
+          "desc": "We understand event type, date, attendee count, and catering preferences."
+        },
+        "step2": {
+          "title": "Discuss Arrangements",
+          "desc": "Choose between catering with material or without material."
+        },
+        "step3": {
+          "title": "Menu & Quotation",
+          "desc": "Curate delicious menus and transparent quotations aligned with your expectations."
+        },
+        "step4": {
+          "title": "Booking Confirmation",
+          "desc": "Finalize schedules, service stations, and setup timelines."
+        },
+        "step5": {
+          "title": "Event Day Hospitality",
+          "desc": "Hygienic cooking, punctual setups, and polite guest service."
+        }
+      }
+    },
+    "gallery": {
+      "tag": "Visual Showcase",
+      "heading": "Moments from Our Catering Services",
+      "description": "Take a glimpse into our authentic food spreads, buffet stations, and festive presentations.",
+      "viewAllBtn": "View Full Gallery"
+    },
+    "faq": {
+      "tag": "Got Questions?",
+      "heading": "Frequently Asked Questions",
+      "description": "Find quick answers regarding our catering arrangements, options, and booking guidelines."
+    },
+    "cta": {
+      "heading": "Ready to Plan Your Event's Catering?",
+      "description": "Contact Aditi Caterers today to discuss your event requirements, customized menus, and booking availability.",
+      "bookBtn": "Book Your Event",
+      "contactBtn": "Contact Us",
+      "callNow": "Call Now",
+      "whatsappUs": "WhatsApp Us"
+    },
+    "detail": {
+      "bookThisService": "Book This Service",
+      "eventRequirements": "Event Requirements & Planning",
+      "menuSuggestions": "Suggested Menu Categories",
+      "menuDisclaimer": "*Note: Menu categories are suggestions. Actual menu items are fully tailored based on your preferences.",
+      "exploreMenuBtn": "Explore Full Menu",
+      "cateringOptionsTitle": "Available Catering Options for This Service",
+      "howWeArrange": "How We Arrange This Service",
+      "serviceFaqs": "Frequently Asked Questions",
+      "relatedServices": "Explore Related Catering Services",
+      "backToServices": "Back to All Services"
+    },
+    "notFound": {
+      "title": "Service Not Found",
+      "message": "Sorry, the requested catering service could not be found.",
+      "backBtn": "Back to Services"
+    }
+  },
+  "packagesPage": {
+    "metaTitle": "Catering Packages | Aditi Caterers",
+    "metaDesc": "Explore our With Material, Without Material, and Custom catering packages for weddings, birthdays, and special occasions.",
+    "breadcrumb": {
+      "home": "Home",
+      "packages": "Packages"
+    },
+    "hero": {
+      "title": "Catering Packages",
+      "subtitle": "Choose the Right Catering Option for Your Special Celebration",
+      "description": "Contact us to discuss suitable menus and catering arrangements tailored to your event requirements.",
+      "exploreBtn": "Explore Packages",
+      "enquireBtn": "Enquire Now"
+    },
+    "intro": {
+      "tag": "Flexible Options",
+      "heading": "Catering Arrangements for Every Event",
+      "description": "Every event has different catering needs. Whether you prefer full-service catering with all materials or professional cooking service where you provide ingredients, Aditi Caterers offers versatile options."
+    },
+    "packageTypes": {
+      "tag": "Three Core Choices",
+      "heading": "Choose Your Package Type",
+      "description": "Select from With Material catering, Without Material catering, or Customised catering tailored to your exact preferences."
+    },
+    "budget": {
+      "tag": "Budget-Based Packages",
+      "heading": "Budget-Based Catering Packages (100 Guests)",
+      "description": "Explore curated catering packages aligned with your budget and guest count. As your budget expands, experience greater menu variety and specialty selections.",
+      "guestSelectorTitle": "Select Expected Guest Count:",
+      "guestCountNote": "*Rates shown below are illustrative based on a standard 100-guest count for easy comparison. Alternate guest counts receive personalized quotations.",
+      "serviceTypeLabel": "Service Arrangement:",
+      "withMaterial": "With Material Catering",
+      "withoutMaterial": "Without Material Catering",
+      "approxPerPerson": "Approx. ₹{rate} per person",
+      "fixedForGuests": "For {count} Guests",
+      "onDemandQuote": "Custom Quotation",
+      "orChoice": "Choose Any One (OR)",
+      "included": "Included",
+      "menuStructure": "Package Menu Structure",
+      "compareTab": "Budget Comparison Table",
+      "cardsTab": "View Package Cards",
+      "proposalDisclaimer": "Important Notice: Pricing and menus presented below represent illustrative proposed planning estimates. Final commercial rates and menus will be confirmed upon direct consultation with the business owner."
+    },
+    "listing": {
+      "tag": "Available Packages",
+      "heading": "Our Catering Packages",
+      "description": "Browse our curated packages. Customizations and exact quotations are confirmed based on your menu choices and guest count.",
+      "filters": {
+        "all": "All Packages",
+        "withMaterial": "With Material",
+        "withoutMaterial": "Without Material",
+        "custom": "Custom"
+      },
+      "priceOnRequest": "Price on Request",
+      "minGuests": "Min. Guests",
+      "guests": "Guests",
+      "menuHighlights": "Key Highlights",
+      "viewDetails": "View Details",
+      "enquireNow": "Enquire Now",
+      "emptyTitle": "No Packages Currently Available",
+      "emptyMessage": "No catering packages matched your filter criteria. Please contact us directly for customized catering options."
+    },
+    "comparison": {
+      "tag": "Side-by-Side Review",
+      "heading": "Compare Our Package Options",
+      "description": "A side-by-side comparison of responsibilities, materials, and services across our catering types.",
+      "featureCol": "Features & Scope",
+      "withMaterialCol": "With Material",
+      "withoutMaterialCol": "Without Material",
+      "customCol": "Custom Package",
+      "enquireBtn": "Enquire Now",
+      "disclaimer": "*Note: The exact scope for ingredient procurement, cookware, serving crew, and post-event cleanup is confirmed transparently before each booking."
+    },
+    "whatsIncluded": {
+      "tag": "Scope of Service",
+      "heading": "What is Included in Our Catering?",
+      "description": "Clear details on deliverables and responsibilities across our catering models.",
+      "status": {
+        "included": "Included",
+        "notIncluded": "Not Included (Provided by Host)",
+        "onRequest": "On Request / Discussed"
+      }
+    },
+    "customCTA": {
+      "tag": "Bespoke Dining",
+      "title": "Need a Customized Catering Package?",
+      "description": "Tell us your event date, expected guest count, favorite dishes, and catering preferences. Our team will tailor a personalized menu and quote.",
+      "button": "Request Custom Quotation"
+    },
+    "howItWorks": {
+      "tag": "Step-by-Step",
+      "heading": "How Our Catering Works",
+      "description": "A seamless, transparent 5-step journey to make your special event dining stress-free."
+    },
+    "faq": {
+      "tag": "Got Questions?",
+      "heading": "Frequently Asked Questions",
+      "description": "Find quick answers regarding our catering packages, material options, and booking guidelines."
+    },
+    "enquiryCTA": {
+      "title": "Plan Your Catering with Aditi Caterers",
+      "description": "Get in touch with us to discuss packages, sample menus, and event date availability.",
+      "bookNow": "Book Your Date",
+      "contactUs": "Contact Us",
+      "whatsappUs": "Chat on WhatsApp"
+    },
+    "detail": {
+      "overview": "Package Overview",
+      "foodMenu": "Sample Menu Highlights",
+      "menuDisclaimer": "*Note: These are sample menu highlights. The final menu can be customized to match your preferences and dietary needs.",
+      "inclusionsTitle": "Package Inclusions & Scope",
+      "conditionsTitle": "Conditions & Important Terms",
+      "relatedTitle": "Explore Related Packages",
+      "enquireBtn": "Enquire About This Package",
+      "backToPackages": "Back to All Packages"
+    },
+    "notFound": {
+      "title": "Package Not Found",
+      "message": "Sorry, the catering package you are looking for does not exist or has been updated.",
+      "backBtn": "Back to All Packages"
+    }
   }
 }

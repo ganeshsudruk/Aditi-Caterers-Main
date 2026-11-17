@@ -1,0 +1,492 @@
+/* ============================================================
+   services.css — Aditi Caterers Services Module Styles
+   Brand: Maroon (#641E2B / #7B1818) & Gold (#C9A45C / #C9A84C)
+   Fonts: Poppins (EN) / Noto Sans Devanagari (MR)
+   ============================================================ */
+
+/* ── Section: Services Hero / Banner ───────────────────────── */
+.ac-services-hero {
+  min-height: 280px;
+  background-color: var(--ac-maroon, #641e2b);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.ac-services-hero-overlay {
+  background: linear-gradient(
+    135deg,
+    rgba(69, 19, 29, 0.94) 0%,
+    rgba(100, 30, 43, 0.90) 60%,
+    rgba(132, 59, 73, 0.85) 100%
+  );
+}
+
+.ac-breadcrumb {
+  background-color: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 0.85rem;
+}
+
+.ac-services-hero-title {
+  font-size: clamp(2rem, 3.8vw, 3rem);
+  letter-spacing: -0.01em;
+}
+
+.ac-services-hero-subtitle {
+  color: rgba(255, 255, 255, 0.92);
+  max-width: 780px;
+}
+
+/* ── Section: Service Cards Grid ───────────────────────────── */
+.ac-service-card {
+  transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+  background: #ffffff;
+  border: 1px solid #eae2d8;
+}
+
+.ac-service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 34px rgba(100, 30, 43, 0.14) !important;
+  border-color: rgba(201, 164, 92, 0.5) !important;
+}
+
+.ac-service-img-wrapper {
+  height: 220px;
+  position: relative;
+  overflow: hidden;
+  background-color: #f5eaec;
+}
+
+.ac-service-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.45s ease;
+}
+
+.ac-service-card:hover .ac-service-img {
+  transform: scale(1.06);
+}
+
+.ac-service-icon-badge {
+  position: absolute;
+  bottom: 14px;
+  right: 14px;
+  width: 44px;
+  height: 44px;
+  background: #ffffff;
+  color: var(--ac-maroon, #641e2b);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border: 2px solid #f8f1e3;
+  transition: transform 0.3s ease;
+}
+
+.ac-service-card:hover .ac-service-icon-badge {
+  transform: rotate(10deg) scale(1.08);
+}
+
+.ac-service-title {
+  color: #1a1a1a;
+  font-weight: 700;
+  transition: color 0.2s ease;
+}
+
+.ac-service-card:hover .ac-service-title {
+  color: var(--ac-maroon, #641e2b);
+}
+
+.ac-btn-outline-maroon {
+  color: var(--ac-maroon, #641e2b);
+  border: 1.5px solid var(--ac-maroon, #641e2b);
+  background: transparent;
+  font-weight: 600;
+  transition: all 0.22s ease;
+}
+
+.ac-btn-outline-maroon:hover,
+.ac-btn-outline-maroon:focus {
+  background-color: var(--ac-maroon, #641e2b);
+  color: #ffffff;
+  border-color: var(--ac-maroon, #641e2b);
+}
+
+/* ── Section: Catering Options Cards ───────────────────────── */
+.ac-catering-option-card {
+  position: relative;
+  background: #ffffff;
+  border: 2px solid #eae2d8;
+  border-radius: 16px;
+  transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+}
+
+.ac-catering-option-card.highlight {
+  border-color: var(--ac-maroon, #641e2b);
+  background: linear-gradient(180deg, #ffffff 0%, #fdf8f0 100%);
+}
+
+.ac-catering-option-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 36px rgba(100, 30, 43, 0.12);
+  border-color: var(--ac-maroon, #641e2b);
+}
+
+.ac-option-icon-box {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  background-color: var(--ac-light-maroon, #f5eaec);
+  color: var(--ac-maroon, #641e2b);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.75rem;
+}
+
+.ac-feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.95rem;
+  color: #333333;
+}
+
+.ac-feature-icon {
+  color: #2e7d32;
+  font-size: 1.1rem;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+/* ── Section: Events We Serve ──────────────────────────────── */
+.ac-event-item-card {
+  background: #ffffff;
+  border: 1px solid #eae2d8;
+  border-radius: 14px;
+  padding: 1.5rem;
+  text-align: center;
+  transition: all 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+
+.ac-event-item-card:hover {
+  border-color: var(--ac-gold, #c9a45c);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(100, 30, 43, 0.08);
+}
+
+.ac-event-icon-circle {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background-color: #f8f1e3;
+  color: var(--ac-maroon, #641e2b);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  transition: transform 0.25s ease, background-color 0.25s ease, color 0.25s ease;
+}
+
+.ac-event-item-card:hover .ac-event-icon-circle {
+  background-color: var(--ac-maroon, #641e2b);
+  color: #ffffff;
+  transform: scale(1.1);
+}
+
+/* ── Section: Approach / Process ───────────────────────────── */
+.ac-process-step-card {
+  background: #ffffff;
+  border: 1px solid #eae2d8;
+  border-radius: 16px;
+  padding: 2rem 1.5rem;
+  height: 100%;
+  position: relative;
+  transition: all 0.25s ease;
+}
+
+.ac-process-step-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(100, 30, 43, 0.1);
+  border-color: var(--ac-maroon, #641e2b);
+}
+
+.ac-step-number-badge {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--ac-maroon, #641e2b);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.15rem;
+  margin-bottom: 1.25rem;
+}
+
+/* ── Section: Gallery & Lightbox ───────────────────────────── */
+.ac-gallery-card {
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  height: 250px;
+  cursor: pointer;
+  background-color: #f5eaec;
+}
+
+.ac-gallery-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.ac-gallery-card:hover img {
+  transform: scale(1.08);
+}
+
+.ac-gallery-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(69, 19, 29, 0.85) 0%, rgba(69, 19, 29, 0.2) 60%, transparent 100%);
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1.25rem;
+}
+
+.ac-gallery-card:hover .ac-gallery-overlay {
+  opacity: 1;
+}
+
+/* Lightbox Modal */
+.ac-lightbox-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.88);
+  backdrop-filter: blur(8px);
+  z-index: 1060;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  animation: fadeIn 0.25s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.ac-lightbox-container {
+  max-width: 900px;
+  width: 100%;
+  position: relative;
+  text-align: center;
+}
+
+.ac-lightbox-img {
+  max-height: 75vh;
+  max-width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+  object-fit: contain;
+}
+
+.ac-lightbox-close {
+  position: absolute;
+  top: -45px;
+  right: 0;
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  font-size: 2rem;
+  cursor: pointer;
+  line-height: 1;
+  transition: color 0.2s ease;
+}
+
+.ac-lightbox-close:hover {
+  color: var(--ac-gold, #c9a45c);
+}
+
+.ac-lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(4px);
+}
+
+.ac-lightbox-nav:hover {
+  background: var(--ac-maroon, #641e2b);
+  border-color: var(--ac-gold, #c9a45c);
+  color: #ffffff;
+}
+
+.ac-lightbox-nav.prev {
+  left: -65px;
+}
+
+.ac-lightbox-nav.next {
+  right: -65px;
+}
+
+@media (max-width: 768px) {
+  .ac-lightbox-nav.prev { left: 10px; }
+  .ac-lightbox-nav.next { right: 10px; }
+}
+
+/* ── Section: Service Detail Components ────────────────────── */
+.ac-service-detail-hero {
+  min-height: 340px;
+  position: relative;
+  background-color: var(--ac-maroon, #641e2b);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.ac-detail-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(201, 164, 92, 0.25);
+  border: 1px solid var(--ac-gold, #c9a45c);
+  color: #fdf8f0;
+  padding: 0.35rem 0.9rem;
+  border-radius: 30px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.ac-menu-category-card {
+  background: #ffffff;
+  border: 1px solid #eae2d8;
+  border-radius: 12px;
+  padding: 1.1rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: all 0.22s ease;
+}
+
+.ac-menu-category-card:hover {
+  border-color: var(--ac-maroon, #641e2b);
+  background-color: #fdf8f0;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(100, 30, 43, 0.08);
+}
+
+.ac-menu-cat-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: var(--ac-light-maroon, #f5eaec);
+  color: var(--ac-maroon, #641e2b);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.ac-requirement-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 0.75rem 0;
+  border-bottom: 1px dashed #eae2d8;
+}
+
+.ac-requirement-item:last-child {
+  border-bottom: none;
+}
+
+.ac-requirement-icon {
+  color: var(--ac-maroon, #641e2b);
+  font-size: 1.15rem;
+  margin-top: 1px;
+}
+
+/* ── Section: Service CTA ──────────────────────────────────── */
+.ac-service-cta-banner {
+  background: linear-gradient(135deg, #45131d 0%, #641e2b 60%, #843b49 100%);
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+}
+
+.ac-service-cta-banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(201, 164, 92, 0.25) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* ── Section: 404 Not Found ────────────────────────────────── */
+.ac-not-found-card {
+  max-width: 600px;
+  margin: 3rem auto;
+  text-align: center;
+  padding: 3rem 2rem;
+  background: #ffffff;
+  border: 1px solid #eae2d8;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+}
+
+.ac-not-found-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: var(--ac-light-maroon, #f5eaec);
+  color: var(--ac-maroon, #641e2b);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  margin: 0 auto 1.5rem;
+}
+
+/* ── Responsive adjustments ────────────────────────────────── */
+@media (max-width: 575.98px) {
+  .ac-services-hero {
+    min-height: 240px;
+  }
+  .ac-service-img-wrapper {
+    height: 190px;
+  }
+  .ac-catering-option-card {
+    padding: 1.5rem !important;
+  }
+}

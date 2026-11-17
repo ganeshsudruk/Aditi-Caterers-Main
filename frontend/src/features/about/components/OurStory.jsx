@@ -1,4 +1,4 @@
-import { useLanguage } from '../../../context/LanguageContext';
+  import { useLanguage } from '../../../context/LanguageContext';
 import SectionHeading from '../../../components/common/SectionHeading';
 
 export default function OurStory({ storyImage }) {
