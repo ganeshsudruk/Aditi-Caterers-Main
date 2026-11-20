@@ -718,7 +718,7 @@ aditi-caterers/
 │   │   ├── 01-admin-login.md
 │   │   ├── 02-admin-dashboard.md
 │   │   ├── 03-booking-management.md
-│   │   ├── 04-customer-management.md
+│   │   ├── 04-customer-management.md04-customer-management.md
 │   │   ├── 05-service-management.md
 │   │   ├── 06-menu-management.md
 │   │   ├── 07-package-management.md

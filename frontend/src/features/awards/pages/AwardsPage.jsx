@@ -47,6 +47,26 @@ export default function AwardsPage() {
         setAwards(list);
       })
       .catch(() => {
+        try {
+          const stored = localStorage.getItem('aditi_admin_awards');
+          if (stored) {
+            const parsed = JSON.parse(stored);
+            if (Array.isArray(parsed) && parsed.length > 0) {
+              const published = parsed
+                .filter((a) => a.status === 'published')
+                .map((a) => ({
+                  ...a,
+                  year: a.awardYear || (a.awardDate ? new Date(a.awardDate).getFullYear() : a.year),
+                  organization: a.issuingOrganization || a.organization,
+                }))
+                .sort((a, b) => (a.displayOrder ?? 999) - (b.displayOrder ?? 999));
+              setAwards(published);
+              return;
+            }
+          }
+        } catch {
+          // ignore
+        }
         setError(true);
         setAwards([]);
       })

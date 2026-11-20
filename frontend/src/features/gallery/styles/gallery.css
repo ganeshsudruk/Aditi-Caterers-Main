@@ -1,0 +1,421 @@
+/* ============================================================
+   gallery.css  –  Aditi Caterers Gallery Page Styles
+   ============================================================ */
+
+/* ── Hero Banner ───────────────────────────────────────────── */
+.ac-gallery-hero {
+  background: linear-gradient(135deg, #45131d 0%, #641e2b 55%, #843b49 100%);
+  min-height: 320px;
+  display: flex;
+  align-items: center;
+  padding: 4rem 0 3.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.ac-gallery-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+.ac-gallery-hero .breadcrumb a {
+  color: rgba(255, 255, 255, 0.85);
+  transition: color 0.2s ease;
+}
+
+.ac-gallery-hero .breadcrumb a:hover {
+  color: var(--ac-gold, #c9a45c);
+}
+
+/* ── Category Filters ──────────────────────────────────────── */
+.ac-gallery-categories-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.65rem;
+  margin: 1.5rem 0 2.5rem;
+}
+
+.ac-gallery-category-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.25rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: 50px;
+  background-color: #ffffff;
+  color: #495057;
+  border: 1.5px solid #e5d6d6;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.ac-gallery-category-pill:hover {
+  background-color: #fbf3f4;
+  border-color: var(--ac-maroon, #641e2b);
+  color: var(--ac-maroon, #641e2b);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(100, 30, 43, 0.08);
+}
+
+.ac-gallery-category-pill.active {
+  background-color: var(--ac-maroon, #641e2b);
+  border-color: var(--ac-maroon, #641e2b);
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(100, 30, 43, 0.25);
+}
+
+.ac-gallery-category-pill.active .ac-gallery-count-badge {
+  background-color: rgba(255, 255, 255, 0.22);
+  color: #ffffff;
+}
+
+.ac-gallery-count-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.15rem 0.5rem;
+  border-radius: 20px;
+  background-color: #f2e3e5;
+  color: var(--ac-maroon, #641e2b);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* ── Gallery Card ──────────────────────────────────────────── */
+.ac-gallery-card {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  background-color: #ffffff;
+  box-shadow: 0 4px 16px rgba(100, 30, 43, 0.07);
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.ac-gallery-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 32px rgba(100, 30, 43, 0.16);
+}
+
+.ac-gallery-img-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background-color: #fdf8f0;
+  cursor: pointer;
+}
+
+.ac-gallery-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.ac-gallery-card:hover .ac-gallery-img {
+  transform: scale(1.06);
+}
+
+.ac-gallery-tag {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: rgba(100, 30, 43, 0.88);
+  backdrop-filter: blur(4px);
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.3rem 0.75rem;
+  border-radius: 50px;
+  z-index: 2;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.ac-gallery-featured-badge {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: var(--ac-gold, #c9a45c);
+  color: #1a1a1a;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.3rem 0.7rem;
+  border-radius: 50px;
+  z-index: 2;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Hover Overlay Button */
+.ac-gallery-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(20, 5, 8, 0.75) 0%, rgba(20, 5, 8, 0.2) 60%, transparent 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+.ac-gallery-card:hover .ac-gallery-overlay {
+  opacity: 1;
+}
+
+.ac-gallery-zoom-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--ac-maroon, #641e2b);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.35rem;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+  transform: scale(0.85);
+  transition: transform 0.2s ease;
+}
+
+.ac-gallery-card:hover .ac-gallery-zoom-btn {
+  transform: scale(1);
+}
+
+/* Card Body */
+.ac-gallery-card-body {
+  padding: 1.15rem 1.25rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.ac-gallery-card-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 0.4rem;
+  line-height: 1.35;
+}
+
+.ac-gallery-card-caption {
+  font-size: 0.85rem;
+  color: #6c757d;
+  line-height: 1.55;
+  margin-bottom: 0.75rem;
+  flex: 1;
+}
+
+.ac-gallery-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid #f1e6e6;
+  padding-top: 0.65rem;
+  margin-top: auto;
+  font-size: 0.8rem;
+  color: #888;
+}
+
+.ac-gallery-view-link {
+  font-weight: 600;
+  color: var(--ac-maroon, #641e2b);
+  background: transparent;
+  border: none;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  cursor: pointer;
+  transition: color 0.18s ease;
+}
+
+.ac-gallery-view-link:hover {
+  color: #843b49;
+}
+
+/* ── Lightbox Modal ────────────────────────────────────────── */
+.ac-gallery-lightbox-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 1060;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  animation: acGalleryFadeIn 0.2s ease;
+}
+
+@keyframes acGalleryFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.ac-gallery-lightbox-container {
+  position: relative;
+  max-width: 92vw;
+  max-height: 92vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ac-gallery-lightbox-img {
+  max-width: 100%;
+  max-height: 76vh;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+}
+
+.ac-gallery-lightbox-close {
+  position: fixed;
+  top: 1.25rem;
+  right: 1.25rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.18s ease;
+  z-index: 1062;
+}
+
+.ac-gallery-lightbox-close:hover {
+  background: rgba(255, 255, 255, 0.32);
+}
+
+.ac-gallery-lightbox-nav {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.18s ease;
+  z-index: 1062;
+}
+
+.ac-gallery-lightbox-nav:hover {
+  background: rgba(255, 255, 255, 0.32);
+}
+
+.ac-gallery-lightbox-nav.prev { left: 1.25rem; }
+.ac-gallery-lightbox-nav.next { right: 1.25rem; }
+
+.ac-gallery-lightbox-caption {
+  margin-top: 1rem;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.95);
+  max-width: 780px;
+}
+
+/* ── Empty State ───────────────────────────────────────────── */
+.ac-gallery-empty-card {
+  text-align: center;
+  padding: 3.5rem 1.5rem;
+  border-radius: 16px;
+  background-color: #ffffff;
+  border: 2px dashed #ecdcdc;
+  margin: 1.5rem 0;
+}
+
+.ac-gallery-empty-icon {
+  font-size: 3.5rem;
+  color: var(--ac-maroon, #641e2b);
+  opacity: 0.4;
+  margin-bottom: 1rem;
+}
+
+/* ── CTA Banner ────────────────────────────────────────────── */
+.ac-gallery-cta-banner {
+  background: linear-gradient(135deg, #45131d 0%, #641e2b 60%, #843b49 100%);
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+}
+
+.ac-gallery-cta-banner::before {
+  content: '';
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  background: rgba(201, 164, 92, 0.14);
+  pointer-events: none;
+}
+
+/* ── Skeleton Loading ──────────────────────────────────────── */
+.ac-gallery-skeleton-card {
+  border-radius: 16px;
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid #e8dede;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+.ac-gallery-skeleton-img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background: linear-gradient(90deg, #f0e6e6 25%, #fbf4f4 50%, #f0e6e6 75%);
+  background-size: 200% 100%;
+  animation: acGallerySkeleton 1.4s infinite;
+}
+
+.ac-gallery-skeleton-line {
+  height: 14px;
+  border-radius: 6px;
+  background: linear-gradient(90deg, #f0e6e6 25%, #fbf4f4 50%, #f0e6e6 75%);
+  background-size: 200% 100%;
+  animation: acGallerySkeleton 1.4s infinite;
+  margin-bottom: 0.65rem;
+}
+
+@keyframes acGallerySkeleton {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* ── Responsive ────────────────────────────────────────────── */
+@media (max-width: 767.98px) {
+  .ac-gallery-hero {
+    min-height: 250px;
+    padding: 3rem 0 2.5rem;
+  }
+  .ac-gallery-categories-wrapper {
+    justify-content: flex-start;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 0.5rem;
+    -webkit-overflow-scrolling: touch;
+  }
+  .ac-gallery-lightbox-nav {
+    display: none;
+  }
+}

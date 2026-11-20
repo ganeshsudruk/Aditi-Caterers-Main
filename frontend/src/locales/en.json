@@ -9,7 +9,8 @@
     "awards": "Awards",
     "contact": "Contact Us",
     "bookNow": "Book Now",
-    "more": "More"
+    "more": "More",
+    "faq": "FAQ"
   },
   "services": {
     "wedding": "Wedding Catering",
@@ -733,6 +734,336 @@
     "card": {
       "year": "Year",
       "organization": "Awarded by"
+    }
+  },
+  "faqPage": {
+    "metaTitle": "Frequently Asked Questions | Aditi Caterers",
+    "metaDesc": "Find answers to common questions about Aditi Caterers, catering services, packages, menus, event enquiries, and booking arrangements.",
+    "hero": {
+      "title": "Frequently Asked Questions",
+      "subtitle": "Find answers to common questions about our catering services.",
+      "breadcrumbHome": "Home",
+      "breadcrumbFaq": "FAQ"
+    },
+    "intro": {
+      "tag": "Help & Knowledge Base",
+      "heading": "How Can We Help You?",
+      "description": "Browse the questions below to learn more about Aditi Caterers, our catering arrangements, packages, menus, and booking enquiries. If you need more information, contact us directly."
+    },
+    "search": {
+      "placeholder": "Search your question...",
+      "clearBtn": "Clear search",
+      "resultsFound": "questions found",
+      "noResults": "No matching questions found. Please try a different keyword or contact us.",
+      "resetBtn": "Show All Questions"
+    },
+    "categories": {
+      "all": "All Questions"
+    },
+    "cta": {
+      "tag": "Need Assistance?",
+      "heading": "Still Have Questions?",
+      "description": "Have a specific event or catering requirement? Contact Aditi Caterers and discuss your requirements with us.",
+      "contactUs": "Contact Us",
+      "bookEvent": "Book Your Event"
+    },
+    "contactInfo": {
+      "title": "Direct Assistance & Enquiry",
+      "description": "Speak directly with our catering team for custom quotes, event dates, or specific dietary requests.",
+      "callUs": "Call Us Directly",
+      "chatWhatsapp": "Chat on WhatsApp",
+      "disclaimer": "Note: Submitting an enquiry does not automatically confirm an event booking. Booking is considered confirmed only after our team confirms availability and arrangements with you."
+    }
+  },
+  "galleryPage": {
+    "metaTitle": "Gallery | Aditi Caterers",
+    "metaDesc": "Explore the Aditi Caterers gallery featuring approved photographs of food, catering arrangements, and event celebrations.",
+    "hero": {
+      "title": "Our Gallery",
+      "subtitle": "Explore photographs of our food, catering arrangements, and event celebrations. Discover the presentation and catering services offered by Aditi Caterers.",
+      "breadcrumbHome": "Home",
+      "breadcrumbGallery": "Gallery"
+    },
+    "categories": {
+      "filterTitle": "Filter by Category",
+      "photosFound": "photos found",
+      "reset": "Reset Filters"
+    },
+    "card": {
+      "viewPhoto": "View Photo",
+      "location": "Location"
+    },
+    "lightbox": {
+      "close": "Close (Esc)",
+      "prev": "Previous (Left arrow)",
+      "next": "Next (Right arrow)",
+      "photo": "Photo",
+      "of": "of"
+    },
+    "empty": {
+      "title": "No Photographs Found",
+      "message": "No photographs found matching the selected category. Please select another category or check back soon.",
+      "resetBtn": "View All Photos"
+    },
+    "cta": {
+      "tag": "Celebration Catering",
+      "title": "Planning an Event?",
+      "description": "Explore our catering services and contact Aditi Caterers to discuss your event requirements.",
+      "enquireNow": "Enquire Now",
+      "contactUs": "Contact Us",
+      "whatsappUs": "WhatsApp Us"
+    }
+  },
+  "bookingPage": {
+    "metaTitle": "Book Catering | Aditi Caterers",
+    "metaDesc": "Send your event details to Aditi Caterers and enquire about catering services, packages, and menu requirements.",
+    "hero": {
+      "title": "Plan Your Event with Aditi Caterers",
+      "subtitle": "Share your event details and catering requirements with us. Our team can review your enquiry and contact you to discuss the next steps.",
+      "breadcrumbHome": "Home",
+      "breadcrumbBooking": "Book Catering"
+    },
+    "sections": {
+      "customer": "Customer Information",
+      "customerDesc": "Your contact details so we can reach you with the quotation.",
+      "event": "Event Information",
+      "eventDesc": "Key details about your celebration and venue.",
+      "catering": "Catering Requirements",
+      "cateringDesc": "Choose whether you need service with material or without material.",
+      "packageMenu": "Package & Menu Preferences",
+      "packageMenuDesc": "Select an existing package or specify your desired menu items.",
+      "additional": "Budget & Additional Notes",
+      "additionalDesc": "Any special requirements, dietary requests, or notes for our team."
+    },
+    "fields": {
+      "fullName": "Full Name",
+      "fullNamePlaceholder": "Enter your full name",
+      "mobile": "Mobile Number",
+      "mobilePlaceholder": "10-digit mobile number (e.g. 9876543210)",
+      "email": "Email Address (Optional)",
+      "emailPlaceholder": "name@example.com",
+      "contactMethod": "Preferred Contact Method",
+      "eventType": "Event Type",
+      "selectEventType": "Select event type",
+      "otherEventType": "Specify Other Event",
+      "otherEventTypePlaceholder": "e.g. Baby Shower, House Warming, Naming Ceremony",
+      "eventDate": "Event Date",
+      "eventTime": "Preferred Time / Slot",
+      "selectEventTime": "Select preferred time",
+      "guestCount": "Estimated Number of Guests",
+      "guestCountPlaceholder": "e.g. 150",
+      "city": "Village / City",
+      "cityPlaceholder": "e.g. Pune, Satara, Kolhapur",
+      "venueAddress": "Venue / Hall Address (Optional)",
+      "venueAddressPlaceholder": "Hall name, landmark or address",
+      "cateringType": "Catering Type",
+      "package": "Package Selection (Optional)",
+      "selectPackage": "Select a catering package",
+      "customPackage": "Custom Package / Custom Quotation",
+      "needGuidancePackage": "Not Sure / Need Guidance",
+      "foodPreference": "Food Preference",
+      "selectFoodPreference": "Select food preference",
+      "mealType": "Meal Type (Optional)",
+      "selectMealType": "Select meal type",
+      "selectedDishes": "Selected / Desired Dishes (Optional)",
+      "selectedDishesPlaceholder": "List dishes you would like (e.g. Puran Poli, Ukadiche Modak, Paneer Butter Masala)",
+      "specialDietary": "Special Dietary / Fasting Requirements (Optional)",
+      "specialDietaryPlaceholder": "e.g. Jain food required for 20 guests, Upvas items",
+      "budget": "Approximate Budget (Optional)",
+      "budgetPlaceholder": "e.g. ₹50,000 or per plate budget",
+      "additionalNotes": "Additional Notes / Special Instructions (Optional)",
+      "additionalNotesPlaceholder": "Any specific requests regarding serving style, live counters, or timing..."
+    },
+    "options": {
+      "phone": "Phone Call",
+      "whatsapp": "WhatsApp",
+      "email": "Email",
+      "any": "Any Method",
+      "wedding": "Wedding",
+      "engagement": "Engagement",
+      "birthday": "Birthday Party",
+      "reception": "Reception",
+      "religious": "Religious Ceremony / Pooja",
+      "corporate": "Corporate Event",
+      "other": "Other Event",
+      "morning": "Morning (Breakfast / Lunch)",
+      "afternoon": "Afternoon (Lunch)",
+      "evening": "Evening (High Tea / Dinner)",
+      "fullDay": "Full Day Event",
+      "withMaterial": "With Material (साहित्यासह)",
+      "withMaterialDesc": "Aditi Caterers brings all food ingredients, cooking materials, and catering service.",
+      "withoutMaterial": "Without Material (साहित्याशिवाय)",
+      "withoutMaterialDesc": "You provide agreed raw materials; Aditi Caterers provides master cooking and service.",
+      "needGuidance": "Not Sure / Need Guidance",
+      "needGuidanceDesc": "Our team will explain both options and help you choose the best arrangement.",
+      "pureVeg": "100% Pure Vegetarian",
+      "jain": "Pure Veg with Jain Options",
+      "vegGuidance": "Discuss with Team",
+      "breakfast": "Breakfast & Snacks",
+      "lunch": "Lunch Banquet",
+      "highTea": "High Tea & Evening Snacks",
+      "dinner": "Dinner Banquet",
+      "allMeals": "Full Day (Breakfast + Lunch + Dinner)"
+    },
+    "validation": {
+      "nameRequired": "Please enter your full name.",
+      "mobileRequired": "Please enter your mobile number.",
+      "mobileInvalid": "Please enter a valid 10-digit mobile number.",
+      "emailInvalid": "Please enter a valid email address.",
+      "eventTypeRequired": "Please select the event type.",
+      "otherTypeRequired": "Please specify the event type.",
+      "eventDateRequired": "Please select the event date.",
+      "eventDatePast": "Event date must be in the future.",
+      "guestCountRequired": "Please enter the estimated number of guests.",
+      "guestCountInvalid": "Guest count must be at least 1.",
+      "cityRequired": "Please enter the city or village.",
+      "cateringTypeRequired": "Please select a catering type.",
+      "consentRequired": "You must accept the privacy notice to submit an enquiry."
+    },
+    "consent": {
+      "text": "I agree that Aditi Caterers may use the information provided to review and respond to my catering enquiry.",
+      "disclaimer": "Note: Submitting an enquiry creates a quotation request only and does not automatically confirm an event booking. Our team will review the details and contact you to confirm arrangements."
+    },
+    "buttons": {
+      "submit": "Submit Booking Enquiry",
+      "submitting": "Submitting Enquiry..."
+    },
+    "success": {
+      "title": "Your Enquiry Has Been Submitted",
+      "subtitle": "Thank you for contacting Aditi Caterers. Your enquiry has been received. Our team will review the details and contact you to discuss your requirements.",
+      "refLabel": "Enquiry Reference Number",
+      "detailsSummary": "Enquiry Summary",
+      "customer": "Customer",
+      "event": "Event",
+      "date": "Date",
+      "guests": "Guests",
+      "catering": "Catering Type",
+      "chatOnWhatsapp": "Chat on WhatsApp with this Enquiry",
+      "homeBtn": "Return to Home",
+      "anotherBtn": "Submit Another Enquiry"
+    },
+    "process": {
+      "tag": "How It Works",
+      "heading": "Our Booking Enquiry Process",
+      "step1Title": "1. Submit Enquiry",
+      "step1Desc": "Fill out your event details, guest count, and preferred catering type.",
+      "step2Title": "2. Review & Consultation",
+      "step2Desc": "Our team reviews your requirements and contacts you with a customized quotation.",
+      "step3Title": "3. Booking Confirmation",
+      "step3Desc": "Once menu, dates, and terms are finalized and agreed upon, your booking is confirmed."
+    },
+    "assistance": {
+      "title": "Need Urgent Assistance or Consultation?",
+      "desc": "For immediate enquiries or dates within the next few days, call us or WhatsApp directly.",
+      "call": "+91 9975959391",
+      "whatsapp": "Chat on WhatsApp"
+    }
+  },
+  "contactPage": {
+    "metaTitle": "Contact Aditi Caterers | Catering Enquiries",
+    "metaDesc": "Have an upcoming celebration or event? Contact Aditi Caterers for catering enquiries across Maharashtra. Call, WhatsApp, or submit your enquiry online.",
+    "hero": {
+      "title": "Contact Us",
+      "subtitle": "Have an upcoming celebration or event? Contact Aditi Caterers to discuss your catering requirements. Share your event details and our team will get in touch.",
+      "breadcrumbHome": "Home",
+      "breadcrumbContact": "Contact Us"
+    },
+    "info": {
+      "title": "Get in Touch",
+      "subtitle": "Reach out directly via phone or WhatsApp, or submit the catering enquiry form below.",
+      "phoneLabel": "Phone Call",
+      "phoneVal": "+91 9975959391",
+      "phoneNote": "Available 7 days a week for enquiries",
+      "phoneBtn": "Call Now",
+      "whatsappLabel": "WhatsApp Chat",
+      "whatsappVal": "+91 9975959391",
+      "whatsappNote": "Quick responses for event enquiries",
+      "whatsappBtn": "Chat on WhatsApp",
+      "locationLabel": "Service Coverage Area",
+      "locationVal": "Maharashtra State",
+      "locationNote": "Serving Pune, Satara, and surrounding districts",
+      "statusNoticeTitle": "Direct Consultation Available",
+      "statusNoticeText": "Aditi Caterers provides on-site catering services across Maharashtra. Official office address and physical showroom visits remain pending business-owner confirmation. For immediate bookings and consultations, please call or message directly."
+    },
+    "form": {
+      "title": "Send a Catering Enquiry",
+      "subtitle": "Provide your event details below to help our catering team prepare an initial discussion and quotation.",
+      "requiredNotice": "Indicates required field",
+      "labels": {
+        "fullName": "Full Name",
+        "mobile": "Mobile Number",
+        "email": "Email Address (Optional)",
+        "eventType": "Event Type",
+        "otherEventType": "Specify Other Event Type",
+        "eventDate": "Event Date",
+        "dateNotDecided": "Date not decided yet",
+        "guestCount": "Number of Guests",
+        "cateringType": "Catering Service Type",
+        "eventCity": "City or Event Location",
+        "venueAddress": "Venue / Full Address (Optional)",
+        "preferredContactMethod": "Preferred Contact Method (Optional)",
+        "budgetRange": "Approximate Budget (Optional)",
+        "message": "Message / Event Requirements"
+      },
+      "placeholders": {
+        "fullName": "Enter your full name",
+        "mobile": "10-digit mobile number (e.g. 9975959391)",
+        "email": "name@example.com",
+        "selectEventType": "Select event type",
+        "otherEventType": "e.g. Baby Shower, House Warming",
+        "guestCount": "e.g. 150",
+        "eventCity": "e.g. Pune, Satara, Wai, Karad",
+        "venueAddress": "Hall name, landmark or street address",
+        "selectContactMethod": "Select contact method",
+        "selectBudget": "Select budget range",
+        "message": "Please mention any specific food preferences, menu items, or requirements..."
+      },
+      "cateringTypeOptions": {
+        "withMaterial": "With Material (साहित्यासह)",
+        "withMaterialDesc": "Aditi Caterers provides all ingredients, grocery, cooking, and service.",
+        "withoutMaterial": "Without Material (साहित्याशिवाय)",
+        "withoutMaterialDesc": "You provide agreed raw materials; Aditi Caterers provides cooking and service."
+      },
+      "validation": {
+        "nameRequired": "Please enter your full name.",
+        "mobileRequired": "Please enter your mobile number.",
+        "mobileInvalid": "Please enter a valid 10-digit mobile number.",
+        "emailInvalid": "Please enter a valid email address.",
+        "eventTypeRequired": "Please select the event type.",
+        "otherTypeRequired": "Please specify your event type.",
+        "eventDateRequired": "Please select the event date or check 'Date not decided yet'.",
+        "eventDatePast": "Event date must be in the future.",
+        "guestCountRequired": "Please enter the estimated number of guests.",
+        "guestCountInvalid": "Guest count must be at least 1.",
+        "cateringTypeRequired": "Please select a catering service type.",
+        "eventCityRequired": "Please enter the city or event location.",
+        "messageRequired": "Please enter your message or event requirements."
+      },
+      "submitBtn": "Submit Enquiry",
+      "submittingBtn": "Submitting...",
+      "serverError": "Unable to submit your enquiry at this time. Please try again or reach out directly via Phone or WhatsApp."
+    },
+    "success": {
+      "title": "Thank You for Contacting Aditi Caterers!",
+      "subtitle": "Your enquiry has been submitted successfully. Our team will review your details and contact you soon.",
+      "refLabel": "Enquiry Reference ID",
+      "summaryTitle": "Submitted Enquiry Details",
+      "fullName": "Name",
+      "mobile": "Mobile",
+      "email": "Email",
+      "eventType": "Event Type",
+      "eventDate": "Event Date",
+      "guestCount": "Guest Count",
+      "cateringType": "Catering Type",
+      "eventCity": "Location",
+      "whatsappFollowUp": "Follow Up on WhatsApp",
+      "submitAnother": "Submit Another Enquiry",
+      "returnHome": "Back to Home"
+    },
+    "faqPrompt": {
+      "title": "Have Common Questions?",
+      "text": "Find quick answers to common questions about our booking policies, service areas, and tasting sessions in our FAQ section.",
+      "button": "Browse FAQ"
     }
   }
 }

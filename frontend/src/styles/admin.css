@@ -1,0 +1,372 @@
+/* ============================================================
+   admin.css  –  Aditi Caterers Admin Panel & Login Styles
+   ============================================================ */
+
+:root {
+  --ac-admin-maroon: #641e2b;
+  --ac-admin-dark: #45131d;
+  --ac-admin-light-maroon: #843b49;
+  --ac-admin-gold: #c9a45c;
+  --ac-admin-gold-hover: #b8934a;
+  --ac-admin-bg: #f8f9fa;
+  --ac-admin-sidebar-bg: #211216;
+  --ac-admin-sidebar-hover: #351a21;
+  --ac-admin-sidebar-active: #641e2b;
+  --ac-admin-sidebar-width: 260px;
+}
+
+/* ── Admin Login Screen ─────────────────────────────────────── */
+.ac-admin-login-wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #2b0b12 0%, #45131d 50%, #641e2b 100%);
+  padding: 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.ac-admin-login-wrapper::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+.ac-admin-login-card {
+  width: 100%;
+  max-width: 440px;
+  background-color: #ffffff;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+  padding: 2.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 575.98px) {
+  .ac-admin-login-card {
+    padding: 1.75rem 1.25rem;
+  }
+}
+
+.ac-admin-login-brand {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.ac-admin-brand-icon {
+  width: 56px;
+  height: 56px;
+  background: linear-gradient(135deg, #641e2b 0%, #843b49 100%);
+  color: var(--ac-admin-gold);
+  border-radius: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.75rem;
+  margin-bottom: 0.85rem;
+  box-shadow: 0 4px 14px rgba(100, 30, 43, 0.35);
+}
+
+.ac-admin-login-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #211216;
+  margin-bottom: 0.25rem;
+}
+
+.ac-admin-login-subtitle {
+  color: #6c757d;
+  font-size: 0.9rem;
+  margin-bottom: 0;
+}
+
+/* ── Form Controls & Password Toggle ───────────────────────── */
+.ac-admin-login-card .form-label {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #332125;
+  margin-bottom: 0.35rem;
+}
+
+.ac-admin-login-card .form-control {
+  border: 1.5px solid #d9c8c8;
+  border-radius: 10px;
+  padding: 0.65rem 0.9rem;
+  font-size: 0.95rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ac-admin-login-card .form-control:focus {
+  border-color: var(--ac-admin-maroon);
+  box-shadow: 0 0 0 0.25rem rgba(100, 30, 43, 0.18);
+  outline: none;
+}
+
+.ac-admin-input-group {
+  position: relative;
+}
+
+.ac-admin-input-group .form-control {
+  padding-right: 42px;
+}
+
+.ac-password-toggle-btn {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 42px;
+  background: transparent;
+  border: none;
+  color: #7a6e71;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 5;
+  transition: color 0.2s ease;
+}
+
+.ac-password-toggle-btn:hover {
+  color: var(--ac-admin-maroon);
+}
+
+.ac-password-toggle-btn:focus {
+  outline: none;
+  color: var(--ac-admin-maroon);
+}
+
+.ac-btn-admin-primary {
+  background: linear-gradient(135deg, #641e2b 0%, #843b49 100%);
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  padding: 0.75rem 1.5rem;
+  width: 100%;
+  box-shadow: 0 4px 14px rgba(100, 30, 43, 0.3);
+  transition: all 0.2s ease;
+}
+
+.ac-btn-admin-primary:hover:not(:disabled) {
+  background: linear-gradient(135deg, #45131d 0%, #641e2b 100%);
+  box-shadow: 0 6px 18px rgba(100, 30, 43, 0.45);
+  transform: translateY(-1px);
+  color: #ffffff;
+}
+
+.ac-btn-admin-primary:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.ac-admin-hint-pill {
+  background: #fdf8f4;
+  border: 1px dashed #d9c8c8;
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  margin-top: 1.5rem;
+  font-size: 0.8rem;
+  color: #554448;
+}
+
+.ac-admin-hint-pill code {
+  color: var(--ac-admin-maroon);
+  font-weight: 700;
+  background: rgba(100, 30, 43, 0.08);
+  padding: 0.1rem 0.35rem;
+  border-radius: 4px;
+}
+
+/* ── Admin Layout Shell ─────────────────────────────────────── */
+.ac-admin-wrapper {
+  display: flex;
+  min-height: 100vh;
+  background-color: var(--ac-admin-bg);
+}
+
+/* Sidebar */
+.ac-admin-sidebar {
+  width: var(--ac-admin-sidebar-width);
+  background-color: var(--ac-admin-sidebar-bg);
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  transition: transform 0.25s ease-in-out;
+}
+
+.ac-admin-sidebar-header {
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ac-admin-sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.ac-admin-sidebar-brand i {
+  color: var(--ac-admin-gold);
+  font-size: 1.35rem;
+}
+
+.ac-admin-nav {
+  padding: 1rem 0.75rem;
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+.ac-admin-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: rgba(255, 255, 255, 0.75);
+  text-decoration: none;
+  padding: 0.65rem 1rem;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 0.92rem;
+  margin-bottom: 0.25rem;
+  transition: all 0.2s ease;
+}
+
+.ac-admin-nav-item:hover {
+  color: #ffffff;
+  background-color: var(--ac-admin-sidebar-hover);
+}
+
+.ac-admin-nav-item.active {
+  color: #ffffff;
+  background-color: var(--ac-admin-sidebar-active);
+  font-weight: 600;
+}
+
+.ac-admin-nav-item i {
+  font-size: 1.1rem;
+  width: 22px;
+  text-align: center;
+}
+
+.ac-admin-sidebar-footer {
+  padding: 1rem 1.25rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Main Content Area */
+.ac-admin-main {
+  flex-grow: 1;
+  margin-left: var(--ac-admin-sidebar-width);
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  transition: margin-left 0.25s ease-in-out;
+}
+
+/* Header */
+.ac-admin-header {
+  height: 64px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e8dede;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 90;
+}
+
+.ac-admin-content {
+  padding: 2rem 1.5rem;
+  flex-grow: 1;
+}
+
+/* Mobile Responsive */
+@media (max-width: 991.98px) {
+  .ac-admin-sidebar {
+    transform: translateX(-100%);
+  }
+
+  .ac-admin-sidebar.show {
+    transform: translateX(0);
+  }
+
+  .ac-admin-main {
+    margin-left: 0;
+  }
+
+  .ac-admin-backdrop {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 95;
+  }
+}
+
+/* ── Dashboard Cards & UI ──────────────────────────────────── */
+.ac-stat-card {
+  background-color: #ffffff;
+  border-radius: 14px;
+  border: 1px solid #e8dede;
+  padding: 1.5rem;
+  box-shadow: 0 4px 16px rgba(100, 30, 43, 0.04);
+  height: 100%;
+}
+
+.ac-stat-card-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #6c757d;
+  margin-bottom: 0.5rem;
+}
+
+.ac-stat-card-num {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--ac-admin-maroon);
+  margin-bottom: 0;
+}
+
+/* ── Animation & Transitions ───────────────────────────────── */
+@keyframes acSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spin {
+  display: inline-block;
+  animation: acSpin 0.8s linear infinite;
+}
+
+.transition-hover:hover {
+  transform: translateY(-2px);
+  border-color: #641e2b !important;
+  box-shadow: 0 4px 14px rgba(100, 30, 43, 0.08);
+}

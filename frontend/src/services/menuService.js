@@ -959,8 +959,22 @@ export async function getAllCategories() {
       return res.data.data;
     }
   } catch {
+    // Check local storage for admin managed categories
+  }
+
+  try {
+    const stored = JSON.parse(localStorage.getItem('aditi_admin_menu_categories') || '[]');
+    if (Array.isArray(stored) && stored.length > 0) {
+      const active = stored.filter((c) => c.status === 'active');
+      if (active.length > 0) {
+        active.sort((a, b) => (a.displayOrder || 0) - (b.displayOrder || 0));
+        return active;
+      }
+    }
+  } catch {
     // fallback
   }
+
   return defaultCategories;
 }
 
@@ -990,10 +1004,32 @@ export async function getMenuItems(categorySlug = null, filters = {}) {
       return res.data.data;
     }
   } catch {
-    // fallback
+    // Check local storage for admin managed items
   }
 
   let items = [...defaultMenuItems];
+  try {
+    const stored = JSON.parse(localStorage.getItem('aditi_admin_menu_items') || '[]');
+    if (Array.isArray(stored) && stored.length > 0) {
+      // Map stored items to match format and filter only published
+      const published = stored
+        .filter((i) => i.status === 'published')
+        .map((i) => ({
+          ...i,
+          shortDescription: i.description || { en: '', mr: '' },
+          dietary: {
+            isVeg: i.foodType === 'veg' || i.foodType === 'jain',
+            isJain: i.foodType === 'jain',
+            isVegan: false,
+          },
+        }));
+      if (published.length > 0) {
+        items = published;
+      }
+    }
+  } catch {
+    // fallback
+  }
 
   if (categorySlug && categorySlug !== 'all') {
     items = items.filter(

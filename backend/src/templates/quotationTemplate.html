@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="{{lang}}">
+<head>
+  <meta charset="UTF-8">
+  <title>{{title}} - {{quotationNumber}}</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 24px;
+      color: #333;
+      background: #fff;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 2px solid #800020;
+      padding-bottom: 16px;
+      margin-bottom: 20px;
+    }
+    .caterer-info h1 {
+      margin: 0 0 4px;
+      color: #800020;
+      font-size: 24px;
+    }
+    .caterer-info p {
+      margin: 2px 0;
+      color: #666;
+      font-size: 12px;
+    }
+    .quote-badge {
+      text-align: right;
+    }
+    .quote-badge h2 {
+      margin: 0 0 6px;
+      color: #2b2b2b;
+      font-size: 20px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .quote-badge .badge-number {
+      font-size: 14px;
+      font-weight: 700;
+      color: #800020;
+    }
+    .meta-box {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      background: #fdfaf6;
+      border: 1px solid #fae1dd;
+      border-radius: 6px;
+      padding: 14px 18px;
+      margin-bottom: 20px;
+    }
+    .meta-col h3 {
+      margin: 0 0 8px;
+      font-size: 13px;
+      color: #800020;
+      text-transform: uppercase;
+      border-bottom: 1px solid #ebd4cb;
+      padding-bottom: 4px;
+    }
+    .meta-col p {
+      margin: 3px 0;
+      font-size: 12px;
+    }
+    .service-badge {
+      display: inline-block;
+      padding: 2px 8px;
+      background: #ebd4cb;
+      color: #800020;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 11px;
+    }
+    table.line-items {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+    table.line-items th, table.line-items td {
+      border: 1px solid #e0e0e0;
+      padding: 8px 10px;
+      text-align: left;
+    }
+    table.line-items th {
+      background-color: #800020;
+      color: #ffffff;
+      font-size: 12px;
+    }
+    table.line-items td.num, table.line-items th.num {
+      text-align: right;
+    }
+    .summary-section {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 20px;
+    }
+    .summary-table {
+      width: 320px;
+      border-collapse: collapse;
+    }
+    .summary-table td {
+      padding: 5px 8px;
+    }
+    .summary-table tr.grand-total td {
+      border-top: 2px solid #800020;
+      border-bottom: 2px solid #800020;
+      font-weight: bold;
+      font-size: 15px;
+      color: #800020;
+    }
+    .terms-box {
+      border-top: 1px dashed #bbb;
+      padding-top: 14px;
+      font-size: 11px;
+      color: #555;
+    }
+    .terms-box h4 {
+      margin: 0 0 6px;
+      color: #333;
+      font-size: 12px;
+    }
+    .footer {
+      margin-top: 30px;
+      text-align: center;
+      font-size: 11px;
+      color: #888;
+      border-top: 1px solid #eee;
+      padding-top: 10px;
+    }
+    @media print {
+      body { padding: 0; }
+      @page { margin: 1.5cm; }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="caterer-info">
+      <h1>{{catererName}}</h1>
+      <p>{{catererTagline}}</p>
+      <p>{{catererAddress}}</p>
+      <p>{{lblPhone}}: {{catererPhone}} | {{lblEmail}}: {{catererEmail}}</p>
+    </div>
+    <div class="quote-badge">
+      <h2>{{quotationTitle}}</h2>
+      <div class="badge-number">{{quotationNumber}}</div>
+      <p style="margin: 4px 0 0; color: #666; font-size: 11px;">{{lblDate}}: {{issueDate}}</p>
+      <p style="margin: 2px 0 0; color: #666; font-size: 11px;">{{lblValidUntil}}: {{validUntilDate}}</p>
+    </div>
+  </div>
+
+  <div class="meta-box">
+    <div class="meta-col">
+      <h3>{{lblCustomerDetails}}</h3>
+      <p><strong>{{customerName}}</strong></p>
+      <p>{{lblPhone}}: {{customerPhone}}</p>
+      {{#if customerEmail}}<p>{{lblEmail}}: {{customerEmail}}</p>{{/if}}
+      {{#if customerAddress}}<p>{{lblAddress}}: {{customerAddress}}</p>{{/if}}
+    </div>
+    <div class="meta-col">
+      <h3>{{lblEventDetails}}</h3>
+      <p><strong>{{lblEventType}}:</strong> {{eventType}}</p>
+      <p><strong>{{lblEventDate}}:</strong> {{eventDate}}</p>
+      <p><strong>{{lblGuestCount}}:</strong> {{guestCount}} {{lblGuests}}</p>
+      <p><strong>{{lblServiceType}}:</strong> <span class="service-badge">{{serviceTypeLabel}}</span></p>
+      {{#if eventVenue}}<p><strong>{{lblVenue}}:</strong> {{eventVenue}}</p>{{/if}}
+    </div>
+  </div>
+
+  <table class="line-items">
+    <thead>
+      <tr>
+        <th style="width: 40px;">#</th>
+        <th>{{lblItemDescription}}</th>
+        <th style="width: 80px;">{{lblUnit}}</th>
+        <th class="num" style="width: 70px;">{{lblQty}}</th>
+        <th class="num" style="width: 90px;">{{lblRate}} (₹)</th>
+        <th class="num" style="width: 110px;">{{lblAmount}} (₹)</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each lineItems}}
+      <tr>
+        <td>{{@index1}}</td>
+        <td>
+          <strong>{{this.name}}</strong>
+          {{#if this.notes}}<br><small style="color: #666;">{{this.notes}}</small>{{/if}}
+        </td>
+        <td>{{this.unit}}</td>
+        <td class="num">{{this.quantity}}</td>
+        <td class="num">{{this.rateFormatted}}</td>
+        <td class="num"><strong>{{this.amountFormatted}}</strong></td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+
+  <div class="summary-section">
+    <table class="summary-table">
+      <tr>
+        <td>{{lblSubtotal}}:</td>
+        <td style="text-align: right;">₹{{subtotalFormatted}}</td>
+      </tr>
+      {{#if hasDiscount}}
+      <tr style="color: #2e7d32;">
+        <td>{{lblDiscount}} ({{discountText}}):</td>
+        <td style="text-align: right;">- ₹{{discountFormatted}}</td>
+      </tr>
+      {{/if}}
+      {{#each additionalCharges}}
+      <tr>
+        <td>{{this.name}}:</td>
+        <td style="text-align: right;">+ ₹{{this.amountFormatted}}</td>
+      </tr>
+      {{/each}}
+      {{#if hasTax}}
+      <tr>
+        <td>{{taxLabel}}:</td>
+        <td style="text-align: right;">+ ₹{{taxFormatted}}</td>
+      </tr>
+      {{/if}}
+      <tr class="grand-total">
+        <td>{{lblGrandTotal}}:</td>
+        <td style="text-align: right;">₹{{grandTotalFormatted}}</td>
+      </tr>
+      {{#if pricePerPersonFormatted}}
+      <tr>
+        <td colspan="2" style="text-align: right; color: #666; font-size: 11px; padding-top: 4px;">
+          ({{lblPerPerson}}: ₹{{pricePerPersonFormatted}} / {{lblGuest}})
+        </td>
+      </tr>
+      {{/if}}
+    </table>
+  </div>
+
+  {{#if termsAndConditions}}
+  <div class="terms-box">
+    <h4>{{lblTermsAndConditions}}</h4>
+    <div>{{{termsAndConditions}}}</div>
+  </div>
+  {{/if}}
+
+  {{#if notes}}
+  <div class="terms-box" style="margin-top: 10px;">
+    <h4>{{lblSpecialNotes}}</h4>
+    <p style="margin: 0;">{{notes}}</p>
+  </div>
+  {{/if}}
+
+  <div class="footer">
+    <p>{{lblFooterNote}}</p>
+  </div>
+</body>
+</html>

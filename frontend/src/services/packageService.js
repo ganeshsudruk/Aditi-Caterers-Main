@@ -871,10 +871,24 @@ export async function getAllPackages() {
     if (res?.data?.data && Array.isArray(res.data.data) && res.data.data.length > 0) {
       return res.data.data;
     }
-    return defaultPackages;
   } catch {
-    return defaultPackages;
+    // Check storage for admin packages
   }
+
+  try {
+    const stored = JSON.parse(localStorage.getItem('aditi_admin_packages') || '[]');
+    if (Array.isArray(stored) && stored.length > 0) {
+      const published = stored.filter((p) => p.status === 'published');
+      if (published.length > 0) {
+        published.sort((a, b) => (a.displayOrder || 0) - (b.displayOrder || 0));
+        return published;
+      }
+    }
+  } catch {
+    // fallback
+  }
+
+  return defaultPackages;
 }
 
 export async function getBudgetPackages() {

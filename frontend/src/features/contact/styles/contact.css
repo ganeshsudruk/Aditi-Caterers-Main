@@ -1,0 +1,462 @@
+/* ============================================================
+   contact.css  –  Aditi Caterers Contact Page Styles
+   ============================================================ */
+
+/* ── Hero Banner ───────────────────────────────────────────── */
+.ac-contact-hero {
+  background: linear-gradient(135deg, #45131d 0%, #641e2b 55%, #843b49 100%);
+  min-height: 280px;
+  display: flex;
+  align-items: center;
+  padding: 3.5rem 0 3rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.ac-contact-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+.ac-contact-hero .breadcrumb a {
+  color: rgba(255, 255, 255, 0.85);
+  transition: color 0.2s ease;
+  text-decoration: none;
+}
+
+.ac-contact-hero .breadcrumb a:hover {
+  color: var(--ac-gold, #c9a45c);
+}
+
+/* ── Contact Info Cards ────────────────────────────────────── */
+.ac-contact-card {
+  background-color: #ffffff;
+  border: 1px solid #e8dede;
+  border-radius: 16px;
+  padding: 1.75rem 1.5rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 18px rgba(100, 30, 43, 0.05);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.ac-contact-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 26px rgba(100, 30, 43, 0.1);
+  border-color: #d1b8b8;
+}
+
+.ac-contact-card-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  background: #fdf5f3;
+  color: #641e2b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-bottom: 1.25rem;
+  flex-shrink: 0;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.ac-contact-card:hover .ac-contact-card-icon {
+  background-color: #641e2b;
+  color: #ffffff;
+}
+
+.ac-contact-card-icon.whatsapp {
+  background: #edfbf0;
+  color: #25d366;
+}
+
+.ac-contact-card:hover .ac-contact-card-icon.whatsapp {
+  background-color: #25d366;
+  color: #ffffff;
+}
+
+.ac-contact-card-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #2a1b1e;
+  margin-bottom: 0.35rem;
+}
+
+.ac-contact-card-value {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #641e2b;
+  margin-bottom: 0.5rem;
+  word-break: break-word;
+}
+
+.ac-contact-card-desc {
+  font-size: 0.9rem;
+  color: #6c757d;
+  margin-bottom: 1.25rem;
+  flex-grow: 1;
+}
+
+.ac-btn-contact-action {
+  font-weight: 600;
+  border-radius: 10px;
+  padding: 0.6rem 1.25rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.ac-btn-whatsapp {
+  background-color: #25d366;
+  color: #ffffff !important;
+  border: 1px solid #20b858;
+}
+
+.ac-btn-whatsapp:hover {
+  background-color: #1ea952;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+}
+
+.ac-btn-phone {
+  background-color: #641e2b;
+  color: #ffffff !important;
+  border: 1px solid #45131d;
+}
+
+.ac-btn-phone:hover {
+  background-color: #45131d;
+  box-shadow: 0 4px 12px rgba(100, 30, 43, 0.3);
+}
+
+/* ── Service Coverage & Status Notice Banner ───────────────── */
+.ac-service-notice-banner {
+  background: #fdf8f4;
+  border-left: 4px solid #c9a45c;
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.ac-service-notice-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #45131d;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.35rem;
+}
+
+.ac-service-notice-text {
+  font-size: 0.9rem;
+  color: #5a4b4e;
+  line-height: 1.5;
+  margin-bottom: 0;
+}
+
+/* ── Enquiry Form Section ──────────────────────────────────── */
+.ac-contact-form-container {
+  background-color: #ffffff;
+  border: 1px solid #e8dede;
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(100, 30, 43, 0.08);
+  padding: 2.5rem;
+}
+
+@media (max-width: 767.98px) {
+  .ac-contact-form-container {
+    padding: 1.5rem 1.25rem;
+  }
+}
+
+.ac-form-header-badge {
+  display: inline-block;
+  background-color: #f7e6e9;
+  color: #641e2b;
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 0.35rem 0.85rem;
+  border-radius: 50px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.75rem;
+}
+
+.ac-form-title {
+  color: #2a1b1e;
+  font-weight: 700;
+  font-size: 1.75rem;
+  margin-bottom: 0.35rem;
+}
+
+.ac-form-subtitle {
+  color: #6c757d;
+  font-size: 0.95rem;
+  margin-bottom: 2rem;
+}
+
+/* ── Inputs & Selects ──────────────────────────────────────── */
+.ac-contact-form .form-label {
+  font-weight: 600;
+  color: #332125;
+  font-size: 0.92rem;
+  margin-bottom: 0.4rem;
+}
+
+.ac-contact-form .form-control,
+.ac-contact-form .form-select {
+  border: 1.5px solid #d9c8c8;
+  border-radius: 10px;
+  padding: 0.65rem 0.9rem;
+  font-size: 0.95rem;
+  color: #2a1b1e;
+  background-color: #fff;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ac-contact-form .form-control:focus,
+.ac-contact-form .form-select:focus {
+  border-color: #641e2b;
+  box-shadow: 0 0 0 0.25rem rgba(100, 30, 43, 0.15);
+  outline: none;
+}
+
+.ac-contact-form .form-control:disabled,
+.ac-contact-form .form-select:disabled {
+  background-color: #f3eded;
+  color: #8c8282;
+  cursor: not-allowed;
+}
+
+/* ── Date Toggle Checkbox ──────────────────────────────────── */
+.ac-date-undecided-toggle {
+  background-color: #fdf9f7;
+  border: 1px dashed #d9c8c8;
+  border-radius: 8px;
+  padding: 0.5rem 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.ac-date-undecided-toggle .form-check-input:checked {
+  background-color: #641e2b;
+  border-color: #641e2b;
+}
+
+.ac-date-undecided-toggle .form-check-label {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: #45131d;
+  cursor: pointer;
+}
+
+/* ── Catering Service Options ──────────────────────────────── */
+.ac-catering-option-card {
+  border: 1.5px solid #d9c8c8;
+  border-radius: 12px;
+  padding: 1rem 1.15rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  height: 100%;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  background-color: #ffffff;
+}
+
+.ac-catering-option-card:hover {
+  border-color: #641e2b;
+  background-color: #fdfafa;
+}
+
+.ac-catering-option-card.selected {
+  border-color: #641e2b;
+  background-color: #faf0f2;
+  box-shadow: 0 0 0 1px #641e2b;
+}
+
+.ac-catering-option-card .form-check-input {
+  margin-top: 0.2rem;
+  cursor: pointer;
+}
+
+.ac-catering-option-card .form-check-input:checked {
+  background-color: #641e2b;
+  border-color: #641e2b;
+}
+
+.ac-catering-option-label {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #2a1b1e;
+  margin-bottom: 0.2rem;
+}
+
+.ac-catering-option-desc {
+  font-size: 0.82rem;
+  color: #6c757d;
+  margin-bottom: 0;
+  line-height: 1.4;
+}
+
+/* ── Submit Button ─────────────────────────────────────────── */
+.ac-btn-submit-enquiry {
+  background: linear-gradient(135deg, #641e2b 0%, #843b49 100%);
+  color: #ffffff;
+  font-size: 1.05rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 12px;
+  padding: 0.85rem 2rem;
+  box-shadow: 0 4px 15px rgba(100, 30, 43, 0.3);
+  transition: all 0.25s ease;
+  width: 100%;
+}
+
+.ac-btn-submit-enquiry:hover:not(:disabled) {
+  background: linear-gradient(135deg, #45131d 0%, #641e2b 100%);
+  box-shadow: 0 6px 20px rgba(100, 30, 43, 0.45);
+  transform: translateY(-2px);
+  color: #ffffff;
+}
+
+.ac-btn-submit-enquiry:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ── Spam honeypot ─────────────────────────────────────────── */
+.ac-hp-field {
+  display: none !important;
+  visibility: hidden;
+  position: absolute;
+  left: -9999px;
+}
+
+/* ── Success State ─────────────────────────────────────────── */
+.ac-success-card {
+  background-color: #ffffff;
+  border: 1px solid #e8dede;
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(100, 30, 43, 0.08);
+  padding: 3rem 2.5rem;
+  text-align: center;
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+@media (max-width: 767.98px) {
+  .ac-success-card {
+    padding: 2rem 1.25rem;
+  }
+}
+
+.ac-success-icon-wrap {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: #eafaf1;
+  color: #25d366;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.25rem;
+  margin: 0 auto 1.5rem;
+}
+
+.ac-success-title {
+  color: #2a1b1e;
+  font-weight: 700;
+  font-size: 1.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.ac-success-subtitle {
+  color: #554448;
+  font-size: 1rem;
+  max-width: 600px;
+  margin: 0 auto 1.75rem;
+  line-height: 1.5;
+}
+
+.ac-ref-badge-box {
+  background: #faf4f5;
+  border: 1.5px dashed #c9a45c;
+  border-radius: 12px;
+  padding: 1rem 1.5rem;
+  display: inline-block;
+  margin-bottom: 2rem;
+}
+
+.ac-ref-badge-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #843b49;
+  margin-bottom: 0.25rem;
+}
+
+.ac-ref-badge-val {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #641e2b;
+  letter-spacing: 1px;
+}
+
+.ac-summary-grid {
+  background: #fdfbfb;
+  border: 1px solid #f0e6e6;
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  text-align: left;
+  margin-bottom: 2rem;
+}
+
+.ac-summary-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #45131d;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #eee1e1;
+  padding-bottom: 0.5rem;
+}
+
+.ac-summary-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.4rem 0;
+  border-bottom: 1px dashed #f2e9e9;
+  font-size: 0.9rem;
+}
+
+.ac-summary-item:last-child {
+  border-bottom: none;
+}
+
+.ac-summary-key {
+  color: #6c757d;
+  font-weight: 500;
+}
+
+.ac-summary-value {
+  color: #2a1b1e;
+  font-weight: 600;
+  text-align: right;
+}
+
+/* ── FAQ Quick link bar ────────────────────────────────────── */
+.ac-contact-faq-banner {
+  background: #faf4f5;
+  border-radius: 16px;
+  padding: 2rem;
+  border: 1px solid #ebd9dc;
+}

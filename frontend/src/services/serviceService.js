@@ -930,10 +930,25 @@ export async function getAllServices() {
     if (res?.data?.data && Array.isArray(res.data.data) && res.data.data.length > 0) {
       return res.data.data;
     }
-    return defaultServices;
   } catch {
-    return defaultServices;
+    // Check local storage for admin managed services
   }
+
+  try {
+    const stored = JSON.parse(localStorage.getItem('aditi_admin_services') || '[]');
+    if (Array.isArray(stored) && stored.length > 0) {
+      // Only return published services, sorted by displayOrder
+      const published = stored.filter((s) => s.status === 'published');
+      if (published.length > 0) {
+        published.sort((a, b) => (a.displayOrder || 0) - (b.displayOrder || 0));
+        return published;
+      }
+    }
+  } catch {
+    // fallback
+  }
+
+  return defaultServices;
 }
 
 export async function getServiceBySlug(slug) {

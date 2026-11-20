@@ -1,0 +1,265 @@
+/* ============================================================
+   booking.css  –  Aditi Caterers Booking / Enquiry Page Styles
+   ============================================================ */
+
+/* ── Hero Banner ───────────────────────────────────────────── */
+.ac-booking-hero {
+  background: linear-gradient(135deg, #45131d 0%, #641e2b 55%, #843b49 100%);
+  min-height: 320px;
+  display: flex;
+  align-items: center;
+  padding: 4rem 0 3.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.ac-booking-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+.ac-booking-hero .breadcrumb a {
+  color: rgba(255, 255, 255, 0.85);
+  transition: color 0.2s ease;
+}
+
+.ac-booking-hero .breadcrumb a:hover {
+  color: var(--ac-gold, #c9a45c);
+}
+
+/* ── Form Container ────────────────────────────────────────── */
+.ac-booking-container {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.ac-booking-card {
+  background-color: #ffffff;
+  border: 1px solid #e8dede;
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(100, 30, 43, 0.08);
+  padding: 2.5rem;
+}
+
+/* ── Form Section Groups ───────────────────────────────────── */
+.ac-form-section {
+  border-bottom: 1px solid #f2e6e6;
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
+}
+
+.ac-form-section:last-of-type {
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+.ac-form-section-title {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--ac-maroon, #641e2b);
+  margin-bottom: 0.35rem;
+}
+
+.ac-form-section-title i {
+  color: var(--ac-gold, #c9a45c);
+  font-size: 1.25rem;
+}
+
+.ac-form-section-desc {
+  font-size: 0.88rem;
+  color: #6c757d;
+  margin-bottom: 1.35rem;
+}
+
+/* ── Catering Type Option Cards (Radio Group) ──────────────── */
+.ac-catering-option-card {
+  border: 2px solid #e9dddd;
+  border-radius: 14px;
+  padding: 1.25rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background-color: #ffffff;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.ac-catering-option-card:hover {
+  border-color: #cb9b9b;
+  background-color: #fcf8f8;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(100, 30, 43, 0.08);
+}
+
+.ac-catering-option-card.selected {
+  border-color: var(--ac-maroon, #641e2b);
+  background-color: #fdf8f0;
+  box-shadow: 0 6px 18px rgba(100, 30, 43, 0.12);
+}
+
+.ac-catering-badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--ac-maroon, #641e2b);
+  background-color: #f5e4e6;
+  border-radius: 20px;
+  padding: 0.15rem 0.65rem;
+  margin-bottom: 0.5rem;
+}
+
+/* ── Styled Form Controls ──────────────────────────────────── */
+.ac-booking-card .form-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #333333;
+  margin-bottom: 0.4rem;
+}
+
+.ac-booking-card .form-control,
+.ac-booking-card .form-select {
+  border-radius: 10px;
+  border: 1.5px solid #dfd2d2;
+  padding: 0.65rem 0.9rem;
+  font-size: 0.95rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ac-booking-card .form-control:focus,
+.ac-booking-card .form-select:focus {
+  border-color: var(--ac-maroon, #641e2b);
+  box-shadow: 0 0 0 0.2rem rgba(100, 30, 43, 0.15);
+}
+
+.ac-booking-card .form-control.is-invalid,
+.ac-booking-card .form-select.is-invalid {
+  border-color: #dc3545;
+  background-image: none;
+}
+
+.ac-form-error {
+  color: #dc3545;
+  font-size: 0.82rem;
+  font-weight: 500;
+  margin-top: 0.35rem;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+/* ── Character Counter ─────────────────────────────────────── */
+.ac-char-counter {
+  font-size: 0.78rem;
+  color: #888888;
+  text-align: right;
+  margin-top: 0.25rem;
+}
+
+/* ── Disclaimer Box ────────────────────────────────────────── */
+.ac-booking-disclaimer {
+  background-color: #fff9ed;
+  border-left: 4px solid var(--ac-gold, #c9a45c);
+  padding: 0.9rem 1.15rem;
+  border-radius: 8px;
+  font-size: 0.86rem;
+  color: #634d28;
+  margin: 1.5rem 0 1.25rem;
+  line-height: 1.55;
+}
+
+/* ── Process Steps Cards ───────────────────────────────────── */
+.ac-process-card {
+  border: 1px solid #ecdcdc;
+  border-radius: 14px;
+  background-color: #ffffff;
+  padding: 1.4rem;
+  height: 100%;
+  box-shadow: 0 4px 12px rgba(100, 30, 43, 0.05);
+}
+
+.ac-process-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: #fdf0f2;
+  color: var(--ac-maroon, #641e2b);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  margin-bottom: 0.85rem;
+}
+
+/* ── Urgent Assistance Banner ──────────────────────────────── */
+.ac-assistance-banner {
+  background: linear-gradient(135deg, #fdf8f0 0%, #faede8 100%);
+  border: 1px solid #ebd8d4;
+  border-radius: 16px;
+  padding: 1.5rem 2rem;
+  margin-top: 2rem;
+}
+
+/* ── Success Card ──────────────────────────────────────────── */
+.ac-success-card {
+  max-width: 780px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  border-radius: 20px;
+  border: 1px solid #e8dede;
+  box-shadow: 0 10px 36px rgba(100, 30, 43, 0.12);
+  padding: 3rem 2.5rem;
+  text-align: center;
+}
+
+.ac-success-icon-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: #eafaf1;
+  color: #28a745;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.75rem;
+  margin: 0 auto 1.5rem;
+}
+
+.ac-ref-box {
+  background-color: #fdf8f0;
+  border: 1.5px dashed var(--ac-gold, #c9a45c);
+  border-radius: 12px;
+  padding: 1rem 1.5rem;
+  display: inline-block;
+  margin: 1rem 0 1.5rem;
+}
+
+.ac-ref-num {
+  font-family: monospace;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--ac-maroon, #641e2b);
+  letter-spacing: 1px;
+}
+
+/* ── Responsive ────────────────────────────────────────────── */
+@media (max-width: 767.98px) {
+  .ac-booking-hero {
+    min-height: 250px;
+    padding: 3rem 0 2.5rem;
+  }
+  .ac-booking-card {
+    padding: 1.5rem 1.25rem;
+    border-radius: 16px;
+  }
+  .ac-success-card {
+    padding: 2rem 1.25rem;
+  }
+}

@@ -11,6 +11,17 @@ const api = axios.create({
   },
 });
 
+// Request interceptor to attach JWT token if present
+api.interceptors.request.use((config) => {
+  const token =
+    localStorage.getItem('aditi_admin_token') ||
+    sessionStorage.getItem('aditi_admin_token');
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
+  }
+  return config;
+});
+
 // Response interceptor for consistent error handling
 api.interceptors.response.use(
   (response) => response,
