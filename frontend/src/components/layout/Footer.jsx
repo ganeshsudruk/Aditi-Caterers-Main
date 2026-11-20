@@ -151,6 +151,10 @@ export default function Footer() {
             <Link to="/booking" className="text-warning text-decoration-none">
               {t.nav.bookNow}
             </Link>
+            <span>•</span>
+            <Link to="/admin/login" className="text-warning text-decoration-none">
+              {t.nav.bookNow}
+            </Link>
           </div>
         </div>
       </div>
