@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useLanguage } from '../../../context/LanguageContext';
 import SectionHeading from '../../../components/common/SectionHeading';
-import { getAllReviewsFromStorage } from '../../../services/reviewAdminService';
+import api from '../../../services/api';
 
 export default function TestimonialsPage() {
   const { language, t } = useLanguage();
@@ -16,28 +16,18 @@ export default function TestimonialsPage() {
     let isMounted = true;
     setLoading(true);
 
-    fetch('/api/public/reviews')
+    api.get('/reviews/public/all')
       .then((res) => {
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        return res.json();
-      })
-      .then((data) => {
-        if (isMounted) {
-          const list = Array.isArray(data) ? data : (data.data || []);
+        if (isMounted && res?.data) {
+          const list = Array.isArray(res.data.data) ? res.data.data : (Array.isArray(res.data) ? res.data : []);
           setReviews(list.filter((r) => r.status === 'published' && r.consent?.granted));
           setLoading(false);
         }
       })
-      .catch(() => {
+      .catch((err) => {
+        console.error('Failed to load public reviews:', err);
         if (isMounted) {
-          // Fallback to localStorage
-          try {
-            const all = getAllReviewsFromStorage();
-            const published = all.filter((r) => r.status === 'published' && r.consent?.granted);
-            setReviews(published);
-          } catch {
-            setReviews([]);
-          }
+          setReviews([]);
           setLoading(false);
         }
       });

@@ -1095,5 +1095,24 @@
     "accepted": "Accepted",
     "bookingReportTitle": "Event Bookings & Scheduling Report",
     "customerReportTitle": "Customer & Client Engagement Report"
+  },
+  "websiteSettingsAdmin": {
+    "pageTitle": "Website Settings Management",
+    "pageSubtitle": "Configure business profiles, contact info, branding assets, homepage sections, and bilingual content.",
+    "saveBtn": "Save Changes",
+    "publishBtn": "Publish Live",
+    "resetBtn": "Reset to Saved",
+    "savedSuccess": "Settings saved successfully!",
+    "publishSuccess": "Website settings published live to public site!",
+    "tabGeneral": "General",
+    "tabBusiness": "Business",
+    "tabContact": "Contact",
+    "tabBranding": "Branding",
+    "tabHomepage": "Homepage",
+    "tabFooter": "Footer",
+    "tabSocial": "Social Links",
+    "tabSeo": "SEO",
+    "tabEnquiry": "Enquiry Form",
+    "tabNotifications": "Notifications"
   }
 }

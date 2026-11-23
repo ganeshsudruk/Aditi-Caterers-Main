@@ -995,13 +995,32 @@ export async function getMenuItems(categorySlug = null, filters = {}) {
   try {
     const params = new URLSearchParams();
     if (categorySlug && categorySlug !== 'all') params.append('category', categorySlug);
-    if (filters.dietary && filters.dietary !== 'all') params.append('dietary', filters.dietary);
+    if (filters.dietary && filters.dietary !== 'all') {
+      params.append('dietary', filters.dietary);
+      params.append('foodType', filters.dietary);
+    }
     if (filters.spiceLevel && filters.spiceLevel !== 'all') params.append('spice', filters.spiceLevel);
-    if (filters.search) params.append('q', filters.search);
+    if (filters.search) {
+      params.append('search', filters.search);
+      params.append('q', filters.search);
+    }
 
-    const res = await api.get(`/public/menu/items?${params.toString()}`);
-    if (res?.data?.data && Array.isArray(res.data.data) && res.data.data.length > 0) {
-      return res.data.data;
+    const res = await api.get(`/public/menu?${params.toString()}`);
+    const itemsData = res?.data?.data?.items || (Array.isArray(res?.data?.data) ? res.data.data : null);
+    if (Array.isArray(itemsData) && itemsData.length > 0) {
+      return itemsData.map((item) => ({
+        ...item,
+        id: item._id || item.id,
+        categorySlug: item.category?.slug || item.categorySlug || item.categoryId || (typeof item.category === 'string' ? item.category : ''),
+        categoryId: item.categoryId || item.category?._id || item.category?.id || item.category || '',
+        shortDescription: item.shortDescription || item.description || { en: '', mr: '' },
+        dietary: item.dietary || {
+          isVeg: item.foodType === 'veg' || item.foodType === 'jain',
+          isJain: item.foodType === 'jain',
+          isVegan: item.dietaryType === 'vegan',
+        },
+        spiceLevel: item.spiceLevel !== undefined ? item.spiceLevel : 1,
+      }));
     }
   } catch {
     // Check local storage for admin managed items
@@ -1016,15 +1035,24 @@ export async function getMenuItems(categorySlug = null, filters = {}) {
         .filter((i) => i.status === 'published')
         .map((i) => ({
           ...i,
-          shortDescription: i.description || { en: '', mr: '' },
-          dietary: {
+          categorySlug: i.categorySlug || i.categoryId || '',
+          categoryId: i.categoryId || i.categorySlug || '',
+          shortDescription: i.shortDescription || i.description || { en: '', mr: '' },
+          dietary: i.dietary || {
             isVeg: i.foodType === 'veg' || i.foodType === 'jain',
             isJain: i.foodType === 'jain',
             isVegan: false,
           },
+          spiceLevel: i.spiceLevel !== undefined ? i.spiceLevel : 1,
         }));
       if (published.length > 0) {
-        items = published;
+        const itemMap = new Map();
+        defaultMenuItems.forEach((d) => itemMap.set(d.id, d));
+        published.forEach((p) => {
+          const existing = itemMap.get(p.id) || {};
+          itemMap.set(p.id, { ...existing, ...p });
+        });
+        items = Array.from(itemMap.values());
       }
     }
   } catch {
@@ -1032,17 +1060,27 @@ export async function getMenuItems(categorySlug = null, filters = {}) {
   }
 
   if (categorySlug && categorySlug !== 'all') {
-    items = items.filter(
-      (item) => item.categorySlug.toLowerCase() === categorySlug.toLowerCase() || item.categoryId === categorySlug
-    );
+    const target = categorySlug.toLowerCase();
+    items = items.filter((item) => {
+      const itemCatSlug = (item.categorySlug || '').toLowerCase();
+      const itemCatId = (item.categoryId || '').toString().toLowerCase();
+      const itemCatObjSlug = (item.category?.slug || '').toLowerCase();
+      const itemCatObjId = (item.category?._id || item.category?.id || '').toString().toLowerCase();
+      return (
+        itemCatSlug === target ||
+        itemCatId === target ||
+        itemCatObjSlug === target ||
+        itemCatObjId === target
+      );
+    });
   }
 
   if (filters.dietary === 'veg') {
-    items = items.filter((item) => item.dietary.isVeg);
+    items = items.filter((item) => item.dietary?.isVeg);
   } else if (filters.dietary === 'jain') {
-    items = items.filter((item) => item.dietary.isJain);
+    items = items.filter((item) => item.dietary?.isJain);
   } else if (filters.dietary === 'vegan') {
-    items = items.filter((item) => item.dietary.isVegan);
+    items = items.filter((item) => item.dietary?.isVegan);
   }
 
   if (filters.spiceLevel !== undefined && filters.spiceLevel !== 'all') {
@@ -1055,10 +1093,10 @@ export async function getMenuItems(categorySlug = null, filters = {}) {
   if (filters.search && filters.search.trim() !== '') {
     const q = filters.search.toLowerCase().trim();
     items = items.filter((item) => {
-      const enName = item.name.en.toLowerCase();
-      const mrName = item.name.mr.toLowerCase();
-      const enDesc = (item.shortDescription.en || '').toLowerCase();
-      const mrDesc = (item.shortDescription.mr || '').toLowerCase();
+      const enName = (item.name?.en || '').toLowerCase();
+      const mrName = (item.name?.mr || '').toLowerCase();
+      const enDesc = (item.shortDescription?.en || '').toLowerCase();
+      const mrDesc = (item.shortDescription?.mr || '').toLowerCase();
       return enName.includes(q) || mrName.includes(q) || enDesc.includes(q) || mrDesc.includes(q);
     });
   }

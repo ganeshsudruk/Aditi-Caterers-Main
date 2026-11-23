@@ -1,109 +1,80 @@
-const MenuCategory = require('../models/MenuCategory');
-const MenuItem = require('../models/MenuItem');
+const asyncHandler = require('../utils/asyncHandler');
+const ApiResponse = require('../utils/ApiResponse');
+const menuCategoryService = require('../services/menuCategoryService');
 
 /**
- * GET /api/admin/menu/categories
+ * Admin: Get all categories
+ * GET /api/v1/admin/menu/categories or /api/v1/admin/menu-categories
  */
-exports.getAdminCategories = async (req, res, next) => {
-  try {
-    const categories = await MenuCategory.find().sort({ displayOrder: 1 }).lean();
-
-    const counts = await Promise.all(
-      categories.map((c) =>
-        MenuItem.countDocuments({ categoryId: c._id, status: { $ne: 'archived' } })
-      )
-    );
-
-    const enriched = categories.map((c, i) => ({
-      ...c,
-      id: c._id,
-      itemCount: counts[i] || 0,
-    }));
-
-    res.status(200).json({
-      success: true,
-      data: {
-        items: enriched,
-        total: enriched.length,
-      },
-    });
-  } catch (error) {
-    next(error);
-  }
-};
+const getAdminCategories = asyncHandler(async (req, res) => {
+  const result = await menuCategoryService.getAdminCategories();
+  res.status(200).json(
+    new ApiResponse(200, result, 'Categories retrieved successfully')
+  );
+});
 
 /**
- * POST /api/admin/menu/categories
+ * Admin: Create category
+ * POST /api/v1/admin/menu/categories
  */
-exports.createCategory = async (req, res, next) => {
-  try {
-    const { name, slug, description, displayOrder, status } = req.body;
-
-    if (!name?.en || !name.en.trim()) {
-      return res.status(400).json({ success: false, message: 'English category name is required.' });
-    }
-
-    const newCat = new MenuCategory({
-      name,
-      slug: slug || name.en.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, ''),
-      description,
-      displayOrder: parseInt(displayOrder, 10) || 1,
-      status: status || 'active',
-      createdBy: req.admin?._id,
-    });
-
-    await newCat.save();
-
-    res.status(201).json({
-      success: true,
-      message: 'Category created successfully.',
-      data: newCat,
-    });
-  } catch (error) {
-    next(error);
-  }
-};
+const createCategory = asyncHandler(async (req, res) => {
+  const result = await menuCategoryService.createCategory(req.body, req.user);
+  res.status(201).json(
+    new ApiResponse(201, result, 'Category created successfully')
+  );
+});
 
 /**
- * PUT / PATCH /api/admin/menu/categories/:id
+ * Admin: Update category
+ * PUT / PATCH /api/v1/admin/menu/categories/:id
  */
-exports.updateCategory = async (req, res, next) => {
-  try {
-    const cat = await MenuCategory.findById(req.params.id);
-    if (!cat) {
-      return res.status(404).json({ success: false, message: 'Category not found.' });
-    }
-
-    Object.assign(cat, req.body);
-    cat.updatedBy = req.admin?._id;
-    await cat.save();
-
-    res.status(200).json({
-      success: true,
-      message: 'Category updated successfully.',
-      data: cat,
-    });
-  } catch (error) {
-    next(error);
-  }
-};
+const updateCategory = asyncHandler(async (req, res) => {
+  const result = await menuCategoryService.updateCategory(req.params.id, req.body, req.user);
+  res.status(200).json(
+    new ApiResponse(200, result, 'Category updated successfully')
+  );
+});
 
 /**
- * PATCH /api/admin/menu/categories/:id/status
+ * Admin: Update category status
+ * PATCH /api/v1/admin/menu/categories/:id/status
  */
-exports.updateCategoryStatus = async (req, res, next) => {
-  try {
-    const { status } = req.body;
-    const cat = await MenuCategory.findByIdAndUpdate(
-      req.params.id,
-      { status, updatedBy: req.admin?._id },
-      { new: true }
-    );
-    if (!cat) {
-      return res.status(404).json({ success: false, message: 'Category not found.' });
-    }
-    res.status(200).json({ success: true, message: `Category status updated to ${status}.`, data: cat });
-  } catch (error) {
-    next(error);
-  }
+const updateCategoryStatus = asyncHandler(async (req, res) => {
+  const { status } = req.body;
+  const result = await menuCategoryService.updateCategoryStatus(req.params.id, status, req.user);
+  res.status(200).json(
+    new ApiResponse(200, result, `Category status updated to ${status}`)
+  );
+});
+
+/**
+ * Admin: Delete category
+ * DELETE /api/v1/admin/menu/categories/:id
+ */
+const deleteCategory = asyncHandler(async (req, res) => {
+  const result = await menuCategoryService.deleteCategory(req.params.id, req.user);
+  res.status(200).json(
+    new ApiResponse(200, null, result.message)
+  );
+});
+
+/**
+ * Admin: Reorder categories
+ * PATCH /api/v1/admin/menu/categories/reorder
+ */
+const reorderCategories = asyncHandler(async (req, res) => {
+  const items = req.body.items || req.body.orders || [];
+  const result = await menuCategoryService.reorderCategories(items);
+  res.status(200).json(
+    new ApiResponse(200, null, result.message)
+  );
+});
+
+module.exports = {
+  getAdminCategories,
+  createCategory,
+  updateCategory,
+  updateCategoryStatus,
+  deleteCategory,
+  reorderCategories,
 };

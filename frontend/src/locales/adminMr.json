@@ -1098,5 +1098,24 @@
     "accepted": "स्वीकृत",
     "bookingReportTitle": "समारंभ बुकिंग आणि वेळापत्रक अहवाल",
     "customerReportTitle": "ग्राहक संबंध व संपर्क अहवाल"
+  },
+  "websiteSettingsAdmin": {
+    "pageTitle": "वेबसाइट सेटिंग्ज व्यवस्थापन",
+    "pageSubtitle": "व्यवसाय माहिती, संपर्क तपशील, ब्रँडिंग, मुख्यपृष्ठ आणि द्विभाषिक मजकूर व्यवस्थापित करा.",
+    "saveBtn": "बदल जतन करा",
+    "publishBtn": "थेट प्रकाशित करा",
+    "resetBtn": "मागील स्थितीत आणा",
+    "savedSuccess": "सेटिंग्ज यशस्वीरीत्या जतन केल्या!",
+    "publishSuccess": "वेबसाइट सेटिंग्ज थेट वेबसाइटवर प्रकाशित झाल्या!",
+    "tabGeneral": "सामान्य",
+    "tabBusiness": "व्यवसाय माहिती",
+    "tabContact": "संपर्क तपशील",
+    "tabBranding": "ब्रँडिंग",
+    "tabHomepage": "मुख्यपृष्ठ",
+    "tabFooter": "फूटर",
+    "tabSocial": "सोशल लिंक्स",
+    "tabSeo": "एसईओ (SEO)",
+    "tabEnquiry": "चौकशी फॉर्म",
+    "tabNotifications": "सूचना"
   }
 }

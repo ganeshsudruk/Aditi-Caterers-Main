@@ -77,7 +77,9 @@ export default function MenuCategoryPage() {
       });
     }
 
-    if (dietaryFilter === 'jain') {
+    if (dietaryFilter === 'veg') {
+      results = results.filter((item) => item.dietary?.isVeg);
+    } else if (dietaryFilter === 'jain') {
       results = results.filter((item) => item.dietary?.isJain);
     }
 

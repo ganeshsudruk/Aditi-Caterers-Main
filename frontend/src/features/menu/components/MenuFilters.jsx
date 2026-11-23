@@ -79,8 +79,8 @@ export default function MenuFilters({
             >
               <option value="all">{fText.allCategories || (language === 'mr' ? 'सर्व विभाग' : 'All Categories')}</option>
               {categories.map((c) => (
-                <option key={c.id || c.slug} value={c.slug}>
-                  {c.name[language] || c.name.en}
+                <option key={c.id || c.slug} value={c.slug || c.id}>
+                  {c.name?.[language] || c.name?.en || c.name?.mr || c.slug || c.id}
                 </option>
               ))}
             </select>

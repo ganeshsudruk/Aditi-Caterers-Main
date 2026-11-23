@@ -14,6 +14,7 @@ import ManageAwardsPage from '../admin/awards/pages/ManageAwardsPage';
 import ManageReviewsPage from '../admin/reviews/pages/ManageReviewsPage';
 import QuotationsPage from '../admin/quotations/pages/QuotationsPage';
 import ReportsPage from '../admin/reports/pages/ReportsPage';
+import SettingsPage from '../admin/settings/pages/SettingsPage';
 import AdminLayout from '../components/admin/AdminLayout';
 import AdminProtectedRoute from '../components/admin/AdminProtectedRoute';
 
@@ -53,7 +54,7 @@ export default function AdminRoutes() {
         <Route path="quotations" element={<QuotationsPage />} />
         <Route path="reports" element={<ReportsPage />} />
         <Route path="faqs" element={<DashboardPage />} />
-        <Route path="settings" element={<DashboardPage />} />
+        <Route path="settings" element={<SettingsPage />} />
       </Route>
 
       {/* Fallback */}

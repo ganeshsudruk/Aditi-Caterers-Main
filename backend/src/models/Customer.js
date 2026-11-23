@@ -70,7 +70,7 @@ const customerSchema = new mongoose.Schema(
 );
 
 // Pre-save hook to ensure normalizedPhone is populated
-customerSchema.pre('save', function (next) {
+customerSchema.pre('save', function () {
   if (this.phone) {
     let digits = String(this.phone).replace(/\D/g, '');
     if (digits.length === 12 && digits.startsWith('91')) {
@@ -78,7 +78,6 @@ customerSchema.pre('save', function (next) {
     }
     this.normalizedPhone = digits;
   }
-  next();
 });
 
 // Indexes for query performance

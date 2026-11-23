@@ -30,8 +30,12 @@ const menuCategorySchema = new mongoose.Schema(
     },
     displayOrder: {
       type: Number,
-      default: 1,
-      min: 1,
+      default: 0,
+      index: true,
+    },
+    isActive: {
+      type: Boolean,
+      default: true,
       index: true,
     },
     status: {
@@ -40,18 +44,36 @@ const menuCategorySchema = new mongoose.Schema(
       default: 'active',
       index: true,
     },
+    deletedAt: {
+      type: Date,
+      default: null,
+      index: true,
+    },
     createdBy: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Admin',
+      default: null,
     },
     updatedBy: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Admin',
+      default: null,
     },
   },
   {
     timestamps: true,
   }
 );
+
+// Pre-save to sync status and isActive
+menuCategorySchema.pre('save', function () {
+  if (this.status === 'inactive' || this.status === 'archived') {
+    this.isActive = false;
+  } else if (this.status === 'active') {
+    this.isActive = true;
+  }
+});
+
+menuCategorySchema.index({ isActive: 1, deletedAt: 1, displayOrder: 1 });
 
 module.exports = mongoose.model('MenuCategory', menuCategorySchema);

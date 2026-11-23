@@ -33,6 +33,7 @@ export default function FoodMenuPage() {
   const [allDishes, setAllDishes] = useState(defaultMenuItems);
   const [filteredDishes, setFilteredDishes] = useState(defaultMenuItems);
   const [searchQuery, setSearchQuery] = useState('');
+  const [categoryFilter, setCategoryFilter] = useState('all');
   const [dietaryFilter, setDietaryFilter] = useState('all');
   const [spiceFilter, setSpiceFilter] = useState('all');
   const [loading, setLoading] = useState(true);
@@ -63,6 +64,23 @@ export default function FoodMenuPage() {
   const applyFilters = useCallback(() => {
     let results = [...allDishes];
 
+    // Category Filter
+    if (categoryFilter && categoryFilter !== 'all') {
+      const catLower = categoryFilter.toLowerCase();
+      results = results.filter((item) => {
+        const itemCatSlug = (item.categorySlug || '').toLowerCase();
+        const itemCatId = (item.categoryId || '').toString().toLowerCase();
+        const itemCatObjSlug = (item.category?.slug || '').toLowerCase();
+        const itemCatObjId = (item.category?._id || item.category?.id || '').toString().toLowerCase();
+        return (
+          itemCatSlug === catLower ||
+          itemCatId === catLower ||
+          itemCatObjSlug === catLower ||
+          itemCatObjId === catLower
+        );
+      });
+    }
+
     if (searchQuery.trim()) {
       const q = searchQuery.toLowerCase();
       results = results.filter((item) => {
@@ -73,7 +91,9 @@ export default function FoodMenuPage() {
       });
     }
 
-    if (dietaryFilter === 'jain') {
+    if (dietaryFilter === 'veg') {
+      results = results.filter((item) => item.dietary?.isVeg);
+    } else if (dietaryFilter === 'jain') {
       results = results.filter((item) => item.dietary?.isJain);
     }
 
@@ -83,7 +103,7 @@ export default function FoodMenuPage() {
     }
 
     setFilteredDishes(results);
-  }, [allDishes, searchQuery, dietaryFilter, spiceFilter]);
+  }, [allDishes, categoryFilter, searchQuery, dietaryFilter, spiceFilter]);
 
   useEffect(() => {
     applyFilters();
@@ -129,6 +149,9 @@ export default function FoodMenuPage() {
               setDietaryFilter={setDietaryFilter}
               spiceFilter={spiceFilter}
               setSpiceFilter={setSpiceFilter}
+              categories={categories}
+              activeCategory={categoryFilter}
+              onSelectCategory={setCategoryFilter}
             />
             <MenuSearch
               searchQuery={searchQuery}
@@ -167,6 +190,7 @@ export default function FoodMenuPage() {
                   setSearchQuery('');
                   setDietaryFilter('all');
                   setSpiceFilter('all');
+                  setCategoryFilter('all');
                 }}
               >
                 <i className="bi bi-arrow-counterclockwise me-2" />

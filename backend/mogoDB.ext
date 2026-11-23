@@ -7,3 +7,8 @@ g01EpMSid40lXN4S
 url -mongodb+srv://<db_username>:<db_password>@aditi-cateres.1vgkiuj.mongodb.net/
 
 mongodb+srv://<db_username>:<db_password>@aditi-cateres.1vgkiuj.mongodb.net/
+
+
+
+mongodb+srv://sudrukganesh_db_user:<db_password>@aditi-cateres.1vgkiuj.mongodb.net/
+Replace <db_password> with the password for the sudrukganesh_db_user database user. Ensure any option params are URL encoded.
