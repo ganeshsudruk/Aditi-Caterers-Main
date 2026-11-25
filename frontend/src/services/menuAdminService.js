@@ -1,5 +1,4 @@
 import api from './api';
-import { defaultCategories, defaultMenuItems } from './menuService';
 
 export function generateSlug(text) {
   if (!text) return `item-${Date.now()}`;

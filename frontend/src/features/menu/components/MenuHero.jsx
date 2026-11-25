@@ -1,8 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../../../context/LanguageContext';
-import { defaultCategories } from '../../../services/menuService';
 
-export default function MenuHero({ searchQuery, setSearchQuery, onSearchSubmit }) {
+export default function MenuHero({ searchQuery, setSearchQuery, onSearchSubmit, categories = [] }) {
   const { language, t } = useLanguage();
   const heroText = t.menuPage?.hero || {};
 
@@ -52,20 +51,22 @@ export default function MenuHero({ searchQuery, setSearchQuery, onSearchSubmit }
           />
         </form>
 
-        {/* Quick Category Badges */}
-        <div className="d-flex flex-wrap justify-content-center gap-2 mt-4">
-          {defaultCategories.slice(0, 6).map((cat) => (
-            <Link
-              key={cat.id}
-              to={`/menu/${cat.slug}`}
-              className="badge bg-white bg-opacity-15 text-white text-decoration-none px-3 py-2 rounded-pill small fw-medium"
-              style={{ backdropFilter: 'blur(4px)' }}
-            >
-              <i className={`bi ${cat.icon} me-1 text-gold`} />
-              <span>{cat.name[language] || cat.name.en}</span>
-            </Link>
-          ))}
-        </div>
+        {/* Quick Category Badges (Only rendered if categories exist) */}
+        {categories.length > 0 && (
+          <div className="d-flex flex-wrap justify-content-center gap-2 mt-4">
+            {categories.slice(0, 6).map((cat) => (
+              <Link
+                key={cat.id || cat._id || cat.slug}
+                to={`/menu/${cat.slug}`}
+                className="badge bg-white bg-opacity-15 text-white text-decoration-none px-3 py-2 rounded-pill small fw-medium"
+                style={{ backdropFilter: 'blur(4px)' }}
+              >
+                <i className={`bi ${cat.icon || 'bi-egg-fried'} me-1 text-gold`} />
+                <span>{cat.name?.[language] || cat.name?.en || cat.name}</span>
+              </Link>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );

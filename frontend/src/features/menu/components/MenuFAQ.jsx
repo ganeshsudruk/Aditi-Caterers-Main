@@ -1,16 +1,29 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useLanguage } from '../../../context/LanguageContext';
 import SectionHeading from '../../../components/common/SectionHeading';
-import { defaultMenuFaqs } from '../../../services/menuService';
+import { getMenuFaqs } from '../../../services/menuService';
 
-export default function MenuFAQ({ faqs = defaultMenuFaqs }) {
+export default function MenuFAQ({ faqs: initialFaqs }) {
   const { language, t } = useLanguage();
   const faqText = t.menuPage?.faq || {};
+  const [faqs, setFaqs] = useState(initialFaqs || []);
   const [openId, setOpenId] = useState(1);
+
+  useEffect(() => {
+    if (initialFaqs && initialFaqs.length > 0) {
+      setFaqs(initialFaqs);
+    } else {
+      getMenuFaqs()
+        .then((data) => setFaqs(data || []))
+        .catch(() => setFaqs([]));
+    }
+  }, [initialFaqs]);
 
   const toggle = (id) => {
     setOpenId((prev) => (prev === id ? null : id));
   };
+
+  if (!faqs || faqs.length === 0) return null;
 
   return (
     <section className="py-5 bg-white" id="menu-faq" aria-label="Food Menu Frequently Asked Questions">

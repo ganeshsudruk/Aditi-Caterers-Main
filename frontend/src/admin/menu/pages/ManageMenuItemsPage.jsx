@@ -43,6 +43,7 @@ export default function ManageMenuItemsPage() {
     actionType: 'publish',
   });
   const [submittingAction, setSubmittingAction] = useState(false);
+  const [feedback, setFeedback] = useState(null);
 
   const [refreshTrigger, setRefreshTrigger] = useState(0);
 
@@ -86,12 +87,20 @@ export default function ManageMenuItemsPage() {
   };
 
   const handleSaveItem = async (payload, editId) => {
-    if (editId) {
-      await updateMenuItem(editId, payload);
-    } else {
-      await createMenuItem(payload);
+    try {
+      if (editId) {
+        await updateMenuItem(editId, payload);
+        setFeedback({ type: 'success', message: 'Menu item updated successfully in MongoDB.' });
+      } else {
+        await createMenuItem(payload);
+        setFeedback({ type: 'success', message: 'Menu item saved successfully to MongoDB.' });
+      }
+      setRefreshTrigger((prev) => prev + 1);
+    } catch (err) {
+      const msg = err?.response?.data?.message || err.message || 'Failed to save menu item.';
+      setFeedback({ type: 'danger', message: msg });
+      throw err;
     }
-    setRefreshTrigger((prev) => prev + 1);
   };
 
   const handleOpenEdit = (item) => {
@@ -119,7 +128,15 @@ export default function ManageMenuItemsPage() {
 
       await updateMenuItemStatus(item.id, targetStatus);
       setActionModal({ isOpen: false, item: null, actionType: 'publish' });
+      setFeedback({
+        type: 'success',
+        message: `Menu item "${item.name?.en || ''}" status updated to ${targetStatus}.`,
+      });
       setRefreshTrigger((prev) => prev + 1);
+    } catch (err) {
+      const msg = err?.response?.data?.message || err.message || 'Failed to update menu item status.';
+      setFeedback({ type: 'danger', message: msg });
+      setActionModal({ isOpen: false, item: null, actionType: 'publish' });
     } finally {
       setSubmittingAction(false);
     }
@@ -134,6 +151,22 @@ export default function ManageMenuItemsPage() {
 
   return (
     <div>
+      {feedback && (
+        <div
+          className={`alert alert-${feedback.type} alert-dismissible fade show d-flex align-items-center mb-3`}
+          role="alert"
+        >
+          <i className={`bi ${feedback.type === 'success' ? 'bi-check-circle-fill' : 'bi-exclamation-triangle-fill'} me-2`} />
+          <div>{feedback.message}</div>
+          <button
+            type="button"
+            className="btn-close"
+            onClick={() => setFeedback(null)}
+            aria-label="Close"
+          />
+        </div>
+      )}
+
       {/* Page Header */}
       <div className="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-4 gap-3">
         <div>

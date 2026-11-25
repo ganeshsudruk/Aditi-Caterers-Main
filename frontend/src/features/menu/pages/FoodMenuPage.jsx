@@ -1,8 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useLanguage } from '../../../context/LanguageContext';
 import {
-  defaultCategories,
-  defaultMenuItems,
   getAllCategories,
   getFeaturedDishes,
   getMenuItems,
@@ -28,37 +26,70 @@ import SectionHeading from '../../../components/common/SectionHeading';
 export default function FoodMenuPage() {
   const { language, t } = useLanguage();
 
-  const [categories, setCategories] = useState(defaultCategories);
+  const [categories, setCategories] = useState([]);
   const [featuredDishes, setFeaturedDishes] = useState([]);
-  const [allDishes, setAllDishes] = useState(defaultMenuItems);
-  const [filteredDishes, setFilteredDishes] = useState(defaultMenuItems);
+  const [allDishes, setAllDishes] = useState([]);
+  const [filteredDishes, setFilteredDishes] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
   const [categoryFilter, setCategoryFilter] = useState('all');
   const [dietaryFilter, setDietaryFilter] = useState('all');
   const [spiceFilter, setSpiceFilter] = useState('all');
   const [loading, setLoading] = useState(true);
+  const [serverError, setServerError] = useState(null);
 
   // Set document title
   useEffect(() => {
     document.title = t.menuPage?.metaTitle || 'Food Menu | Aditi Caterers';
   }, [language, t]);
 
-  // Load data on mount
-  useEffect(() => {
+  const loadMenuData = useCallback(() => {
     setLoading(true);
+    setServerError(null);
+
     Promise.all([
-      getAllCategories().catch(() => defaultCategories),
-      getFeaturedDishes().catch(() => []),
-      getMenuItems(null, {}).catch(() => defaultMenuItems),
+      getAllCategories(),
+      getFeaturedDishes(),
+      getMenuItems(null, {}),
     ])
       .then(([cats, featured, items]) => {
-        setCategories(cats || defaultCategories);
+        setCategories(cats || []);
         setFeaturedDishes(featured || []);
-        setAllDishes(items || defaultMenuItems);
-        setFilteredDishes(items || defaultMenuItems);
+        setAllDishes(items || []);
+        setFilteredDishes(items || []);
+        setServerError(null);
+      })
+      .catch((err) => {
+        console.error('Failed to load menu data from backend:', err);
+        setServerError(
+          language === 'mr'
+            ? 'सर्व्हरशी संपर्क होऊ शकला नाही. कृपया बॅकएंड सर्व्हर सुरू असल्याची खात्री करा आणि पुन्हा प्रयत्न करा.'
+            : 'Unable to connect to the backend server. Please ensure the backend server is running and try again.'
+        );
+        setCategories([]);
+        setFeaturedDishes([]);
+        setAllDishes([]);
+        setFilteredDishes([]);
       })
       .finally(() => setLoading(false));
-  }, []);
+  }, [language]);
+
+  // Load data on mount and refresh when returning to the tab
+  useEffect(() => {
+    loadMenuData();
+
+    const handleVisibilityOrFocus = () => {
+      if (document.visibilityState === 'visible') {
+        loadMenuData();
+      }
+    };
+
+    window.addEventListener('focus', handleVisibilityOrFocus);
+    document.addEventListener('visibilitychange', handleVisibilityOrFocus);
+    return () => {
+      window.removeEventListener('focus', handleVisibilityOrFocus);
+      document.removeEventListener('visibilitychange', handleVisibilityOrFocus);
+    };
+  }, [loadMenuData]);
 
   // Apply filters client-side
   const applyFilters = useCallback(() => {
@@ -119,13 +150,14 @@ export default function FoodMenuPage() {
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}
         onSearchSubmit={setSearchQuery}
+        categories={categories}
       />
 
       {/* Introduction */}
       <MenuIntroduction />
 
       {/* Categories Grid */}
-      <MenuCategoriesGrid categories={categories} />
+      {categories.length > 0 && <MenuCategoriesGrid categories={categories} />}
 
       {/* Popular / Featured Dishes */}
       {featuredDishes.length > 0 && (
@@ -142,39 +174,79 @@ export default function FoodMenuPage() {
             centered={true}
           />
 
-          {/* Filters & Search Toolbar */}
-          <div className="d-flex flex-column flex-md-row gap-3 align-items-md-center justify-content-between mb-4 mt-4">
-            <MenuFilters
-              dietaryFilter={dietaryFilter}
-              setDietaryFilter={setDietaryFilter}
-              spiceFilter={spiceFilter}
-              setSpiceFilter={setSpiceFilter}
-              categories={categories}
-              activeCategory={categoryFilter}
-              onSelectCategory={setCategoryFilter}
-            />
-            <MenuSearch
-              searchQuery={searchQuery}
-              setSearchQuery={setSearchQuery}
-            />
-          </div>
+          {/* Server Connection Error Alert */}
+          {serverError && (
+            <div className="alert alert-danger d-flex align-items-center justify-content-between p-4 my-4 rounded-4 shadow-sm" role="alert">
+              <div className="d-flex align-items-center gap-3">
+                <i className="bi bi-exclamation-triangle-fill fs-2 text-danger" />
+                <div>
+                  <h5 className="alert-heading mb-1 fw-bold">
+                    {language === 'mr' ? 'सर्व्हर कनेक्शन त्रुटी' : 'Server Connection Error'}
+                  </h5>
+                  <p className="mb-0 text-muted small">{serverError}</p>
+                </div>
+              </div>
+              <button
+                type="button"
+                className="btn btn-danger btn-sm rounded-pill px-4"
+                onClick={loadMenuData}
+              >
+                <i className="bi bi-arrow-clockwise me-1" />
+                {language === 'mr' ? 'पुन्हा प्रयत्न करा' : 'Retry'}
+              </button>
+            </div>
+          )}
+
+          {/* Filters & Search Toolbar (Only rendered if no server error) */}
+          {!serverError && (
+            <div className="d-flex flex-column flex-md-row gap-3 align-items-md-center justify-content-between mb-4 mt-4">
+              <MenuFilters
+                dietaryFilter={dietaryFilter}
+                setDietaryFilter={setDietaryFilter}
+                spiceFilter={spiceFilter}
+                setSpiceFilter={setSpiceFilter}
+                categories={categories}
+                activeCategory={categoryFilter}
+                onSelectCategory={setCategoryFilter}
+              />
+              <MenuSearch
+                searchQuery={searchQuery}
+                setSearchQuery={setSearchQuery}
+              />
+            </div>
+          )}
 
           {/* Results Count */}
-          <p className="text-muted small mb-3">
-            <strong>{filteredDishes.length}</strong>{' '}
-            {categoryText.itemsFound || (language === 'mr' ? 'पदार्थ आढळले' : 'dishes found')}
-          </p>
+          {!serverError && (
+            <p className="text-muted small mb-3">
+              <strong>{filteredDishes.length}</strong>{' '}
+              {categoryText.itemsFound || (language === 'mr' ? 'पदार्थ आढळले' : 'dishes found')}
+            </p>
+          )}
 
           {loading ? (
             <MenuLoader />
-          ) : filteredDishes.length > 0 ? (
+          ) : serverError ? null : filteredDishes.length > 0 ? (
             <div className="row g-4">
               {filteredDishes.map((item) => (
                 <FoodItemCard key={item.id} item={item} />
               ))}
             </div>
+          ) : allDishes.length === 0 ? (
+            /* Database Empty State */
+            <div className="text-center py-5">
+              <i className="bi bi-journal-x display-4 text-muted mb-3 d-block" />
+              <h4 className="text-muted fw-semibold">
+                {language === 'mr' ? 'कोणतेही मेनू आयटम उपलब्ध नाहीत.' : 'No menu items available.'}
+              </h4>
+              <p className="text-muted small">
+                {language === 'mr'
+                  ? 'कृपया डेटाबेसमध्ये नवीन मेनू आयटम जोडण्यासाठी ॲडमिन पॅनेल तपासा.'
+                  : 'Please check the admin panel to add menu items to the database.'}
+              </p>
+            </div>
           ) : (
-            /* Empty State */
+            /* Filter Empty State */
             <div className="text-center py-5">
               <i className="bi bi-search display-4 text-muted mb-3 d-block" />
               <h4 className="text-muted fw-semibold">

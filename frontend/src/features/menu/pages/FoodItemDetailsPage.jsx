@@ -3,8 +3,6 @@ import { useParams, Link } from 'react-router-dom';
 import { useLanguage } from '../../../context/LanguageContext';
 import { useMenuSelection } from '../../../context/MenuSelectionContext';
 import {
-  defaultCategories,
-  defaultMenuItems,
   getMenuItemById,
   getMenuItems,
 } from '../../../services/menuService';
@@ -25,6 +23,7 @@ export default function FoodItemDetailsPage() {
   const [relatedItems, setRelatedItems] = useState([]);
   const [loading, setLoading] = useState(true);
   const [notFound, setNotFound] = useState(false);
+  const [error, setError] = useState(null);
 
   const menuText = t.menuPage || {};
   const detailText = menuText.detail || {};
@@ -34,14 +33,11 @@ export default function FoodItemDetailsPage() {
   useEffect(() => {
     setLoading(true);
     setNotFound(false);
+    setError(null);
 
     Promise.all([
-      getMenuItemById(itemId).catch(() => {
-        return defaultMenuItems.find((i) => i.slug === itemId || i.id === itemId) || null;
-      }),
-      getMenuItems(category, {}).catch(() => {
-        return defaultMenuItems.filter((i) => i.categorySlug === category);
-      }),
+      getMenuItemById(itemId),
+      getMenuItems(category, {}),
     ])
       .then(([foundItem, catItems]) => {
         if (!foundItem) {
@@ -54,6 +50,11 @@ export default function FoodItemDetailsPage() {
             .slice(0, 3);
           setRelatedItems(related);
         }
+      })
+      .catch((err) => {
+        console.error('Failed to load menu item details:', err);
+        setError('Server is not reachable or failed to load item details.');
+        setNotFound(true);
       })
       .finally(() => setLoading(false));
   }, [category, itemId]);

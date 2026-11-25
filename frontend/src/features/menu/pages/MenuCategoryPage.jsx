@@ -2,9 +2,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { useParams, useLocation, Link } from 'react-router-dom';
 import { useLanguage } from '../../../context/LanguageContext';
 import {
-  defaultCategories,
-  defaultMenuItems,
-  getCategoryBySlug,
+  getAllCategories,
   getMenuItems,
 } from '../../../services/menuService';
 
@@ -23,12 +21,14 @@ export default function MenuCategoryPage() {
   const { language, t } = useLanguage();
 
   const [categoryData, setCategoryData] = useState(null);
+  const [allCategories, setAllCategories] = useState([]);
   const [items, setItems] = useState([]);
   const [filteredItems, setFilteredItems] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
   const [dietaryFilter, setDietaryFilter] = useState('all');
   const [spiceFilter, setSpiceFilter] = useState('all');
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   // Scroll to top on category change
   useEffect(() => {
@@ -41,18 +41,29 @@ export default function MenuCategoryPage() {
   // Load category data and items
   useEffect(() => {
     setLoading(true);
+    setError(null);
     Promise.all([
-      getCategoryBySlug(category).catch(() => {
-        return defaultCategories.find((c) => c.slug === category) || null;
-      }),
-      getMenuItems(category, {}).catch(() => {
-        return defaultMenuItems.filter((i) => i.categorySlug === category);
-      }),
+      getMenuItems(category, {}),
+      getAllCategories(),
     ])
-      .then(([cat, menuItems]) => {
-        setCategoryData(cat);
+      .then(([menuItems, cats]) => {
+        const matchedCat = (cats || []).find(
+          (c) =>
+            c.slug?.toLowerCase() === category?.toLowerCase() ||
+            (c.id || c._id)?.toString() === category
+        ) || null;
+        setCategoryData(matchedCat);
         setItems(menuItems || []);
         setFilteredItems(menuItems || []);
+        setAllCategories(cats || []);
+      })
+      .catch((err) => {
+        console.error('Failed to load category menu from server:', err);
+        setError('Unable to load menu items from the server.');
+        setCategoryData(null);
+        setItems([]);
+        setFilteredItems([]);
+        setAllCategories([]);
       })
       .finally(() => setLoading(false));
   }, [category]);
@@ -103,7 +114,9 @@ export default function MenuCategoryPage() {
   const catImg = categoryData?.image?.url || 'https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=1200&q=80';
 
   // Other categories for navigation
-  const otherCategories = defaultCategories.filter((c) => c.slug !== category).slice(0, 6);
+  const otherCategories = allCategories
+    .filter((c) => (c.slug || c.id) !== category)
+    .slice(0, 6);
 
   return (
     <>
@@ -165,13 +178,27 @@ export default function MenuCategoryPage() {
       <section className="py-5" style={{ backgroundColor: 'var(--ac-bg-light, #fdf8f0)' }}>
         <div className="container-xl">
           {/* Results count */}
-          <p className="text-muted small mb-3">
-            <strong>{filteredItems.length}</strong>{' '}
-            {categoryText.itemsFound || (language === 'mr' ? 'पदार्थ आढळले' : 'dishes found')}
-          </p>
+          {!error && (
+            <p className="text-muted small mb-3">
+              <strong>{filteredItems.length}</strong>{' '}
+              {categoryText.itemsFound || (language === 'mr' ? 'पदार्थ आढळले' : 'dishes found')}
+            </p>
+          )}
 
           {loading ? (
             <MenuLoader />
+          ) : error ? (
+            <div className="alert alert-danger d-flex align-items-center justify-content-between p-4 rounded-4 shadow-sm" role="alert">
+              <div className="d-flex align-items-center gap-3">
+                <i className="bi bi-exclamation-triangle-fill fs-2 text-danger" />
+                <div>
+                  <h5 className="alert-heading mb-1 fw-bold">
+                    {language === 'mr' ? 'सर्व्हर कनेक्शन त्रुटी' : 'Server Connection Error'}
+                  </h5>
+                  <p className="mb-0 small text-muted">{error}</p>
+                </div>
+              </div>
+            </div>
           ) : filteredItems.length > 0 ? (
             <div className="row g-4">
               {filteredItems.map((item) => (

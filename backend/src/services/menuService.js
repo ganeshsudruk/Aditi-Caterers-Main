@@ -8,30 +8,33 @@ const { parsePaginationAndSort, isValidObjectId } = require('../utils/pagination
  * Public: Get published menu items
  */
 const getPublicMenuItems = async (queryParams = {}) => {
-  const { category, search, featured, lang } = queryParams;
+  const { category, search, featured, dietary, foodType } = queryParams;
 
   const query = {
     status: 'published',
     isActive: true,
     deletedAt: null,
   };
+  const andConditions = [];
 
   // Filter by category (by ObjectId or slug)
   if (category && category !== 'all') {
     if (isValidObjectId(category)) {
-      query.$or = [{ category: category }, { categoryId: category }];
+      andConditions.push({ $or: [{ category: category }, { categoryId: category }] });
     } else {
       const catDoc = await MenuCategory.findOne({
         $or: [{ slug: category }, { id: category }],
         deletedAt: null,
       }).lean();
       if (catDoc) {
-        query.$or = [
-          { category: catDoc._id },
-          { categoryId: catDoc._id },
-          { categoryId: category },
-          { categoryId: catDoc.slug },
-        ];
+        andConditions.push({
+          $or: [
+            { category: catDoc._id },
+            { categoryId: catDoc._id },
+            { categoryId: category },
+            { categoryId: catDoc.slug },
+          ],
+        });
       } else {
         query.categoryId = category;
       }
@@ -40,26 +43,45 @@ const getPublicMenuItems = async (queryParams = {}) => {
 
   // Filter featured
   if (featured === 'true' || featured === true) {
-    query.$or = [{ isFeatured: true }, { featured: true }];
+    andConditions.push({ $or: [{ isFeatured: true }, { featured: true }] });
+  }
+
+  // Filter dietary / foodType
+  const ft = foodType || dietary;
+  if (ft && ft !== 'all') {
+    if (ft === 'veg') {
+      andConditions.push({ $or: [{ foodType: 'veg' }, { foodType: 'jain' }] });
+    } else {
+      query.foodType = ft;
+    }
   }
 
   // Search in en/mr names and descriptions
   if (search && search.trim()) {
     const q = search.trim();
-    query.$or = [
-      { 'name.en': { $regex: q, $options: 'i' } },
-      { 'name.mr': { $regex: q, $options: 'i' } },
-      { 'description.en': { $regex: q, $options: 'i' } },
-      { 'description.mr': { $regex: q, $options: 'i' } },
-      { slug: { $regex: q, $options: 'i' } },
-    ];
+    andConditions.push({
+      $or: [
+        { 'name.en': { $regex: q, $options: 'i' } },
+        { 'name.mr': { $regex: q, $options: 'i' } },
+        { 'description.en': { $regex: q, $options: 'i' } },
+        { 'description.mr': { $regex: q, $options: 'i' } },
+        { slug: { $regex: q, $options: 'i' } },
+      ],
+    });
   }
 
-  const { page, limit, skip, sort } = parsePaginationAndSort(
-    queryParams,
-    ['displayOrder', 'createdAt', 'updatedAt', 'name.en', 'name.mr'],
-    'displayOrder'
-  );
+  if (andConditions.length > 0) {
+    query.$and = andConditions;
+  }
+
+  const page = Math.max(1, parseInt(queryParams.page, 10) || 1);
+  const limit = Math.min(500, Math.max(1, parseInt(queryParams.limit, 10) || 500));
+  const skip = (page - 1) * limit;
+
+  const allowedSortFields = ['displayOrder', 'createdAt', 'updatedAt', 'name.en', 'name.mr'];
+  const sortBy = allowedSortFields.includes(queryParams.sortBy) ? queryParams.sortBy : 'displayOrder';
+  const sortOrder = queryParams.sortOrder === 'desc' || queryParams.sortOrder === '-1' ? -1 : 1;
+  const sort = { [sortBy]: sortOrder, createdAt: -1 };
 
   const [items, totalItems] = await Promise.all([
     MenuItem.find(query)
@@ -301,8 +323,8 @@ const createMenuItem = async (itemData, adminUser) => {
   const adminId = isValidObjectId(adminUser?._id)
     ? adminUser._id
     : isValidObjectId(adminUser?.id)
-    ? adminUser.id
-    : null;
+      ? adminUser.id
+      : null;
 
   const newItem = new MenuItem({
     name: {
@@ -334,7 +356,7 @@ const createMenuItem = async (itemData, adminUser) => {
     entityType: 'MenuItem',
     entityId: newItem._id,
     details: { name: newItem.name.en, slug: newItem.slug, status: newItem.status },
-  }).catch(() => {});
+  }).catch(() => { });
 
   return newItem;
 };
@@ -391,7 +413,7 @@ const updateMenuItem = async (id, updatePayload, adminUser) => {
     entityType: 'MenuItem',
     entityId: item._id,
     details: { name: item.name.en },
-  }).catch(() => {});
+  }).catch(() => { });
 
   return item;
 };
@@ -409,12 +431,16 @@ const updateMenuItemStatus = async (id, status, adminUser) => {
     throw ApiError.notFound('Menu item not found');
   }
 
-  if (status === 'published' && (!item.name?.mr || !item.name.mr.trim())) {
-    throw ApiError.badRequest('Marathi item name is required before publishing');
-  }
-
   item.status = status;
-  item.updatedBy = adminUser?._id || adminUser?.id || null;
+  if (status === 'published') {
+    item.isActive = true;
+    if (!item.publishedAt) item.publishedAt = new Date();
+  }
+  item.updatedBy = isValidObjectId(adminUser?._id)
+    ? adminUser._id
+    : isValidObjectId(adminUser?.id)
+    ? adminUser.id
+    : null;
   await item.save();
 
   await AuditLog.create({
@@ -423,7 +449,7 @@ const updateMenuItemStatus = async (id, status, adminUser) => {
     entityType: 'MenuItem',
     entityId: item._id,
     details: { newStatus: status },
-  }).catch(() => {});
+  }).catch(() => { });
 
   return item;
 };
@@ -452,7 +478,7 @@ const archiveMenuItem = async (id, adminUser) => {
     action: 'menu.item_archived',
     entityType: 'MenuItem',
     entityId: item._id,
-  }).catch(() => {});
+  }).catch(() => { });
 
   return { message: 'Menu item archived successfully' };
 };
